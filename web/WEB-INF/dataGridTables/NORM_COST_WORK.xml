@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- DEP_WORKLOAD -->
+    <!-- ************************************************* -->
+
+  <bean id="BUILDER_NORM_COST_WORK_VO__AVERAGE_SALARY" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="AVERAGE_SALARY"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="AVERAGE_SALARY"/>
+                        <property name="caption" value="Средняя зарплата"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative38_4"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_NORM_COST_WORK_VO__COMPANY_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMPANY_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMPANY_ID"/>
+                        <property name="caption" value="Средняя зарплата"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isHidden" value="true"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+     
+     <bean id="NORM_COST_WORK_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_NORM_COST_WORK_VO__AVERAGE_SALARY"/>
+                <ref bean="BUILDER_NORM_COST_WORK_VO__COMPANY_ID"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="NORM_COST_WORK"/>
+            </map>
+        </property>
+        <property name="caption" value="Средняя зарплата"/>
+        <property name="queryName" value="NORM_COST_WORK_VO"/>
+         <property name="strWhere" value=" ACTIVITY_SIGN=1 "/>
+    </bean>
+</beans>

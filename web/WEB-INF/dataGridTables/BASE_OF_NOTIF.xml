@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- BASE_OF_NOTIF -->
+    <!-- ************************************************* -->  
+    <bean id="BUILDER_BASE_OF_NOTIF_VO__BASE_OF_NOTIF_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="BASE_OF_NOTIF_ID"/>
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="BASE_OF_NOTIF_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_BASE_OF_NOTIF_VO__NAME"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Название"/>
+                        <property name="columnProperty" ref="DCPString60"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="BASE_OF_NOTIF_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_BASE_OF_NOTIF_VO__BASE_OF_NOTIF_ID"/>
+                <ref bean="BUILDER_BASE_OF_NOTIF_VO__NAME"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="BASE_OF_NOTIF"/>
+            </map>
+        </property>
+        <property name="caption" value="Основание для открытия"/>
+        <property name="queryName" value="BASE_OF_NOTIF_VO"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" xmlns:aop="http://www.springframework.org/schema/aop">
+
+    <!-- ************************************************* -->
+    <!-- DH_FACILITIES Made by Igor (Производство "Прибой" - Оборудование; Производство "Март" - Оборудование) -->
+    <!-- ************************************************* -->
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isAutoincrement" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_CODE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="CODE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="CODE"/>
+                        <property name="caption" value="Код оборудования"/>
+                        <property name="columnProperty" ref="DCPString12"/>
+                        <property name="isAutoincrement" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Наименование"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty" ref="DCPString60"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_MARK" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="MARK"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="MARK"/>
+                        <property name="caption" value="Марка"/>
+                        <property name="columnProperty" ref="DCPString35"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_DEPART_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="SPR_DEPART"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Подразделение"/>
+                        <property name="columnProperty" ref="DCPString50"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SYS_ENUMERATION_VALUE_PRIBOY" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="SYS_ENUMERATION_VALUE_PRIBOY_IG"/>
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="LINENO"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="VALUE"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="KIND_EQPT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="KIND_EQPT"/>
+                        <property name="caption" value="Вид оборудования"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value=""/>
+                                <property name="type" value="INTEGER"/>
+                                <property name="widthColumn" value="100"/>
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SYS_ENUMERATION_VALUE_MART" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="SYS_ENUMERATION_VALUE_MART_IG"/>
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="LINENO"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="VALUE"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="KIND_EQPT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="KIND_EQPT"/>
+                        <property name="caption" value="Вид оборудования"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value=""/>
+                                <property name="type" value="INTEGER"/>
+                                <property name="widthColumn" value="100"/>
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQTYPE_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="SPR_EQTYPE"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Тип оборудования"/>
+                        <property name="columnProperty" ref="DCPString40"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_UNIT_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="SPR_UNIT"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Ед. изм."/>
+                        <property name="columnProperty" ref="DCPString35"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_IN" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateStr" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_IN"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_IN"/>
+                        <property name="caption" value="Дата поступления"/>
+                        <property name="columnProperty" ref="DCPDateStr"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>                         
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean> 
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_IN_FROM" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateStrFrom" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_IN_FROM"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_IN"/>
+                        <property name="caption" value="Дата поступления от"/>
+                        <property name="columnProperty" ref="DCPDateStr"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isHidden" value="true"/>                         
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean> 
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_IN_TO" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateStrTo" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_IN_TO"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_IN"/>
+                        <property name="caption" value="Дата поступления до"/>
+                        <property name="columnProperty" ref="DCPDateStr"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>  
+                        <property name="isHidden" value="true"/>                                              
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean> 
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_OUT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateStr" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_OUT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_OUT"/>
+                        <property name="caption" value="Дата списания"/>
+                        <property name="columnProperty" ref="DCPDateStr"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>                         
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean> 
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_OUT_FROM" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateStrFrom" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_OUT_FROM"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_OUT"/>
+                        <property name="caption" value="Дата списания от"/>
+                        <property name="columnProperty" ref="DCPDateStr"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>  
+                        <property name="isHidden" value="true"/>                                                
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean> 
+    
+    <bean id="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_OUT_TO" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateStrTo" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_OUT_TO"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_OUT"/>
+                        <property name="caption" value="Дата списания до"/>
+                        <property name="columnProperty" ref="DCPDateStr"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>  
+                        <property name="isHidden" value="true"/>                                                
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean> 
+        
+    <!-- описываем сам "запрос" -->
+    <bean id="DH_FACILITIES_PRIBOY_IG" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_ID"/>  
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_CODE"/>                           
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_NAME"/>
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_MARK"/>
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_DEPART_NAME"/>         
+                
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_IN_FROM"/>
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_OUT_FROM"/>
+                
+                <ref bean="BUILDER_DH_FACILITIES_IG__SYS_ENUMERATION_VALUE_PRIBOY"/>  
+                
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_IN_TO"/> 
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_OUT_TO"/>
+                
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQTYPE_NAME"/> 
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_UNIT_NAME"/> 
+                
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_IN"/>                                                         
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_OUT"/>         
+            </list>
+        </property>
+        
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="SPR_EQPT"/>
+                <entry key="SPR_DEPART" value="SPR_DEPART"/>
+                <entry key="SPR_EQTYPE" value="SPR_EQTYPE" />
+                <entry key="SPR_UNIT" value="SPR_UNIT"/>              
+                <entry key="SYS_ENUMERATION" value="SYS_ENUMERATION"/> 
+            </map>
+        </property>
+        <property name="tableJoins"> 
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">  
+                    <property name="tableOne" value="MAIN"/> 
+                    <property name="tableTwo" value="SPR_DEPART"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ID_DEPART"/> 
+                                <property name="columnNameTableTwo" value="ID"/> 
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">  
+                    <property name="tableOne" value="MAIN"/> 
+                    <property name="tableTwo" value="SPR_EQTYPE"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ID_TYPEEQ"/> 
+                                <property name="columnNameTableTwo" value="ID"/> 
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">  
+                    <property name="tableOne" value="MAIN"/> 
+                    <property name="tableTwo" value="SPR_UNIT"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ID_UNIT"/> 
+                                <property name="columnNameTableTwo" value="ID"/> 
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>                               
+            </list>
+        </property>
+        <property name="caption" value="Оборудование (Прибой)"/>
+        <property name="queryName" value="DH_FACILITIES_PRIBOY_IG"/>
+        <property name="dataSourceName" value="dataSourcePriboy"/>
+        <property name="strOrderByStart" value="MAIN.NAME ASC"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="countRowsInFiltrColumn" value="3"/>
+        <property name="strWhere" value="MAIN.Isfolder=0"/>
+    </bean>
+    
+    <!-- описываем сам "запрос" -->
+    <bean id="DH_FACILITIES_MART_IG" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_ID"/>   
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_CODE"/>                           
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_NAME"/>
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_MARK"/>
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_DEPART_NAME"/>
+            
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_IN_FROM"/>
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_OUT_FROM"/>
+                
+                <ref bean="BUILDER_DH_FACILITIES_IG__SYS_ENUMERATION_VALUE_MART"/>
+                
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_IN_TO"/> 
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_OUT_TO"/>
+                 
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQTYPE_NAME"/>
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_UNIT_NAME"/> 
+                
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_IN"/>                                                         
+                <ref bean="BUILDER_DH_FACILITIES_IG__SPR_EQPT_DATE_OUT"/>                
+            </list>
+        </property>
+        
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="SPR_EQPT"/>
+                <entry key="SPR_DEPART" value="SPR_DEPART"/>
+                <entry key="SPR_EQTYPE" value="SPR_EQTYPE" />
+                <entry key="SPR_UNIT" value="SPR_UNIT"/>    
+                <entry key="SYS_ENUMERATION" value="SYS_ENUMERATION"/>           
+            </map>
+        </property>
+        <property name="tableJoins"> 
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">  
+                    <property name="tableOne" value="MAIN"/> 
+                    <property name="tableTwo" value="SPR_DEPART"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ID_DEPART"/> 
+                                <property name="columnNameTableTwo" value="ID"/> 
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">  
+                    <property name="tableOne" value="MAIN"/> 
+                    <property name="tableTwo" value="SPR_EQTYPE"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ID_TYPEEQ"/> 
+                                <property name="columnNameTableTwo" value="ID"/> 
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">  
+                    <property name="tableOne" value="MAIN"/> 
+                    <property name="tableTwo" value="SPR_UNIT"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ID_UNIT"/> 
+                                <property name="columnNameTableTwo" value="ID"/> 
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>                               
+            </list>
+        </property>
+        <property name="caption" value="Оборудование (МАРТ)"/>
+        <property name="queryName" value="DH_FACILITIES_MART_IG"/>
+        <property name="dataSourceName" value="dataSourceMart"/>
+        <property name="strOrderByStart" value="MAIN.NAME ASC"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="countRowsInFiltrColumn" value="3"/>
+        <property name="strWhere" value="MAIN.Isfolder=0"/>
+    </bean>
+          
+</beans>

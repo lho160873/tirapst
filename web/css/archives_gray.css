@@ -1,0 +1,61 @@
+
+/*.main-link a, .main-link a:visited{
+    color:#111;
+}
+
+.button-link .x-btn-text{
+    color:#111;
+}*/
+
+.info_caption {
+    /*color:4CAF50; зеленый*/
+    /*color:#111;*/
+    color: #445daf/*сиинй*/
+}
+
+.info_caption_1{
+    /*color:#4CAF50 зеленый*/
+    color:#111;
+}
+
+.info_text{
+    color:#CC0000; /*красный*/
+}
+
+
+.info_go, .info_go a, .info_go a:visited{
+    /*color:4CAF50;8*/
+    /*color:#4CAF50 зеленый*/
+        color:#CC0000; /*красный*/
+}
+.info_go a:hover
+{
+    color: #808080;
+}
+
+.info_date{
+    color:#445daf; /* синий*/
+   /* color:#4CAF50 зеленый*/
+}
+
+.info_background_info{
+ background-color:#FFFFDD;   /*желтый фон*/ 
+ /*background-color:white;  */
+}
+
+.info_background_caption{
+ background-color:#FFFFDD;   /*желтый фон*/ 
+ /*background-color:white;  */
+}
+
+.info_background_last{
+ background-color:#FFFFDD;   /*желтый фон*/ 
+ /*background-color:white;  */
+}
+
+.info_background_more{
+ background-color:#FFFFDD;   /*желтый фон*/ 
+ /*background-color:white;  */  
+}
+
+

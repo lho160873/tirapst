@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+             
+    <!-- ************************************************* -->  
+    <!-- POST_1C_AUDIT -->
+    <!-- ************************************************* -->  
+    <bean id="BUILDER_RED_POST_1C_AUDIT__POST_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="POST_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="POST_ID"/>
+                        <property name="isNotNull" value="false"/>
+                        <property name="isKey" value="false"/>
+                        <property name="caption" value="Код должности"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="NAME"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="caption" value="Наименование должности"/>
+                        <property name="columnProperty" ref="DCPString120"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__CODE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="CODE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="isVisible" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="name" value="CODE"/>
+                        <property name="caption" value="Код должности по ОКПДТР"/>
+                        <property name="columnProperty" ref="DCPString6"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_RED_POST_1C_AUDIT__ENABLED" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="ENABLED"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ENABLED"/>
+                        <property name="isNotNull" value="false"/>
+                        <property name="isKey" value="false"/>
+                        <property name="caption" value="Признак актуальности"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__PMASC_POST_CODE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="PMASC_POST_CODE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="PMASC_POST_CODE"/>
+                        <property name="isNotNull" value="false"/>
+                        <property name="isKey" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="caption" value="Код должности в 1С"/>
+                        <property name="columnProperty" ref="DCPString10"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_RED_POST_1C_AUDIT__INTERACTING_SYST_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="INTERACTING_SYST_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="INTERACTING_SYST_ID"/>
+                        <property name="isNotNull" value="false"/>
+                        <property name="isKey" value="false"/>
+                        <property name="caption" value="Код взаимодействующей подсистемы"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__USER_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="USER_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="USER_ID"/>
+                        <property name="caption" value='Код пользователя'/>
+                        <property name="columnProperty" ref="DCPUser"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__USER_ID_FILTR" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="USER_ID_FILTR"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="USER_ID"/>
+                        <property name="caption" value='Код пользователя'/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__DATE_CORR" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_CORR"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_CORR"/>
+                        <property name="caption" value="Дата и время корректировки"/>
+                        <property name="columnProperty" ref="DCPDateTime"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__DATE_CORR_FILTR_FROM" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateFrom"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_CORR_FILTR_FROM"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_CORR"/>
+                        <property name="caption" value="Дата корректировки от"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__DATE_CORR_FILTR_TO" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateTo"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_CORR_FILTR_TO"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_CORR"/>
+                        <property name="caption" value="Дата корректировки до"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__DATE_AUDIT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_AUDIT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_AUDIT"/>
+                        <property name="caption" value="Время изменения"/>
+                        <property name="columnProperty" ref="DCPDateTime"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__DATE_AUDIT_FILTR_FROM" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateFrom"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_AUDIT_FILTR_FROM"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_AUDIT"/>
+                        <property name="caption" value="Дата изменения от"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__DATE_AUDIT_FILTR_TO" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateTo"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_AUDIT_FILTR_TO"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_AUDIT"/>
+                        <property name="caption" value="Дата изменения до"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__TYPE_AUDIT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="TYPE_AUDIT"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="TYPE_AUDIT"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="caption" value="Тип изменения"/>
+                        <property name="columnProperty" ref="DCPString1"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__TYPE_ROW_AUDIT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="TYPE_ROW_AUDIT"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="TYPE_ROW_AUDIT"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="caption" value="Тип строки изменения"/>
+                        <property name="columnProperty" ref="DCPString1"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__USER_ID_AUDIT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="USER_ID_AUDIT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="USER_ID_AUDIT"/>
+                        <property name="caption" value="Код вносителя изменений"/>
+                        <property name="columnProperty" ref="DCPUser"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__USER_ID_AUDIT_FILTR" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="USER_ID_AUDIT_FILTR"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="USER_ID_AUDIT"/>
+                        <property name="caption" value="Код вносителя изменений"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__NAME_USER" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="NAME_USER"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME_USER"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="caption" value='ФИО пользователя'/>
+                        <property name="columnProperty" ref="DCPString150"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__NAME_USER_AUDIT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="NAME_USER_AUDIT"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME_USER_AUDIT"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="caption" value="ФИО вносителя изменений"/>
+                        <property name="columnProperty" ref="DCPString150"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_POST_1C_AUDIT__POST_ID_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="POST_ID_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="POST_ID_ID"/>
+                        <property name="isKey" value="true"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="REDPOST_1C_AUDIT" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="isShowReport" value="true"/>
+        <property name="isFiltrShow" value="true"/>
+        <property name="columnBuilders">
+           <list>
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__POST_ID_ID" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__POST_ID" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__NAME" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__CODE" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__ENABLED" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__PMASC_POST_CODE" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__INTERACTING_SYST_ID" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__USER_ID" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__USER_ID_FILTR" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__DATE_CORR" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__DATE_CORR_FILTR_FROM" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__DATE_CORR_FILTR_TO" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__DATE_AUDIT" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__DATE_AUDIT_FILTR_FROM" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__DATE_AUDIT_FILTR_TO" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__TYPE_AUDIT" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__TYPE_ROW_AUDIT" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__USER_ID_AUDIT" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__USER_ID_AUDIT_FILTR" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__NAME_USER" /> 
+               <ref bean="BUILDER_RED_POST_1C_AUDIT__NAME_USER_AUDIT" /> 
+           </list>           
+        </property>
+        <property name="tables">
+           <map>
+               <entry key="MAIN" value="POST_1C_AUDIT" />
+           </map>
+        </property>
+        <property name="caption" value='Аудит таблицы: "Должности из 1С"'/>  
+        <property name="strOrderByStart" value="MAIN.DATE_AUDIT DESC"/>
+        <property name="queryName" value="REDPOST_1C_AUDIT"/>  
+    </bean>   
+                                
+</beans>

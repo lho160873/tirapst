@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/applicationContext.xml,
+            /WEB-INF/applicationContext-jdbc.xml,
+            /WEB-INF/applicationContext-acegi-security.xml,
+            /WEB-INF/dataGridProperty.xml,
+            /WEB-INF/dataGridOrderType.xml,
+            /WEB-INF/dataGridMilitaryRepr.xml,
+            /WEB-INF/dataGridOrganization.xml,
+            /WEB-INF/dataGridRedFundingSource.xml,
+            /WEB-INF/dataGridRedNds.xml,
+            /WEB-INF/dataGridRedEvalOfGetting.xml,
+            /WEB-INF/dataGridRedNormAvSalary.xml,
+            /WEB-INF/dataGridAudit/RedContractAudit.xml,
+            /WEB-INF/dataGridAudit/RedDepartPostAudit.xml,
+            /WEB-INF/dataGridAudit/RedLevelTaskAudit.xml,
+            /WEB-INF/dataGridAudit/RedNormAvSalaryAudit.xml,
+            /WEB-INF/dataGridAudit/RedOrderDAudit.xml,
+            /WEB-INF/dataGridAudit/RedOrganizationAudit.xml,
+            /WEB-INF/dataGridAudit/RedPostWorkerAudit.xml,
+            /WEB-INF/dataGridAudit/RedPostWorkerNAudit.xml,
+            /WEB-INF/dataGridAudit/RedServContractStageAudit.xml,
+            /WEB-INF/dataGridAudit/RedWorkPlanAudit.xml,
+            /WEB-INF/dataGridAudit/RedWorkerAudit.xml,
+            /WEB-INF/dataGridAudit/RedWorker1cAudit.xml,
+            /WEB-INF/dataGridAudit/RedPost1cAudit.xml,
+            /WEB-INF/dataGridAudit/RedPostAudit.xml,
+            /WEB-INF/dataGridAudit/RedDepart1cAudit.xml,
+            /WEB-INF/dataGridAudit/RedDepartAudit.xml,
+            /WEB-INF/dataGridAudit/RedDepartExecutorFactAudit.xml,
+            /WEB-INF/dataGridAudit/RedOCPAudit.xml,
+            /WEB-INF/dataGridAudit/RedNotifOpeningAudit.xml,
+            /WEB-INF/dataGridAudit/RedOfficeDocAudit.xml,
+            /WEB-INF/dataGridAudit/RedOfficeDocContrAudit.xml,
+            /WEB-INF/dataGridAudit/RedUsersLoginAudit.xml,
+            /WEB-INF/dataGridAudit/RedAppProductionAudit.xml,
+            /WEB-INF/dataGridAudit/RedDhElaborationOfDdAudit.xml,
+            /WEB-INF/dataGridAudit/RedUsersAudit.xml,
+            /WEB-INF/dataGridTables/DEPART_POST.xml,
+            /WEB-INF/dataGridTables/ROLES_FOR_PROCESS.xml,
+            /WEB-INF/dataGridTables/PROCESS.xml,
+            /WEB-INF/dataGridTables/INTERACTING_SYST.xml,
+            /WEB-INF/dataGridTables/POST_WORKER.xml,
+            /WEB-INF/dataGridTables/WORKER.xml,
+            /WEB-INF/dataGridTables/CONTRACT.xml,
+            /WEB-INF/dataGridTables/ORGANIZATION.xml,
+            /WEB-INF/dataGridTables/EVAL_OF_GETTING.xml,
+            /WEB-INF/dataGridTables/MILITARY_REPR.xml,
+            /WEB-INF/dataGridTables/NDS.xml,
+            /WEB-INF/dataGridTables/DEPART.xml,
+            /WEB-INF/dataGridTables/CONTRACT_STAT.xml,
+            /WEB-INF/dataGridTables/COMPANY.xml,
+            /WEB-INF/dataGridTables/CONTRACT_TYPE.xml,
+            /WEB-INF/dataGridTables/POST.xml,
+            /WEB-INF/dataGridTables/FUNDING_SOURCE.xml,
+            /WEB-INF/dataGridTables/SERV_CONTRACT_STAGE.xml,
+            /WEB-INF/dataGridTables/NOTIF_OPENING.xml,
+            /WEB-INF/dataGridTables/ORDER_D.xml,
+            /WEB-INF/dataGridTables/BASE_OF_NOTIF.xml,
+            /WEB-INF/dataGridTables/TASK_STATE.xml,
+            /WEB-INF/dataGridTables/TASK_TYPE.xml,
+            /WEB-INF/dataGridTables/USERS.xml,
+            /WEB-INF/dataGridTables/OCP.xml,
+            /WEB-INF/dataGridTables/WORK_PLAN.xml,
+            /WEB-INF/dataGridTables/NORMATIVE_VALUES.xml,
+            /WEB-INF/dataGridTables/CONTRACT_SUMM.xml,
+            /WEB-INF/dataGridTables/DEPART_EXECUTOR_PLAN.xml,
+            /WEB-INF/dataGridTables/PLAN_NIOKR.xml,
+            /WEB-INF/dataGridTables/PLAN_FACT_NIOKR.xml,
+            /WEB-INF/dataGridTables/DEPART_EXECUTOR_FACT.xml,
+            /WEB-INF/dataGridTables/NOTIF_CLOSING.xml,
+            /WEB-INF/dataGridTables/OCP_DEPART_SUM.xml,
+            /WEB-INF/dataGridTables/OCP_PKI.xml,
+            /WEB-INF/dataGridTables/OCP_PKI_ST_SUM.xml,
+            /WEB-INF/dataGridTables/OCP_TRIP.xml,
+            /WEB-INF/dataGridTables/OCP_OUTER.xml,
+            /WEB-INF/dataGridTables/OCP_OUTER_SUM.xml,
+            /WEB-INF/dataGridTables/OCP_SERVICE.xml,
+            /WEB-INF/dataGridTables/OCP_SERVICE_SUM.xml,
+            /WEB-INF/dataGridTables/OCP_TRIP_SUMM_IT.xml,
+            /WEB-INF/dataGridTables/COMMANDER.xml,
+            /WEB-INF/dataGridTables/WORKER2_IG.xml,
+            /WEB-INF/dataGridTables/OFFICE_DOC.xml,
+            /WEB-INF/dataGridTables/DOC_TYPE.xml,
+            /WEB-INF/dataGridTables/DOC_TYPE_IG.xml,
+            /WEB-INF/dataGridTables/OFFICE_DOC_CONTR.xml,
+            /WEB-INF/dataGridTables/USER_WORKER.xml,
+            /WEB-INF/dataGridTables/USER_DEPART.xml,
+            /WEB-INF/dataGridTables/POSS_STEP.xml,
+            /WEB-INF/dataGridTables/OFFICE_DOC_CONTR_IG.xml,
+            /WEB-INF/dataGridTables/DOC_FILE.xml,
+            /WEB-INF/dataGridTables/DOC_FILE_IG.xml,
+            /WEB-INF/dataGridTables/FILE_ROOT.xml,
+            /WEB-INF/dataGridTables/POST_1C.xml,
+            /WEB-INF/dataGridTables/INTERACTING_SYST_FOR_POST_1C_IG.xml,
+            /WEB-INF/dataGridTables/WORKER_1C.xml,
+            /WEB-INF/dataGridTables/COMPANY_FOR_WORKER_1C_IG.xml,
+            /WEB-INF/dataGridTables/OFFICE_DOC_EXEC_IG.xml,
+            /WEB-INF/dataGridTables/FACILITIES.xml,
+            /WEB-INF/dataGridTables/OCP_RIGHTS_FOR_REC.xml,
+            /WEB-INF/dataGridTables/OCP_RIGHTS_FOR_REC_IG.xml,
+            /WEB-INF/dataGridTables/USERS_OCP_RIGHTS_FOR_REC_IG.xml,
+            /WEB-INF/dataGridTables/OFFICE_DOC_CONTR_COLLAB_IG.xml,
+            /WEB-INF/dataGridTables/DH_ORDER.xml,
+            /WEB-INF/dataGridTables/SPR_CUSTOMER.xml,
+            /WEB-INF/dataGridTables/SYS_ENUMERATION.xml,
+            /WEB-INF/dataGridTables/DEPART_1C.xml,
+            /WEB-INF/dataGridTables/OCP_RIGHTS_FOR_REC_IG2.xml,
+            /WEB-INF/dataGridTables/OCP_FOR_OCP_RIGHTS_FOR_REC_IG2.xml,
+            /WEB-INF/dataGridTables/USERS_FOR_OCP_RIGHTS_FOR_REC_IG2.xml,
+            /WEB-INF/dataGridTables/DOC_PERIOD_TYPE_IG.xml,
+            /WEB-INF/dataGridTables/DOC_EXEC_PERIOD.xml,
+            /WEB-INF/dataGridTables/TYPE_OF_DEPART.xml,
+            /WEB-INF/dataGridTables/OFFICE_DOC_CONTR_IG_CONTROL.xml
+            /WEB-INF/dataGridTables/TYPE_OF_DEPART.xml,
+            /WEB-INF/dataGridTables/POST_WORKER_N.xml,
+            /WEB-INF/dataGridTables/COMP_INT_SYST.xml,
+            /WEB-INF/dataGridTables/DEPART_TYPE.xml,
+            /WEB-INF/dataGridTables/DH_FACILITIES.xml,
+            /WEB-INF/dataGridTables/WORKSHOP_PRIBOY.xml,
+            /WEB-INF/dataGridTables/WORKSHOP_MART.xml,
+            /WEB-INF/dataGridTables/SPR_DEPART.xml,
+            /WEB-INF/dataGridTables/SPR_DEPART_PRIBOY_REF_IG.xml,
+            /WEB-INF/dataGridTables/DH_ORDER_1.xml,
+            /WEB-INF/dataGridTables/DH_JOB.xml,
+            /WEB-INF/dataGridTables/DH_JOB_1.xml,
+            /WEB-INF/dataGridTables/DT_JOB_FACT.xml,
+            /WEB-INF/dataGridTables/DT_JOB_PLAN.xml,
+            /WEB-INF/dataGridTables/TIME_FOR_JOB.xml,
+            /WEB-INF/dataGridTables/DESIGN_IG.xml,
+            /WEB-INF/dataGridTables/OPERATIONS_TYPE_IG.xml,
+            /WEB-INF/dataGridTables/DEPARTMENTS_IG.xml,
+            /WEB-INF/dataGridTables/MASS_MAILING_IG.xml,
+            /WEB-INF/dataGridTables/MASS_MAILING_LIST_IG.xml,
+            /WEB-INF/dataGridTables/PROD_CALENDAR_IG.xml,
+            /WEB-INF/dataGridTables/DAY_TYPE.xml,
+            /WEB-INF/dataGridTables/DEPART_POST_WORKER.xml,
+            /WEB-INF/dataGridTables/NEWS.xml,
+            /WEB-INF/dataGridTables/DEP_WORKLOAD.xml,
+            /WEB-INF/dataGridTables/NTO.xml,
+            /WEB-INF/dataGridTables/USER_ROLES_IG.xml,
+            /WEB-INF/dataGridTables/ROLES_IG.xml,
+            /WEB-INF/dataGridTables/ROLE_FACILITIES_IG.xml,
+            /WEB-INF/dataGridTables/WORKSHOP_LOAD.xml,
+            /WEB-INF/dataGridTables/NORM_COST_WORK.xml,
+            /WEB-INF/dataGridTables/NOTIF_CLOSING_IG.xml,
+            /WEB-INF/dataGridTables/DH_ELABORATION_OF_DD.xml,
+            /WEB-INF/dataGridTables/DH_ELABORATION_OF_DD_AUDIT.xml,
+            /WEB-INF/dataGridTables/ELABORATION_OF_DD_STATUS.xml,
+            /WEB-INF/dataGridTables/DT_ELABORATION_OF_DD.xml,
+            /WEB-INF/dataGridTables/ELABORATION_OF_DD_STATUS_ZERO.xml,
+            /WEB-INF/dataGridTables/APP_PRODUCTION.xml,
+            /WEB-INF/dataGridTables/APP_PRODUCTION_STATUS.xml,
+            /WEB-INF/dataGridTables/APP_PRODUCTION_STATUS_ZERO.xml,
+            /WEB-INF/dataGridTables/V_POST_WORKER_N.xml,
+            /WEB-INF/dataGridTables/APP_PROD_COMMENT.xml,
+            /WEB-INF/dataGridTables/LEVEL_TASK.xml,
+            /WEB-INF/dataGridTables/DEPART_FOR_PROCESS.xml,
+            /WEB-INF/dataGridTables/ORDER_BLANK_WORK.xml,
+            /WEB-INF/dataGridTables/DEPART_EXECUTOR_FACT2.xml,
+            /WEB-INF/dataGridTables/FORM_ORDER_ACT_TYPE.xml,
+            /WEB-INF/dataGridTables/ORDER_BLANK_WORK2.xml,
+            /WEB-INF/dataGridTables/DEPART_EXECUTOR_FACT22.xml,
+            /WEB-INF/dataGridTables/ORDER_BLANK_WORK3.xml,
+            /WEB-INF/dataGridTables/DEPART_EXECUTOR_FACT23.xml,
+            /WEB-INF/dataGridTables/ORDER_BLANK_WORK4.xml,
+            /WEB-INF/dataGridTables/DEPART_EXECUTOR_FACT24.xml,
+            /WEB-INF/dataGridTables/ORDER_BLANK_WORK5.xml,
+            /WEB-INF/dataGridTables/NOTIF_CLOSING_TYPE.xml,
+            /WEB-INF/dataGridTables/STORE_PART_REST.xml,
+            /WEB-INF/dataGridTables/SPR_WAREHOUSE.xml,
+            /WEB-INF/dataGridTables/dataGridChoiceNormAvSalary.xml,
+            /WEB-INF/dataGridTables/HEADER_SPEC.xml,
+            /WEB-INF/dataGridTables/DT_HEADER_SPEC.xml,
+            /WEB-INF/dataGridTables/G_POS.xml,
+            /WEB-INF/dataGridTables/V_POS.xml,
+            /WEB-INF/dataGridTables/LABOR_AND_PAYROLL_ANALYTICS.xml,
+            /WEB-INF/dataGridTables/WORK_PLAN_EXECUTOR.xml,
+            /WEB-INF/dataGridTables/WORK_PLAN_EXECUTOR_NEW.xml
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>defaultHtmlEscape</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- Stimulsoft servlet mappings -->
+
+    <servlet>
+        <servlet-name>StimulsoftResource</servlet-name>
+        <servlet-class>com.stimulsoft.web.servlet.StiWebResourceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StimulsoftResource</servlet-name>
+        <url-pattern>/stimulsoft_web_resource</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>StimulsoftAction</servlet-name>
+        <servlet-class>com.stimulsoft.webviewer.servlet.StiWebViewerActionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StimulsoftAction</servlet-name>
+        <url-pattern>/stimulsoft_webviewer_action</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>StimulsoftDesignerAction</servlet-name>
+        <servlet-class>com.stimulsoft.webdesigner.servlet.StiWebDesignerActionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StimulsoftDesignerAction</servlet-name>
+        <url-pattern>/stimulsoft_webdesigner_action</url-pattern>
+    </servlet-mapping>
+
+    <!-- End of Stimulsoft servlet mappings -->
+    
+    <!-- FILTERS -->
+    <!-- ENCODING FILTER -->
+    <filter>
+        <filter-name>charsetFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>charsetFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+     <!-- SECURITY FILTER -->
+    <filter>
+        <filter-name>Acegi Filter Chain Proxy</filter-name>
+        <filter-class>org.springframework.security.util.FilterToBeanProxy</filter-class>
+        <init-param>
+            <param-name>targetClass</param-name>
+            <param-value>org.springframework.security.util.FilterChainProxy</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Acegi Filter Chain Proxy</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>dispatchOptionsRequest</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.htm</url-pattern>
+        <url-pattern>*.doc</url-pattern>
+        <url-pattern>/pst.arm.Interactive/service/*</url-pattern>
+    </servlet-mapping>
+  
+    
+    <servlet>
+        <description>AtmosphereServlet</description>
+        <servlet-name>AtmosphereServlet</servlet-name>
+        <servlet-class>org.atmosphere.cpr.AtmosphereServlet</servlet-class>
+        <init-param>
+            <!-- prevent deadlocks -->
+            <param-name>org.atmosphere.disableOnStateEvent</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <!--Uncomment if you want to use Servlet 3.0 Async Support-->
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AtmosphereServlet</servlet-name>
+        <url-pattern>/pst.arm.Interactive/comet</url-pattern>        
+    </servlet-mapping>
+    
+    
+    <session-config>
+        <session-timeout>
+            240
+        </session-timeout>
+    </session-config>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/servletErrorView.htm?code=404</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/servletErrorView.htm?code=500</location>
+    </error-page>
+    
+    <welcome-file-list>
+        <welcome-file>redirect.jsp</welcome-file>
+    </welcome-file-list>
+  
+  <!--<welcome-file-list>
+        <welcome-file>welcomeGWT.html</welcome-file>
+    </welcome-file-list>-->
+
+
+   <!-- <context-param>
+        <param-name>log4jConfigLocation</param-name> 
+        <param-value>classpath:log4j.properties</param-value>      
+    </context-param>-->
+    
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>log4jExposeWebAppRoot</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>gwtCacheControlFilter</filter-name>
+        <filter-class>pst.arm.server.common.web.GWTCacheControlFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>gwtCacheControlFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+
+
+</web-app>

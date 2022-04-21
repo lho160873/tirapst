@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    
+      <bean id="BUILDER_HLV_USER_DEPART__USERS_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderMulti"
+          lazy-init="false">
+        <property name="isViewOnly" value="true"/>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="USER_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="USER_ID"/>
+                        <property name="caption" value="Код пользователя"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isKey" value="true"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="USERS"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Пользователь"/>
+                        <property name="columnProperty" ref="DCPString30"/>
+                        <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+        <property name="relations">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="USER_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="USER_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="USERS"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="NAME"/>
+                        <property name="tableAlias" value="MAIN"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+        <property name="queryNameForRelation" value="USERS_FOR_OCP_RIGHTS_FOR_REC_IG2"/>
+        <property name="caption" value="Пользователь"/>
+    </bean>
+    
+     <bean id="BUILDER_HLV_USER_DEPART__DEPART_MULTI"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderMulti"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DEPART_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DEPART_ID"/>
+                        <property name="caption" value="Код подразделения"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isKey" value="true"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="DEPART"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Подразделение"/>
+                        <property name="columnProperty" ref="DCPString150"/>
+                         <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+        <property name="relations">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DEPART_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="DEPART_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="DEPART"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="NAME"/>
+                        <property name="tableAlias" value="MAIN"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+        <property name="isViewOnly" value="true"/>
+        <property name="queryNameForRelation" value="DEPART_STRUCTURE_OCP"/>
+        <property name="caption" value="Подразделение"/>
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="HLV_USER_DEPART" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_HLV_USER_DEPART__USERS_NAME"/>
+                <ref bean="BUILDER_HLV_USER_DEPART__DEPART_MULTI"/>
+            </list>
+        </property>
+        <property name="caption" value="Разрешенные подразделения"/>
+        <property name="queryName" value="HLV_USER_DEPART"/>
+        <property name="strOrderByStart" value=" USERS.NAME "/>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="USER_DEPART"/>
+                <entry key="DEPART" value="DEPART"/>
+                <entry key="USERS" value="USERS"/>
+            </map>
+        </property>
+         <property name="tableJoins">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="USERS"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="USER_ID"/>
+                                <property name="columnNameTableTwo" value="USER_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="DEPART"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="DEPART_ID"/>
+                                <property name="columnNameTableTwo" value="DEPART_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+       
+    </bean>
+
+</beans>

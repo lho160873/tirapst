@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- FILE_ROOT -->
+    <!-- ************************************************* -->
+
+    <bean id="BUILDER_FILE_ROOT_VO__FILE_ROOT_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="FILE_ROOT_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="FILE_ROOT_ID"/>
+                        <property name="caption" value="Код пути файла"/>
+                        <property name="isKey" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_FILE_ROOT_VO__SRVR_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="SRVR_NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SRVR_NAME"/>
+                        <property name="caption" value="Имя сервера"/>
+                        <property name="columnProperty" ref="DCPString30"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_FILE_ROOT_VO__ROOT_PATH" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ROOT_PATH"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ROOT_PATH"/>
+                        <property name="caption" value="Путь"/>
+                        <property name="columnProperty" ref="DCPString300"/>
+                        <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_FILE_ROOT_VO__DOC_TYPE_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DOC_TYPE_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DOC_TYPE_ID"/>
+                        <property name="caption" value="Тип документа"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_FILE_ROOT_VO__ENABLED" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ENABLED"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ENABLED"/>
+                        <property name="caption" value="Активно"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="FILE_ROOT_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_FILE_ROOT_VO__FILE_ROOT_ID"/>
+                <ref bean="BUILDER_FILE_ROOT_VO__SRVR_NAME"/>
+                <ref bean="BUILDER_FILE_ROOT_VO__ROOT_PATH"/>
+                <ref bean="BUILDER_FILE_ROOT_VO__DOC_TYPE_ID"/>
+                <ref bean="BUILDER_FILE_ROOT_VO__ENABLED"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="FILE_ROOT"/>
+            </map>
+        </property>
+        <property name="strWhere" value=" MAIN.ENABLED = 1 "/>
+        <property name="caption" value="Прикрепленные файлы"/>
+        <property name="queryName" value="FILE_ROOT_VO"/>
+    </bean>
+    
+    
+    
+      <bean id="BUILDER_FILE_ROOT_HLV__DOC_TYPE_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderMulti"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DOC_TYPE_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DOC_TYPE_ID"/>
+                        <property name="caption" value="Код типа документа"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMMENT"/>
+                            <property name="tableAlias" value="DOC_TYPE"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMMENT"/>
+                        <property name="caption" value="Название типа документа"/>
+                        <property name="columnProperty" ref="DCPString100"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+        <property name="relations">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DOC_TYPE_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="DOC_TYPE_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                    </bean>
+                </entry>
+                 <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMMENT"/>
+                            <property name="tableAlias" value="DOC_TYPE"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="COMMENT"/>
+                        <property name="tableAlias" value="MAIN"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+        <property name="isViewOnly" value="true"/>
+        <property name="queryNameForRelation" value="DOC_TYPE_HLV"/>
+        <property name="caption" value="Тип документа"/>
+    </bean>
+      
+   
+    <bean id="BUILDER_FILE_ROOT_HVL__ENABLED" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ENABLED"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ENABLED"/>
+                        <property name="caption" value="Признак актуальности"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_No"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>  
+      
+    <!-- описываем сам "запрос" -->
+    <bean id="FILE_ROOT_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_FILE_ROOT_VO__FILE_ROOT_ID"/>
+                <ref bean="BUILDER_FILE_ROOT_VO__SRVR_NAME"/>
+                <ref bean="BUILDER_FILE_ROOT_VO__ROOT_PATH"/>
+                <ref bean="BUILDER_FILE_ROOT_HLV__DOC_TYPE_ID"/>
+                <ref bean="BUILDER_FILE_ROOT_HVL__ENABLED"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="FILE_ROOT"/>
+                <entry key="DOC_TYPE" value="DOC_TYPE"/>
+            </map>
+        </property>
+         <property name="tableJoins"> 
+             <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">  
+                    <property name="tableOne" value="MAIN"/> 
+                    <property name="tableTwo" value="DOC_TYPE"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="DOC_TYPE_ID"/> 
+                                <property name="columnNameTableTwo" value="DOC_TYPE_ID"/> 
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property> 
+        <property name="caption" value="Путь к файлам"/>
+        <property name="queryName" value="FILE_ROOT_HLV"/>
+    </bean>
+
+</beans>

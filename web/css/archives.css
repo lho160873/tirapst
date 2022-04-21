@@ -1,0 +1,391 @@
+.multiline_common{
+    white-space: normal !important;
+    height: auto !important;
+}
+.x-portlet .x-panel-body {
+    background-color: transparent !important;
+}
+
+/**
+    Styles for grid by A.Kozhin */
+
+.multilineColumn .x-grid3-cell-inner {
+    white-space:  normal !important;
+}
+
+.selected-row {
+    width : 16px;
+    height: 16px;
+    background-image: url( ../images/gxt/icons/page-next.gif ) !important;
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+
+.has-image {
+    width : 16px;
+    height: 16px;
+    background-image: url( ../images/arm/image.png ) !important;
+    background-repeat:no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.image-check {
+    width : 16px;
+    height: 16px;
+    background-image: url( ../images/arm/check.png ) !important;
+    background-repeat:no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.image-onapproval {
+    width : 16px;
+    height: 16px;
+    background-image: url( ../images/arm/on_approve.png ) !important;
+    background-repeat:no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.to-archivist {
+    width : 16px;
+    height: 16px;
+    background-image: url( ../images/arm/to-archivist.png ) !important;
+    background-repeat:no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.nopresence {
+    width : 16px;
+    height: 16px;
+    background-image: url( ../images/arm/cross.png ) !important;
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+
+.html-preview{
+    font-family: Verdana;
+    font-size: 11px;
+}
+
+.af-detail-parentinfo{
+    padding: 15 15 5 50;
+    color: gray;
+    font-weight: bold;
+}
+
+.button-link .x-btn-text {
+    cursor: pointer !important;
+    cursor: hand !important;
+    border: none !important;
+    /* Disable the button-style */
+    background-color: transparent !important;
+    background:none !important;
+    background-image:none !important;
+    padding: 0px !important;
+    color: #15428b !important;
+    text-decoration: underline !important;
+
+}
+
+.button-link .x-btn-tl,
+.button-link .x-btn-tr,
+.button-link .x-btn-tc,
+.button-link .x-btn-ml,
+.button-link .x-btn-mr,
+.button-link .x-btn-mc,
+.button-link .x-btn-bl,
+.button-link .x-btn-br,
+.button-link .x-btn-bc {
+    background-image: none !important;
+}
+
+/* remove little dots in FF */
+
+.button-link .x-btn-tl i,
+.button-link .x-btn-tr i,
+.button-link .x-btn-tc i,
+.button-link .x-btn-ml i,
+.button-link .x-btn-mr i,
+.button-link .x-btn-mc i,
+.button-link .x-btn-bl i,
+.button-link .x-btn-br i,
+.button-link .x-btn-bc i {
+    font-size: 0px;
+}
+
+.treepanel-requisites {
+    background: #FFFFFF
+}
+
+/* Image Navigator module's styles */
+
+#imgNavigator-img-chooser-view {
+    background: white;
+    font: 11px Arial, Helvetica, sans-serif;
+}
+
+#imgNavigator-img-chooser-view .thumb {
+    background: #dddddd;
+    padding: 3px;
+}
+
+#imgNavigator-img-chooser-view .thumb img {
+
+}
+
+#imgNavigator-img-chooser-view .thumb-wrap {
+    float: left;
+    margin: 4px;
+    margin-right: 0;
+    padding: 5px;
+}
+
+#imgNavigator-img-chooser-view .thumb-wrap span {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Portlet link list styles */
+
+#portletListLinks-link-chooser-view {
+    background: white;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+
+#portletListLinks-link-chooser-view .thumb {
+    background: transparent;
+    padding: 3px;
+}
+
+#outerlogin
+{	position:absolute;
+  top:50%;
+  left:0px;
+  width:100%;
+  height:1px;
+  overflow:visible;
+}
+
+#innerlogin
+{	width:350px;
+  height:200px;
+  margin-left:-175px;/***  width / 2   ***/
+  position:absolute;
+  top:-200px;/***  height / 2   ***/
+  left:50%;
+}
+/*
+#portletListLinks-link-chooser-view .thumb-wrap {
+  float: left;
+  margin: 4px;
+  margin-right: 0;
+  padding: 5px;
+}*/
+/*
+#portletListLinks-link-chooser-view .thumb-wrap span {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+}*/
+
+.main-link{
+    /*background-image: url( ../images/arm/home.png ) !important;   
+    background-repeat: no-repeat;
+    padding-left: 18px;*/
+}
+
+.main-link a,  a:visited{
+    text-decoration: none;
+    color: #15428b;
+}
+/**
+   Multiline tree panel styles
+*/
+
+
+.multiline_tree_panel_1 div[class~="x-tree3-el"] {    
+    height:    auto   !important;
+    text-indent: -4.3em  !important;
+    padding-left: 4.5em   !important;  
+}
+
+.multiline_tree_panel_2 span[class="x-tree3-node-text"] {    
+    white-space:  normal  !important;        
+}
+
+
+.multiline_tree_panel_1_ie{    
+    height:    auto   !important;    
+    text-indent: -4.3em  !important;
+    padding-left: 4.5em   !important;  
+    white-space:  normal  !important;    
+}
+
+.multiline_tree_panel_2_ie{    
+    white-space:  normal  !important;        
+}
+
+.multiline_tree_grid_1 span[class="x-tree3-node-text"] {    
+    white-space:  normal  !important;    
+}
+
+.multiline_tree_grid_2 div[class~="x-grid3-row"] {    
+    height:    auto   !important;
+}
+
+.multiline_tree_grid_3 div[class~="x-tree3-el"] {    
+    height:    auto   !important;
+    text-indent: -4.3em  !important;
+    padding-left: 4.5em   !important;  
+}
+
+.multi_grid_header div [class~="x-grid3-hd-inner"]{
+  white-space: normal !important;  
+}
+
+
+
+.hide_some_tree_icons div div img.x-tree3-node-joint {
+    height: 16px;
+    width: 16px;
+    background: none repeat scroll 0 0 transparent !important;
+}
+/**
+ Guide page content style
+*/
+
+#guide-content div.item{
+	margin-top:30px;
+        font-family: verdana;
+}
+#guide-content div.name{
+	font-size:12px;
+	font-weight:600;
+	font-style:normal;
+	text-transform:uppercase;
+	line-height:14px;
+	margin-bottom:10px;
+        font-family: verdana;
+}
+#guide-content div.reference{
+	font-size:12px;
+	font-weight:400;
+        font-family: verdana;
+}
+#guide-content div.history{margin-bottom:10px;
+	text-align:justify;
+	margin-top:10px;
+        font-family: verdana;
+}
+#guide-content div.historyItem{
+	font-size:12px;
+	font-style:italic;
+	margin-bottom:5px;
+        font-family: verdana;
+}
+#guide-content div.annotation{margin-bottom:10px;
+	text-align:justify;
+	margin-top:10px;
+        font-family: verdana;
+}
+#guide-content div.annotationItem{font-size:12px;
+	font-weight:400;
+	margin-top:0;
+	margin-bottom:4px;
+        font-family: verdana;
+}
+#guide-content div.annotationNote{font-style:italic;
+	font-size:12px;
+	font-weight:400;
+	margin-top:0;
+	margin-bottom:5px;
+        font-family: verdana;
+}
+
+.lucenehighlight{
+  background-color:yellow;
+  font-weight:bold;
+}
+
+.currenthighlighted{
+  background-color:lightgreen;
+  font-weight:bold;
+}
+
+.errorBorder{
+    border:1px solid red;
+}
+
+
+.field-control-production{
+    background-color:#00cc00 ;
+    background-image: none ;  
+     font-weight: bold;  
+     text-align: center;
+}
+
+.info_caption{
+    color:#445daf;
+    font-size:medium;
+    font-weight: bold;
+}
+.info_caption_1{
+    color:#445daf;
+    font-size:small;
+    font-weight: bold;
+    padding: 10px 0px 0px 0px;
+}
+.info_text{
+   color:#445daf;
+}
+a:hover
+{
+    color: #808080;
+}
+.info_go, .info_go a, .info_go a:visited{
+   color:#445daf;
+   font-size: medium;
+}
+
+.info_go a:hover
+{
+    color: #808080;
+}
+
+
+
+.info_date{
+   color:#445daf;
+   font-weight: bold;
+   padding: 10px 0px 0px 0px;
+}
+
+.info_background_info{
+ background-color:white;   
+}
+
+.info_background_caption{
+ background-color:white;   
+}
+
+.info_background_last{
+ background-color:white;   
+}
+
+.info_background_more{
+ background-color:white;  
+}
+
+.info_a, .info_a a, .info_a a:visited{
+   color:#445daf;  
+   background-color:white;  
+}
+.info_a a:hover
+{
+    color: #808080;
+}
+

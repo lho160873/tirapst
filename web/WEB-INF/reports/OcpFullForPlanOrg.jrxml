@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OcpFull" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f33b5b9-8a8a-49d5-b570-3aa16e420b6b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="DSWorkPlan" uuid="58c5ffa7-c61d-4b03-94c1-0621c5054c16">
+		<parameter name="ocpIdSub" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[SELECT   MAIN.WORK_NUMBER AS MAIN_WORK_NUMBER, MAIN.CONTRACT_STAGE_ID AS MAIN_CONTRACT_STAGE_ID
+, SCS.STAGE_NUMBER AS SCS_STAGE_NUMBER, MAIN.WORK_NAME AS MAIN_WORK_NAME
+, MAIN.BEG_DATE AS MAIN_BEG_DATE, MAIN.END_DATE AS MAIN_END_DATE
+, MAIN.WORK_PLAN_ID AS MAIN_WORK_PLAN_ID, SCS.OCP_ID AS SCS_OCP_ID
+, MAIN.DEPART_ID AS MAIN_DEPART_ID, DEPART.SHORT_NAME AS DEPART_SHORT_NAME, MAIN.PLAN_LABOUR AS MAIN_PLAN_LABOUR
+, MAIN.PLAN_COST AS MAIN_PLAN_COST, MAIN.PLAN_COST_NORM AS MAIN_PLAN_COST_NORM
+, MAIN.RESULT AS MAIN_RESULT, MAIN.USER_ID AS MAIN_USER_ID, MAIN.DATE_CORR AS MAIN_DATE_CORR
+FROM WORK_PLAN MAIN
+INNER JOIN SERV_CONTRACT_STAGE AS SCS ON MAIN.CONTRACT_STAGE_ID=SCS.CONTRACT_STAGE_ID
+LEFT JOIN DEPART AS DEPART ON MAIN.DEPART_ID=DEPART.DEPART_ID
+ WHERE   SCS.OCP_ID=$P{ocpIdSub}
+ ORDER BY  SCS.STAGE_NUMBER ASC,
+cast(dbo.RecursivePartSortNUM(dbo.RecursiveStringNUM(MAIN.WORK_NUMBER),1) as int) ASC, cast(dbo.RecursivePartSortNUM(dbo.RecursiveStringNUM(MAIN.WORK_NUMBER),2) as int) ASC, cast(dbo.RecursivePartSortNUM(dbo.RecursiveStringNUM(MAIN.WORK_NUMBER),3) as int) ASC, cast(dbo.RecursivePartSortNUM(dbo.RecursiveStringNUM(MAIN.WORK_NUMBER),4) as int) ASC,
+cast(dbo.RecursivePartSortNUM(dbo.RecursiveStringNUM(MAIN.WORK_NUMBER),5) as int) ASC,
+cast(dbo.RecursivePartSortNUM(dbo.RecursiveStringNUM(MAIN.WORK_NUMBER),6) as int) ASC]]>
+		</queryString>
+		<field name="MAIN_WORK_NUMBER" class="java.lang.String"/>
+		<field name="MAIN_CONTRACT_STAGE_ID" class="java.lang.Integer"/>
+		<field name="SCS_STAGE_NUMBER" class="java.lang.String"/>
+		<field name="MAIN_WORK_NAME" class="java.lang.String"/>
+		<field name="MAIN_BEG_DATE" class="java.sql.Timestamp"/>
+		<field name="MAIN_END_DATE" class="java.sql.Timestamp"/>
+		<field name="MAIN_WORK_PLAN_ID" class="java.lang.Integer"/>
+		<field name="SCS_OCP_ID" class="java.lang.Integer"/>
+		<field name="MAIN_DEPART_ID" class="java.lang.Integer"/>
+		<field name="DEPART_SHORT_NAME" class="java.lang.String"/>
+		<field name="MAIN_PLAN_LABOUR" class="java.math.BigDecimal"/>
+		<field name="MAIN_PLAN_COST" class="java.math.BigDecimal"/>
+		<field name="MAIN_PLAN_COST_NORM" class="java.math.BigDecimal"/>
+		<field name="MAIN_RESULT" class="java.lang.String"/>
+		<field name="MAIN_USER_ID" class="java.lang.Integer"/>
+		<field name="MAIN_DATE_CORR" class="java.sql.Timestamp"/>
+	</subDataset>
+	<parameter name="ocpId" class="java.lang.Integer"/>
+	<parameter name="companyId" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$F{COMPANY_ID}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="workName" class="java.lang.String"/>
+	<parameter name="template1" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template1last" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template2" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template2last" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template3" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template3last" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template4" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template4last" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template5" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template5last" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="template6last" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT
+	OCP.WORK_NAME,
+	OCP.ORDER_ID,
+	OCP.COMPANY_ID,
+    ORDER_D.ORDER_ID,
+    ORDER_D.WORKER_ID_GK,
+    ORDER_D.WORKER_ID_RZ,
+    W1.SHORT_NAME AS SN_1,
+    W2.SHORT_NAME AS SN_2,
+    DS1.SCS_STAGE_NUMBER AS DS1_EXPR,
+    DS2.SCS_STAGE_NUMBER AS DS2_EXPR,
+    DS3.SCS_STAGE_NUMBER AS DS3_EXPR,
+    DS4.SCS_STAGE_NUMBER AS DS4_EXPR,
+    DS5.SCS_STAGE_NUMBER AS DS5_EXPR,
+    DS6.SCS_STAGE_NUMBER AS DS6_EXPR
+FROM
+     	OCP
+	LEFT JOIN ORDER_D ON OCP.ORDER_ID = ORDER_D.ORDER_ID
+    LEFT JOIN WORKER AS W1 ON ORDER_D.WORKER_ID_GK=W1.WORKER_ID AND ORDER_D.ORDER_ID = OCP.ORDER_ID
+    LEFT JOIN WORKER AS W2 ON ORDER_D.WORKER_ID_RZ=W2.WORKER_ID AND ORDER_D.ORDER_ID = OCP.ORDER_ID
+LEFT JOIN (SELECT
+ SCS.STAGE_NUMBER AS SCS_STAGE_NUMBER,
+ SCS.OCP_ID AS SCS_OCP_ID
+  FROM SERV_CONTRACT_STAGE SCS LEFT JOIN OCP AS OCP ON SCS.OCP_ID=OCP.OCP_ID
+  LEFT JOIN ORDER_D AS ORDER_D ON OCP.ORDER_ID=ORDER_D.ORDER_ID
+  LEFT JOIN CONTRACT AS CONTRACT ON ORDER_D.CONTRACT_ID=CONTRACT.CONTRACT_ID) AS DS1
+  ON DS1.SCS_OCP_ID=OCP.OCP_ID
+
+  	LEFT JOIN (SELECT MAIN.CONTRACT_STAGE_ID AS MAIN_CONTRACT_STAGE_ID
+, SCS.STAGE_NUMBER AS SCS_STAGE_NUMBER, SCS.OCP_ID AS SCS_OCP_ID
+, MAIN.DEPART_ID AS MAIN_DEPART_ID
+FROM WORK_PLAN MAIN
+INNER JOIN SERV_CONTRACT_STAGE AS SCS ON MAIN.CONTRACT_STAGE_ID=SCS.CONTRACT_STAGE_ID
+LEFT JOIN DEPART AS DEPART ON MAIN.DEPART_ID=DEPART.DEPART_ID) AS DS2
+	ON DS2.SCS_OCP_ID=OCP.OCP_ID
+
+    LEFT JOIN (SELECT SCS.OCP_ID AS SCS_OCP_ID
+, MAIN.CONTRACT_STAGE_ID AS MAIN_CONTRACT_STAGE_ID, SCS.STAGE_NUMBER AS SCS_STAGE_NUMBER
+, MAIN.ORGANIZATION_ID AS MAIN_ORGANIZATION_ID
+FROM OCP_OUTER MAIN INNER JOIN SERV_CONTRACT_STAGE AS SCS ON MAIN.CONTRACT_STAGE_ID=SCS.CONTRACT_STAGE_ID
+INNER JOIN ORGANIZATION AS ORGANIZATION_EXEC ON MAIN.ORGANIZATION_ID=ORGANIZATION_EXEC.ORGANIZATION_ID) AS DS3
+	ON DS3.SCS_OCP_ID=OCP.OCP_ID
+
+    LEFT JOIN (SELECT SCS.OCP_ID AS SCS_OCP_ID
+ , MAIN.CONTRACT_STAGE_ID AS MAIN_CONTRACT_STAGE_ID, SCS.STAGE_NUMBER AS SCS_STAGE_NUMBER
+  FROM OCP_PKI MAIN INNER JOIN SERV_CONTRACT_STAGE AS SCS ON MAIN.CONTRACT_STAGE_ID=SCS.CONTRACT_STAGE_ID
+  INNER JOIN OCP_PKI_ST_SUM AS SUM ON MAIN.CONTRACT_STAGE_ID=SUM.CONTRACT_STAGE_ID) AS DS4
+  ON DS4.SCS_OCP_ID=OCP.OCP_ID
+
+    LEFT JOIN (SELECT MAIN.OCP_TRIP_ID AS MAIN_OCP_TRIP_ID, SCS.OCP_ID AS SCS_OCP_ID
+, MAIN.CONTRACT_STAGE_ID AS MAIN_CONTRACT_STAGE_ID, SCS.STAGE_NUMBER AS SCS_STAGE_NUMBER
+	FROM OCP_TRIP MAIN INNER JOIN SERV_CONTRACT_STAGE AS SCS ON MAIN.CONTRACT_STAGE_ID=SCS.CONTRACT_STAGE_ID
+	INNER JOIN OCP_TRIP_SUMM AS SUMM ON MAIN.OCP_TRIP_ID=SUMM.OCP_TRIP_ID) AS DS5
+	ON DS5.SCS_OCP_ID=OCP.OCP_ID
+
+	LEFT JOIN (SELECT SCS.OCP_ID AS SCS_OCP_ID
+, MAIN.CONTRACT_STAGE_ID AS MAIN_CONTRACT_STAGE_ID, SCS.STAGE_NUMBER AS SCS_STAGE_NUMBER
+, MAIN.ORGANIZATION_ID AS MAIN_ORGANIZATION_ID
+  FROM OCP_SERVICE MAIN INNER JOIN SERV_CONTRACT_STAGE AS SCS ON MAIN.CONTRACT_STAGE_ID=SCS.CONTRACT_STAGE_ID
+  INNER JOIN ORGANIZATION AS ORGANIZATION_EXEC ON MAIN.ORGANIZATION_ID=ORGANIZATION_EXEC.ORGANIZATION_ID) AS DS6
+  ON DS6.SCS_OCP_ID=OCP.OCP_ID
+WHERE
+     	OCP.OCP_ID = $P{ocpId}]]>
+	</queryString>
+	<field name="ORDER_ID" class="java.lang.Integer"/>
+	<field name="COMPANY_ID" class="java.lang.Integer"/>
+	<field name="WORKER_ID_GK" class="java.lang.Integer"/>
+	<field name="WORKER_ID_RZ" class="java.lang.Integer"/>
+	<field name="SN_1" class="java.lang.String"/>
+	<field name="SN_2" class="java.lang.String"/>
+	<field name="DS1_EXPR" class="java.lang.String"/>
+	<field name="DS2_EXPR" class="java.lang.String"/>
+	<field name="DS3_EXPR" class="java.lang.String"/>
+	<field name="DS4_EXPR" class="java.lang.String"/>
+	<field name="DS5_EXPR" class="java.lang.String"/>
+	<field name="DS6_EXPR" class="java.lang.String"/>
+	<field name="WORK_NAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="68" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="11" y="11" width="533" height="18" uuid="9bec7c73-a3bb-4380-9d24-12f39efd2896"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ОПЕРАТИВНО – КАЛЕНДАРНЫЙ ПЛАН
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="28" width="533" height="15" uuid="59edbcb4-6959-4810-8be4-37e54c508bfa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10"/>
+				</textElement>
+				<text><![CDATA[для включения работы в План предприятия]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="180" y="43" width="364" height="15" uuid="e96b7264-5f8d-449d-80b7-6b8f305d128e"/>
+				<textElement>
+					<font fontName="DejaVu Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{workName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="43" width="169" height="15" uuid="b202934d-10ea-4bc1-b3bb-f3af53d38f20"/>
+				<textElement>
+					<font fontName="DejaVu Serif"/>
+				</textElement>
+				<text><![CDATA[Наименование и шифр темы:]]></text>
+			</staticText>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS1_EXPR}!=null&&($F{DS2_EXPR}==null && $F{DS3_EXPR}==null && $F{DS4_EXPR}==null && $F{DS5_EXPR}==null && $F{DS6_EXPR}==null)&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="ba78d202-0804-4e08-9072-d7b331b8a523"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1. Ведомость исполнения]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderId">
+					<subreportParameterExpression><![CDATA[$F{ORDER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds1Expr">
+					<subreportParameterExpression><![CDATA[$F{DS1_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds2Expr">
+					<subreportParameterExpression><![CDATA[$F{DS2_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template1last}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS1_EXPR}!=null&&($F{DS2_EXPR}!=null || $F{DS3_EXPR}!=null || $F{DS4_EXPR}!=null || $F{DS5_EXPR}!=null || $F{DS6_EXPR}!=null)&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="ba78d202-0804-4e08-9072-d7b331b8a523"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1. Ведомость исполнения]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderId">
+					<subreportParameterExpression><![CDATA[$F{ORDER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds1Expr">
+					<subreportParameterExpression><![CDATA[$F{DS1_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds2Expr">
+					<subreportParameterExpression><![CDATA[$F{DS2_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template1}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="43" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS2_EXPR}!=null&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<componentElement>
+				<reportElement key="table 2" style="table 2" positionType="Float" x="0" y="15" width="545" height="15" uuid="48246638-52cc-4edb-a6d3-904c03ab95ed"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DSWorkPlan" uuid="0cc61d2c-e9d2-4c93-acd9-228e0f3a64a4">
+						<datasetParameter name="ocpIdSub">
+							<datasetParameterExpression><![CDATA[$P{ocpId}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="57" uuid="8cb3533e-0ae9-49df-91a9-d902e3c1cd6b">
+						<jr:columnHeader style="table 2_CH" height="60" rowSpan="2">
+							<staticText>
+								<reportElement x="0" y="0" width="57" height="60" uuid="8d35e39f-c462-40c0-8460-40a972fecb8a"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Этап]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="57" height="30" uuid="f66e5d8f-0b3b-4a2c-9056-ee504a90e2c2"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SCS_STAGE_NUMBER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="48" uuid="403eb474-ac1c-4215-87b9-48318058ce07">
+						<jr:tableHeader height="0" rowSpan="1"/>
+						<jr:tableFooter height="0" rowSpan="1"/>
+						<jr:columnHeader height="60" rowSpan="2">
+							<staticText>
+								<reportElement x="0" y="0" width="48" height="60" uuid="5f849219-3f83-4cb7-92d0-afc44bdee11b"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Номер меропр.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="0" rowSpan="1"/>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="48" height="30" uuid="985921e4-18e3-4c94-99fa-22e22b3609ce"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_WORK_NUMBER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="130" uuid="cfd5bff2-4eab-4951-9b74-9d812ea7e5a5">
+						<jr:columnHeader height="60" rowSpan="2">
+							<staticText>
+								<reportElement x="0" y="0" width="130" height="60" uuid="80e24d90-3c68-44ff-adf5-10c713eda760"/>
+								<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+									<pen lineWidth="0.25" lineColor="#000000"/>
+									<topPen lineWidth="0.25" lineColor="#000000"/>
+									<leftPen lineWidth="0.25" lineColor="#000000"/>
+									<bottomPen lineWidth="0.25" lineColor="#000000"/>
+									<rightPen lineWidth="0.25" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Содержание работ мероприятий]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="130" height="30" uuid="738163bb-7ab0-46c9-8c51-3c843393140e"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_WORK_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="47" uuid="ba889cb6-da77-4105-ab5d-6bf289b4dd1a">
+						<jr:columnHeader height="60" rowSpan="2">
+							<staticText>
+								<reportElement x="0" y="0" width="47" height="60" uuid="49e39b72-070c-440f-89eb-5447d19a2ba2"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Исполнит.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="47" height="30" uuid="e7a3dcaf-a127-4e2c-833f-06f1633e9bcf"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{DEPART_SHORT_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="27" uuid="27e443a3-21bf-4aad-9207-2d54c9258a9d">
+						<jr:columnHeader height="60" rowSpan="2">
+							<staticText>
+								<reportElement x="0" y="0" width="27" height="60" uuid="342f7b35-267d-424f-94e8-794509bf3897"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Тр-ть ч/м]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="27" height="30" uuid="2555ab31-cfe2-43bc-a01a-0bdd578914d3"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_PLAN_LABOUR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="6e802843-ab89-4c1d-82bf-cbf8e29cb15f">
+						<jr:columnHeader height="60" rowSpan="2">
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="60" uuid="7ed5846b-48ab-4f51-bc73-3082be289cbe"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[РОТ руб.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="50" height="30" uuid="438742db-4958-4366-a2d2-0af6d0c32142"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_PLAN_COST}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:columnGroup width="110" uuid="e7158bbc-0e60-4c9d-ad30-ae7d350282b7">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="43f761d3-e35c-4805-b2ce-af03bb4592d4"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Сроки выполнения]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:column width="55" uuid="04143b52-5983-4426-8c1c-299641747304">
+							<jr:columnHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="55" height="30" uuid="fcbe647d-aff6-4432-bcc3-7e4b288b822f"/>
+									<box>
+										<pen lineWidth="0.25"/>
+										<topPen lineWidth="0.25"/>
+										<leftPen lineWidth="0.25"/>
+										<bottomPen lineWidth="0.25"/>
+										<rightPen lineWidth="0.25"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Serif" size="8"/>
+									</textElement>
+									<text><![CDATA[Начало]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="30" rowSpan="1">
+								<textField isStretchWithOverflow="true" pattern="dd.MM.yyyy" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="55" height="30" uuid="baf495c1-2822-4165-8982-4a174d0980cd"/>
+									<box>
+										<pen lineWidth="0.25"/>
+										<topPen lineWidth="0.25"/>
+										<leftPen lineWidth="0.25"/>
+										<bottomPen lineWidth="0.25"/>
+										<rightPen lineWidth="0.25"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Serif" size="8"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{MAIN_BEG_DATE}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="55" uuid="2b1c6f58-a783-44de-af2f-70820e07543b">
+							<jr:columnHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="55" height="30" uuid="2c334c46-f021-4e8c-9184-e486b271c36d"/>
+									<box>
+										<pen lineWidth="0.25"/>
+										<topPen lineWidth="0.25"/>
+										<leftPen lineWidth="0.25"/>
+										<bottomPen lineWidth="0.25"/>
+										<rightPen lineWidth="0.25"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Serif" size="8"/>
+									</textElement>
+									<text><![CDATA[Окончание]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="30" rowSpan="1">
+								<textField isStretchWithOverflow="true" pattern="dd.MM.yyyy" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="55" height="30" uuid="fe66ab01-cb33-49ce-b4d4-1666847c4de4"/>
+									<box>
+										<pen lineWidth="0.25"/>
+										<topPen lineWidth="0.25"/>
+										<leftPen lineWidth="0.25"/>
+										<bottomPen lineWidth="0.25"/>
+										<rightPen lineWidth="0.25"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Serif" size="8"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{MAIN_END_DATE}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:column width="76" uuid="0a164840-b40d-40b8-ae3c-68a9f0a88cb5">
+						<jr:columnHeader height="60" rowSpan="2">
+							<staticText>
+								<reportElement x="0" y="0" width="76" height="60" uuid="91d914ac-09e0-4ed7-8c50-90274e116fc9"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Чем заканч. этап (отч.)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="76" height="30" uuid="c4f4bf8e-002c-428d-9bc3-63ae0c6ebe54"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_RESULT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="90a12721-6eac-48ea-9491-be9e12b6a360"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2. Календарный план собственных работ]]></text>
+			</staticText>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS2_EXPR}!=null&&($F{DS3_EXPR}==null && $F{DS4_EXPR}==null && $F{DS5_EXPR}==null && $F{DS6_EXPR}==null)&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds2Expr">
+					<subreportParameterExpression><![CDATA[$F{DS2_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds3Expr">
+					<subreportParameterExpression><![CDATA[$F{DS3_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template2last}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS2_EXPR}!=null&&($F{DS3_EXPR}!=null || $F{DS4_EXPR}!=null || $F{DS5_EXPR}!=null || $F{DS6_EXPR}!=null)&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds2Expr">
+					<subreportParameterExpression><![CDATA[$F{DS2_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds3Expr">
+					<subreportParameterExpression><![CDATA[$F{DS3_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template2}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS3_EXPR}!=null&&($F{DS4_EXPR}==null && $F{DS5_EXPR}==null && $F{DS6_EXPR}==null)&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="1b1c0766-44dc-42d3-b2b3-7a5a0c6ecdab"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3. Работы, выполняемые сторонними организациями]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderId">
+					<subreportParameterExpression><![CDATA[$F{ORDER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds3Expr">
+					<subreportParameterExpression><![CDATA[$F{DS3_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds4Expr">
+					<subreportParameterExpression><![CDATA[$F{DS4_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template3last}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS3_EXPR}!=null&&($F{DS4_EXPR}!=null || $F{DS5_EXPR}!=null || $F{DS6_EXPR}!=null)&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="1b1c0766-44dc-42d3-b2b3-7a5a0c6ecdab"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3. Работы, выполняемые сторонними организациями]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderId">
+					<subreportParameterExpression><![CDATA[$F{ORDER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds3Expr">
+					<subreportParameterExpression><![CDATA[$F{DS3_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds4Expr">
+					<subreportParameterExpression><![CDATA[$F{DS4_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template3}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS4_EXPR}!=null&&($F{DS5_EXPR}==null && $F{DS6_EXPR}==null)&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="1b1c0766-44dc-42d3-b2b3-7a5a0c6ecdab"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4. Укрупненный перечень комплектующих изделий, приобретаемых для выполнения этапов работ]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderId">
+					<subreportParameterExpression><![CDATA[$F{ORDER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds4Expr">
+					<subreportParameterExpression><![CDATA[$F{DS4_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds5Expr">
+					<subreportParameterExpression><![CDATA[$F{DS5_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template4last}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS4_EXPR}!=null&&($F{DS5_EXPR}!=null || $F{DS6_EXPR}!=null)&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="1b1c0766-44dc-42d3-b2b3-7a5a0c6ecdab"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4. Укрупненный перечень комплектующих изделий, приобретаемых для выполнения этапов работ]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderId">
+					<subreportParameterExpression><![CDATA[$F{ORDER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds4Expr">
+					<subreportParameterExpression><![CDATA[$F{DS4_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds5Expr">
+					<subreportParameterExpression><![CDATA[$F{DS5_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template4}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS5_EXPR}!=null&&$F{DS6_EXPR}==null&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="1b1c0766-44dc-42d3-b2b3-7a5a0c6ecdab"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[5. Перечень командировок]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderId">
+					<subreportParameterExpression><![CDATA[$F{ORDER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds5Expr">
+					<subreportParameterExpression><![CDATA[$F{DS5_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds6Expr">
+					<subreportParameterExpression><![CDATA[$F{DS6_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template5last}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS5_EXPR}!=null&&$F{DS6_EXPR}!=null&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="1b1c0766-44dc-42d3-b2b3-7a5a0c6ecdab"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[5. Перечень командировок]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderId">
+					<subreportParameterExpression><![CDATA[$F{ORDER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds5Expr">
+					<subreportParameterExpression><![CDATA[$F{DS5_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds6Expr">
+					<subreportParameterExpression><![CDATA[$F{DS6_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template5}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="17" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{DS6_EXPR}!=null&&$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<staticText>
+				<reportElement x="93" y="0" width="363" height="15" uuid="1b1c0766-44dc-42d3-b2b3-7a5a0c6ecdab"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[6. Перечень услуг, оказываемых сторонними организациями]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="15" width="545" height="1" isRemoveLineWhenBlank="true" uuid="a449ab07-561d-4255-ab83-81664b3f1c4f"/>
+				<subreportParameter name="ocpId">
+					<subreportParameterExpression><![CDATA[$P{ocpId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="orderId">
+					<subreportParameterExpression><![CDATA[$F{ORDER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn1">
+					<subreportParameterExpression><![CDATA[$F{SN_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sn2">
+					<subreportParameterExpression><![CDATA[$F{SN_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ds6Expr">
+					<subreportParameterExpression><![CDATA[$F{DS6_EXPR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{template6last}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="454" y="0" width="100" height="20" uuid="5fc15c8e-2ee7-4a69-9df5-609e67dcb4ba">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}>1]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

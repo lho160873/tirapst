@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    <!-- ************************************************* -->
+    <!-- WORK_PLAN_EXECUTOR_NEW -->
+    <!-- ************************************************* -->
+ 
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_PLAN_EXECUTOR_NEW_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WORK_PLAN_EXECUTOR_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORK_PLAN_EXECUTOR_ID"/>
+                        <property name="caption" value="Код исполнителя"/>
+                        <property name="isAutoincrement" value="true"/>
+                        <property name="isKey" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+      
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_PLAN_EXECUTOR_NEW_ID_FOR_EXECUTORS" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WORK_PLAN_EXECUTOR_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORK_PLAN_EXECUTOR_ID"/>
+                        <property name="caption" value="Код исполнителя"/>
+                        <property name="isKey" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__BEG_DATE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate"
+              lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="BEG_DATE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="BEG_DATE"/>
+                        <property name="caption" value="Дата начала"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__END_DATE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate"
+              lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="END_DATE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="END_DATE"/>
+                        <property name="caption" value="Дата окончания"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__END_DATE_FOR_PREVIOUS_WORK" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="END_DATE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="END_DATE"/>
+                        <property name="caption" value="Дата окончания"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__BEG_DATE_FOR_PREVIOUS_WORK" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="BEG_DATE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="BEG_DATE"/>
+                        <property name="caption" value="Дата начала"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__USER_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="USER_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="USER_ID"/>
+                        <property name="caption" value="Код пользователя"/>
+                        <property name="columnProperty" ref="DCPUser"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WORK_NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORK_NAME"/>
+                        <property name="caption" value="Детализация работы"/>
+                        <property name="columnProperty" ref="DCPTextArea1000"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isEditable" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORKER_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderMultiConditionList" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="WORKER_ID"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORKER_ID"/>
+                        <property name="caption" value="Код сотрудника"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="FALSE"/>   
+                        <property name="isVisibleEdit" value="FALSE"/>   
+                        <property name="isFiltr" value="FALSE"/>   
+                        <property name="isNotNull" value="TRUE"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="NAME"/> 
+                            <property name="tableAlias" value="WORKER"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Ответственный исполнитель"/>
+                        <property name="columnProperty" ref="DCPString150"/>                        
+                        <property name="isNotNull" value="TRUE"/>
+                    </bean>                 
+                </entry>
+            </map>            
+        </property>
+        <property name="relations">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="WORKER_ID"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="WORKER_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="NAME"/> 
+                            <property name="tableAlias" value="WORKER"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="NAME"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>                           
+            </map>
+        </property> 
+        <property name="queryNameForRelation" value="WORKER_FOR_EXECUTOR"/> 
+        <property name="caption" value="Ответственный исполнитель"/>
+        <property name="isViewOnly" value="true"/>
+    </bean>
+       
+<!--    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__PREVIOUS_WORK" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderMultiConditionList" lazy-init="false">
+        <property name="builderName" value="PREVIOUS_WORK" />
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="PARENT_ID"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="PARENT_ID"/>
+                        <property name="caption" value="Код исполнителя"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="FALSE"/>   
+                        <property name="isVisibleEdit" value="FALSE"/>   
+                        <property name="isFiltr" value="FALSE"/> 
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="WORK_NUMBER"/> 
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR_NEW_FOR_PREVIOUS"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORK_NUMBER"/>
+                        <property name="caption" value="Предшествующая работа"/>
+                        <property name="columnProperty" ref="DCPString150"/>                        
+                        <property name="isHidden" value="true"/>
+                    </bean>                 
+                </entry>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="END_DATE"/>
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR_NEW_FOR_PREVIOUS"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="END_DATE"/>
+                        <property name="caption" value="Дата окончания"/>              
+                        <property name="isHidden" value="true"/>
+                        <property name="isInserted" value="false" />
+                        <property name="isVisible" value="FALSE"/>   
+                        <property name="isVisibleEdit" value="FALSE"/>   
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                    </bean>
+                </entry>
+            </map>            
+        </property>
+        <property name="relations">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="PARENT_ID"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="WORK_PLAN_EXECUTOR_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="WORK_NUMBER"/> 
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR_NEW_FOR_PREVIOUS"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="WORK_NUMBER"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="END_DATE"/> 
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR_NEW_FOR_PREVIOUS"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="END_DATE"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>                         
+            </map>
+        </property> 
+        <property name="queryNameForRelation" value="WORK_PLAN_EXECUTOR_NEW_LIST"/> 
+        <property name="caption" value="Предшествующая работа"/>
+        <property name="isViewOnly" value="true"/>
+    </bean>-->
+
+    <bean id="WORK_PLAN_EXECUTOR_NEW_LIST" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_PLAN_EXECUTOR_NEW_ID"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_NUMBER"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__GROUP_ID"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__BEG_DATE_FOR_PREVIOUS_WORK"/>      
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__END_DATE_FOR_PREVIOUS_WORK"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_NAME"/>   
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="WORK_PLAN_EXECUTOR1"/>
+            </map>
+        </property>
+        <property name="caption" value="Предшествующая работа"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="isViewOnly" value="true"/>
+        <property name="queryName" value="WORK_PLAN_EXECUTOR_NEW_LIST"/>
+        <property name="strOrderByStart" value=" MAIN.WORK_NUMBER"/>
+    </bean>
+    
+    <bean id="WORK_PLAN_EXECUTOR_RES_LIST" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_PLAN_EXECUTOR_NEW_ID"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_NUMBER"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__GROUP_ID"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__BEG_DATE_FOR_PREVIOUS_WORK"/>      
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__END_DATE_FOR_PREVIOUS_WORK"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_NAME"/>   
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="WORK_PLAN_EXECUTOR1"/>
+            </map>
+        </property>
+        <property name="caption" value="Предшествующая работа"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="isViewOnly" value="true"/>
+        <property name="queryName" value="WORK_PLAN_EXECUTOR_RES_LIST"/>
+        <property name="strOrderByStart" value=" MAIN.WORK_NUMBER"/>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__GROUP_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="GROUP_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="GROUP_ID"/>
+                        <property name="caption" value="Код мероприятия"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+<!--    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__PREVIOUS_WORK_NUMBER" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WORK_NUMBER_FOR_PREVIOUS"/>
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR_NEW_FOR_PREVIOUS"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORK_NUMBER"/>
+                        <property name="caption" value="Номер предшеств. работы"/>
+                        <property name="columnProperty" ref="DCPString20"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    -->
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_NUMBER" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WORK_NUMBER"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORK_NUMBER"/>
+                        <property name="caption" value="Номер работы"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="columnProperty" ref="DCPString20"/>
+                        <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORKERS" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="EXECUTORS"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="sqlForColumn" value="dbo.GET_EXECUTORS_NEW(MAIN.WORK_PLAN_EXECUTOR_ID)"/>
+                        <property name="name" value="EXECUTORS"/>
+                        <property name="caption" value="Исполнители"/>
+                        <property name="columnProperty" ref="DCPTextArea1000"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>                     
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORKS" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WORKS"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="sqlForColumn" value="dbo.GET_WORKS(MAIN.WORK_PLAN_EXECUTOR_ID, 1)"/>
+                        <property name="name" value="WORKS"/>
+                        <property name="caption" value="Предшеств. работы"/>
+                        <property name="columnProperty" ref="DCPTextArea1000"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>                     
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__RES" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="RES"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="sqlForColumn" value="dbo.GET_WORKS(MAIN.WORK_PLAN_EXECUTOR_ID, 2)"/>
+                        <property name="name" value="RES"/>
+                        <property name="caption" value="Обеспечив. работы"/>
+                        <property name="columnProperty" ref="DCPTextArea1000"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>                     
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_IDS" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WORK_IDS"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="sqlForColumn" value="dbo.GET_WORK_IDS(MAIN.WORK_PLAN_EXECUTOR_ID, 1)"/>
+                        <property name="name" value="WORK_IDS"/>
+                        <property name="caption" value="ID Предшеств. работ"/>
+                        <property name="columnProperty" ref="DCPTextArea1000"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>    
+                        <property name="isHidden" value="true"/>
+                                         
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW__RES_IDS" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="RES_IDS"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="sqlForColumn" value="dbo.GET_WORK_IDS(MAIN.WORK_PLAN_EXECUTOR_ID, 2)"/>
+                        <property name="name" value="RES_IDS"/>
+                        <property name="caption" value="ID Обеспечив. работ"/>
+                        <property name="columnProperty" ref="DCPTextArea1000"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>       
+                        <property name="isHidden" value="true"/>               
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="WORK_PLAN_EXECUTOR_NEW" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>                
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_PLAN_EXECUTOR_NEW_ID"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORKS"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__RES"/>
+                <!--<ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__PREVIOUS_WORK_NUMBER"/>-->
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_NUMBER"/>
+                <!--<ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__PREVIOUS_WORK"/>-->
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORKER_ID"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__BEG_DATE"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__END_DATE"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_NAME"/>            
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__GROUP_ID"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__USER_ID"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORKERS"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_IDS"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__RES_IDS"/>
+            </list>
+        </property>
+        <property name="dateBegEndPairs">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.expansion.STwoKeys">
+                    <property name="first" value="MAIN:BEG_DATE"/>
+                    <property name="second" value="MAIN:END_DATE"/>
+                    <property name="message" value="Дата начала не должна быть позже, чем дата окончания."/>
+                </bean>
+            </list>
+        </property>
+        <property name="strOrderByStart" value="ORDERED_WORK_PLAN_EXECUTOR_NEW.num DESC"/>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="WORK_PLAN_EXECUTOR1"/>
+                <!--<entry key="ORDERED_WORK_PLAN_EXECUTOR_NEW" value="dbo.GET_ORDERED_IDS(%MAIN.GROUP_ID%)"/>-->
+                <entry key="ORDERED_WORK_PLAN_EXECUTOR_NEW" value="dbo.GET_ORDERED_IDS(NULL, NULL, NULL)"/>
+                <entry key="WORKER" value="WORKER"/>
+                <!--<entry key="WORK_PLAN_EXECUTOR_NEW_FOR_PREVIOUS" value="WORK_PLAN_EXECUTOR1"/>-->
+            </map>
+        </property>
+        <property name="caption" value="Исполнители"/>
+        <property name="queryName" value="WORK_PLAN_EXECUTOR_NEW"/>
+        <property name="countRowsInFiltrColumn" value="2"/>
+        <property name="tableJoins">
+            <list>                
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="ORDERED_WORK_PLAN_EXECUTOR_NEW"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="WORK_PLAN_EXECUTOR_ID"/>
+                                <property name="columnNameTableTwo" value="ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="WORKER"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="WORKER_ID"/>
+                                <property name="columnNameTableTwo" value="WORKER_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+<!--                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="WORK_PLAN_EXECUTOR_NEW_FOR_PREVIOUS"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="PARENT_ID"/>
+                                <property name="columnNameTableTwo" value="WORK_PLAN_EXECUTOR_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>-->
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="WP_EXECUTORS_NEW" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>                
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORK_PLAN_EXECUTOR_NEW_ID_FOR_EXECUTORS"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW__WORKER_ID"/>
+            </list>
+        </property>        
+        <property name="strOrderByStart" value="WORKER.NAME"/>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="WP_EXECUTORS1"/>
+                <entry key="WORKER" value="WORKER"/>
+            </map>
+        </property>
+        <property name="caption" value="Исполнители"/>
+        <property name="queryName" value="WP_EXECUTORS_NEW"/>
+        <property name="countRowsInFiltrColumn" value="2"/>
+        <property name="tableJoins">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="WORKER"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="WORKER_ID"/>
+                                <property name="columnNameTableTwo" value="WORKER_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>                
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW_PREVIOUSES__WORK_PLAN_EXECUTOR_PREVIOUSES_NEW_ID_FOR_PREVIOUSES" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ID2"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID2"/>
+                        <property name="caption" value="Код исполнителя"/>
+                        <property name="isKey" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW_PREVIOUSES__WORK_PLAN_EXECUTOR_PREVIOUSES_DEPENDENCE_TYPE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DEPENDENCE_TYPE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DEPENDENCE_TYPE"/>
+                        <property name="caption" value="Тип зависимости"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORK_PLAN_EXECUTOR_NEW_PREVIOUSES__PREVIOUS_WORK" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderMultiConditionList" lazy-init="false">
+        <property name="builderName" value="PREVIOUS_WORK" />
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ID1"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID1"/>
+                        <property name="caption" value="Код исполнителя"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isKey" value="true"/>
+                        <property name="isVisible" value="FALSE"/>   
+                        <property name="isVisibleEdit" value="FALSE"/>   
+                        <property name="isFiltr" value="FALSE"/> 
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="WORK_NUMBER"/> 
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR1"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORK_NUMBER"/>
+                        <property name="caption" value="Предшествующая работа"/>
+                        <property name="columnProperty" ref="DCPString150"/>                        
+                        <property name="isHidden" value="true"/>
+                        <property name="isInserted" value="false" />
+                    </bean>                 
+                </entry>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="END_DATE"/>
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR1"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="END_DATE"/>
+                        <property name="caption" value="Дата окончания"/>              
+                        <property name="isHidden" value="true"/>
+                        <property name="isInserted" value="false" />
+                        <property name="isVisible" value="FALSE"/>   
+                        <property name="isVisibleEdit" value="FALSE"/>   
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="BEG_DATE"/>
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR1"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="BEG_DATE"/>
+                        <property name="caption" value="Дата начала"/>              
+                        <property name="isHidden" value="true"/>
+                        <property name="isInserted" value="false" />
+                        <property name="isVisible" value="FALSE"/>   
+                        <property name="isVisibleEdit" value="FALSE"/>   
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                    </bean>
+                </entry>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="WORK_NAME"/> 
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR1"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORK_NAME"/>
+                        <property name="caption" value="Детализация работы"/>
+                        <property name="columnProperty" ref="DCPString1000"/>                        
+                        <property name="isHidden" value="true"/>
+                        <property name="isInserted" value="false" />
+                    </bean>                 
+                </entry>
+            </map>            
+        </property>
+        <property name="relations">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ID1"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="WORK_PLAN_EXECUTOR_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="WORK_NUMBER"/> 
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR1"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="WORK_NUMBER"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="BEG_DATE"/> 
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR1"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="BEG_DATE"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>      
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="END_DATE"/> 
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR1"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="END_DATE"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>                
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="WORK_NAME"/> 
+                            <property name="tableAlias" value="WORK_PLAN_EXECUTOR1"/>     
+                        </bean>
+                    </key> 
+                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="WORK_NAME"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                    </bean>   
+                </entry>               
+            </map>
+        </property> 
+        <property name="queryNameForRelation" value="WORK_PLAN_EXECUTOR_NEW_LIST"/> 
+        <property name="caption" value="Предшествующая работа"/>
+        <property name="isViewOnly" value="true"/>
+    </bean>
+    
+    <bean id="WORK_PLAN_EXECUTOR_NEW_PREVIOUSES" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>                
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW_PREVIOUSES__WORK_PLAN_EXECUTOR_PREVIOUSES_NEW_ID_FOR_PREVIOUSES"/>                
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW_PREVIOUSES__WORK_PLAN_EXECUTOR_PREVIOUSES_DEPENDENCE_TYPE"/>
+                <ref bean="BUILDER_WORK_PLAN_EXECUTOR_NEW_PREVIOUSES__PREVIOUS_WORK"/>
+            </list>
+        </property>        
+        <!--<property name="strOrderByStart" value="WORKER.NAME"/>-->
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="WORK_DEPENDENCE"/>
+                <entry key="WORK_PLAN_EXECUTOR1" value="WORK_PLAN_EXECUTOR1"/>
+            </map>
+        </property>
+        <property name="caption" value="Предшествуют"/>
+        <property name="queryName" value="WORK_PLAN_EXECUTOR_NEW_PREVIOUSES"/>
+        <property name="countRowsInFiltrColumn" value="2"/>
+        <property name="tableJoins">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="WORK_PLAN_EXECUTOR1"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ID1"/>
+                                <property name="columnNameTableTwo" value="WORK_PLAN_EXECUTOR_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>                
+            </list>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+     <bean id="ClField_1" class="pst.arm.client.common.domain.ClField">
+        <property name="fieldName" value="fieldName_1"/>
+        <property name="fieldTblName" value="fieldTblName_1"/>
+    </bean>
+    <bean id="ClField_2" class="pst.arm.client.common.domain.ClField">
+        <property name="fieldName" value="fieldName_2"/>
+        <property name="fieldTblName" value="fieldTblName_2"/>
+    </bean>
+    
+    <bean id="ClBaseData_1" class="pst.arm.client.common.domain.ClBaseData" lazy-init="false" init-method="init">
+        <property name="dRecord">
+           <map>
+                <entry key="fieldTblName_1" value-ref="ClField_1"/>   
+                <entry key="fieldName_2" value-ref="ClField_2"/>
+            </map>
+        </property>
+        <property name="tableName" value="tableName_1"/>        
+    </bean>
+    
+    
+    <bean id="ClBaseData_2" class="pst.arm.client.common.domain.ClBaseData" lazy-init="false" init-method="init">
+        <property name="dRecord">
+           <map>
+                <entry key="fieldTblName_2" value-ref="ClField_1"/>   
+                <entry key="fieldName_2" value-ref="ClField_2"/>
+            </map>
+        </property>
+        <property name="tableName" value="tableName_2"/>        
+    </bean>
+    
+    
+    
+
+
+
+    
+</beans>

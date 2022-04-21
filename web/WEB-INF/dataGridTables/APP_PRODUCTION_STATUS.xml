@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <!-- ************************************************* -->
+    <!-- APP_PRODUCTION_STATUS -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_APP_PRODUCTION_STATUS_HLV__ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="STATUS_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="STATUS_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_APP_PRODUCTION_STATUS_HLV__NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="STATUS_NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="STATUS_NAME"/>
+                        <property name="caption" value="Название"/>
+                        <property name="columnProperty" ref="DCPString60"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+   
+    <!-- описываем сам "запрос" -->
+    <bean id="APP_PRODUCTION_STATUS_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+       <property name="columnBuilders">
+           <list>
+               <ref bean="BUILDER_APP_PRODUCTION_STATUS_HLV__ID" />
+               <ref bean="BUILDER_APP_PRODUCTION_STATUS_HLV__NAME" />
+            </list>
+        </property>
+        <property name="tables">
+           <map>
+               <entry key="MAIN" value="APP_PRODUCTION_STATUS" />
+            </map>
+        </property>
+        <property name="caption" value="Статус"/>
+        <property name="queryName" value="APP_PRODUCTION_STATUS_HLV"/>
+    </bean>
+
+  
+</beans>

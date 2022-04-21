@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" xmlns:aop="http://www.springframework.org/schema/aop">
+
+    <!-- ************************************************* -->
+    <!-- DT_JOB_FACT -->
+    <!-- ************************************************* -->
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="id"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="id"/>
+                        <property name="isKey" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__lineno" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="lineno"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="[lineno]"/>
+                        <property name="isKey" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__id_defect" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="id_defect"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="id_defect"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__id_designversion" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="id_designversion"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="id_designversion"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="DT_JOB_FACT_VO_BUILDER__id_eqpt" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="id_eqpt"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="id_eqpt"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__id_operkind" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="id_operkind"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="id_operkind"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__date_end" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="date_end"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="date_end"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__date_start" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="date_start"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="date_start"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__defect_count" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="defect_count"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="defect_count"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative15_3"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__info" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="info"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="info"/>
+                        <property name="columnProperty" ref="DCPString1000"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__preparetime" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="preparetime"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="preparetime"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative15_3"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__ntime" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ntime"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ntime"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative15_3"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__price" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="price"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="price"/>
+                        <property name="columnProperty" ref="DCPString"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="DT_JOB_FACT_VO_BUILDER__unittime" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="unittime"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="unittime"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative15_3"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="DT_JOB_FACT_VO_BUILDER__quantity" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="quantity"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="quantity"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative15_3"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="DT_JOB_FACT_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__ID"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__lineno"/> 
+                <ref bean="DT_JOB_FACT_VO_BUILDER__id_defect"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__id_designversion"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__id_eqpt"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__id_operkind"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__date_end"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__date_start"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__defect_count"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__info"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__ntime"/> 
+                <ref bean="DT_JOB_FACT_VO_BUILDER__preparetime"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__price"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__quantity"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__unittime"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="DT_JOB_FACT"/>
+            </map>
+        </property>
+        <property name="caption" value="DT_JOB_FACT"/>
+        <property name="queryName" value="DT_JOB_FACT_VO"/>
+        <property name="dataSourceName" value="dataSourcePriboy"/>
+    </bean>
+
+    <bean id="DH_JOB_VO_BUILDER__ID_REC" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ID_REC"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID_REC"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isKey" value="true"/>
+                        <property name="isAutoincrement" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="DT_JOB_FACT_1_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="DH_JOB_VO_BUILDER__ID_REC"/>
+                <ref bean="DH_JOB_VO_BUILDER__INTERACTING_SYST_ID"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__ID"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__lineno"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__id_defect"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__id_designversion"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__id_eqpt"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__id_operkind"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__date_end"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__date_start"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__defect_count"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__info"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__ntime"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__preparetime"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__price"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__quantity"/>
+                <ref bean="DT_JOB_FACT_VO_BUILDER__unittime"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="DT_JOB_FACT_1"/>
+            </map>
+        </property>
+        <property name="caption" value="DT_JOB_FACT_1"/>
+        <property name="queryName" value="DT_JOB_FACT_1_VO"/>
+    </bean>
+</beans>

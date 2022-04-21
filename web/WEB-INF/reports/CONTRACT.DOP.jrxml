@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OCP.CAL" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a976636a-ac63-41a5-b329-a05de0124862">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset" uuid="861337a8-b05c-4902-ba69-ab3ee8c1402e">
+		<parameter name="contractIdSub" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="searchers" class="java.lang.String" isForPrompting="false">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     MAIN."CONTRACT_ID" AS MAIN_CONTRACT_ID,
+     MAIN."PARENT_ID" AS MAIN_PARENT_ID,
+     MAIN."CONTRACT_NUMB" AS MAIN_CONTRACT_NUMB,
+     MAIN."CONTRACT_DATE" AS MAIN_CONTRACT_DATE,
+     MAIN."CIPHER" AS MAIN_CIPHER,
+     MAIN."THEME" AS MAIN_THEME,
+     MAIN."ORG_EXECUTOR_ID" AS MAIN_ORG_EXECUTOR_ID,
+     ORGANIZATION_EXEC."SHORT_NAME" AS ORGANIZATION_EXEC_SHORT_NAME,
+     MAIN."CUSTOMER_ID" AS MAIN_CUSTOMER_ID,
+     ORGANIZATION_CUSTOMER."SHORT_NAME" AS ORGANIZATION_CUSTOMER_SHORT_NAME,
+     MAIN."DEPART_ID" AS MAIN_DEPART_ID,
+     DEPART."NAME" AS DEPART_NAME,
+     MAIN."CONTRACT_DATE" AS MAIN_CONTRACT_DATE_FROM,
+     MAIN."END_DATE" AS MAIN_END_DATE_FROM,
+     CONTRACT_SUMM."COST_NDS" AS CONTRACT_SUMM_COST_NDS_FROM,
+     MAIN."EVAL_OF_GETTING_ID" AS MAIN_EVAL_OF_GETTING_ID,
+     MAIN."BEG_DATE" AS MAIN_BEG_DATE,
+     MAIN."END_DATE" AS MAIN_END_DATE,
+     MAIN."MILITARY_REPR_ID" AS MAIN_MILITARY_REPR_ID,
+     CONTRACT_SUMM."COST_NDS" AS CONTRACT_SUMM_COST_NDS,
+     CONTRACT_SUMM."COST" AS CONTRACT_SUMM_COST,
+     MAIN."USER_ID" AS MAIN_USER_ID,
+     MAIN."DATE_CORR" AS MAIN_DATE_CORR,
+     CONTRACT."CONTRACT_DATE" AS CONTRACT_CONTRACT_DATE_TO,
+     MAIN."END_DATE" AS MAIN_END_DATE_TO,
+     CONTRACT_SUMM."COST_NDS" AS CONTRACT_SUMM_COST_NDS_TO,
+     MAIN."CONTRACT_STAT_ID" AS MAIN_CONTRACT_STAT_ID,
+     MAIN."NDS_ID" AS MAIN_NDS_ID,
+     MAIN."FUNDING_SOURCE_ID" AS MAIN_FUNDING_SOURCE_ID,
+     MAIN."COMPANY_ID" AS MAIN_COMPANY_ID,
+     MAIN."POST_WORKER_ID" AS MAIN_POST_WORKER_ID,
+     WORKER."NAME" AS WORKER_NAME,
+     MAIN."SUBJECT" AS MAIN_SUBJECT,
+     MAIN."G_C" AS MAIN_G_C,
+     MAIN."STORAGE_PLACE" AS MAIN_STORAGE_PLACE,
+     MAIN."COMMENT" AS MAIN_COMMENT,
+     MAIN."ID_AIS" AS MAIN_ID_AIS,
+     EVAL."NAME" AS EVAL_NAME,
+     MIL."NAME" AS MIL_NAME,
+     ST."NAME" AS ST_NAME,
+     ND."NAME" AS ND_NAME,
+     FS."NAME" AS FS_NAME,
+     CMP."SHORT_NAME" AS CMP_SHORT_NAME
+FROM
+     CONTRACT MAIN LEFT OUTER JOIN "CONTRACT" CONTRACT ON MAIN."PARENT_ID" = CONTRACT."CONTRACT_ID"
+     LEFT OUTER JOIN  DEPART ON MAIN."DEPART_ID" = DEPART."DEPART_ID"
+     LEFT OUTER JOIN ORGANIZATION ORGANIZATION_EXEC ON MAIN."ORG_EXECUTOR_ID" = ORGANIZATION_EXEC."ORGANIZATION_ID"
+     LEFT OUTER JOIN ORGANIZATION  ORGANIZATION_CUSTOMER ON MAIN."CUSTOMER_ID" = ORGANIZATION_CUSTOMER."ORGANIZATION_ID"
+     LEFT OUTER JOIN  POST_WORKER ON MAIN."POST_WORKER_ID" = POST_WORKER."POST_WORKER_ID"
+     LEFT OUTER JOIN  CONTRACT_SUMM ON MAIN."CONTRACT_ID" = CONTRACT_SUMM."CONTRACT_ID"
+     LEFT OUTER JOIN  WORKER ON POST_WORKER."WORKER_ID" = WORKER."WORKER_ID"
+     LEFT OUTER JOIN  EVAL_OF_GETTING EVAL ON MAIN."EVAL_OF_GETTING_ID" = EVAL."EVAL_OF_GETTING_ID"
+     LEFT OUTER JOIN  MILITARY_REPR MIL ON MAIN."MILITARY_REPR_ID" = MIL."MILITARY_REPR_ID"
+     LEFT OUTER JOIN  CONTRACT_STAT ST ON MAIN."CONTRACT_STAT_ID" = ST."CONTRACT_STAT_ID"
+     LEFT OUTER JOIN  NDS ND ON MAIN."NDS_ID" = ND."NDS_ID"
+     LEFT OUTER JOIN  FUNDING_SOURCE FS ON MAIN."FUNDING_SOURCE_ID" = FS."FUNDING_SOURCE_ID"
+     LEFT OUTER JOIN  COMPANY CMP ON MAIN."COMPANY_ID" = CMP."COMPANY_ID"
+WHERE
+     MAIN.PARENT_ID IS NOT NULL
+     AND MAIN.PARENT_ID = $P{contractIdSub}]]>
+		</queryString>
+		<field name="MAIN_CONTRACT_ID" class="java.lang.Integer"/>
+		<field name="MAIN_PARENT_ID" class="java.lang.Integer"/>
+		<field name="MAIN_CONTRACT_NUMB" class="java.lang.String"/>
+		<field name="MAIN_CONTRACT_DATE" class="java.sql.Timestamp"/>
+		<field name="MAIN_CIPHER" class="java.lang.String"/>
+		<field name="MAIN_THEME" class="java.lang.String"/>
+		<field name="MAIN_ORG_EXECUTOR_ID" class="java.lang.Integer"/>
+		<field name="ORGANIZATION_EXEC_SHORT_NAME" class="java.lang.String"/>
+		<field name="MAIN_CUSTOMER_ID" class="java.lang.Integer"/>
+		<field name="ORGANIZATION_CUSTOMER_SHORT_NAME" class="java.lang.String"/>
+		<field name="MAIN_DEPART_ID" class="java.lang.Integer"/>
+		<field name="DEPART_NAME" class="java.lang.String"/>
+		<field name="MAIN_CONTRACT_DATE_FROM" class="java.sql.Timestamp"/>
+		<field name="MAIN_END_DATE_FROM" class="java.sql.Timestamp"/>
+		<field name="CONTRACT_SUMM_COST_NDS_FROM" class="java.math.BigDecimal"/>
+		<field name="MAIN_EVAL_OF_GETTING_ID" class="java.lang.Integer"/>
+		<field name="MAIN_BEG_DATE" class="java.sql.Timestamp"/>
+		<field name="MAIN_END_DATE" class="java.sql.Timestamp"/>
+		<field name="MAIN_MILITARY_REPR_ID" class="java.lang.Integer"/>
+		<field name="CONTRACT_SUMM_COST_NDS" class="java.math.BigDecimal"/>
+		<field name="CONTRACT_SUMM_COST" class="java.math.BigDecimal"/>
+		<field name="MAIN_USER_ID" class="java.lang.Integer"/>
+		<field name="MAIN_DATE_CORR" class="java.sql.Timestamp"/>
+		<field name="CONTRACT_CONTRACT_DATE_TO" class="java.sql.Timestamp"/>
+		<field name="MAIN_END_DATE_TO" class="java.sql.Timestamp"/>
+		<field name="CONTRACT_SUMM_COST_NDS_TO" class="java.math.BigDecimal"/>
+		<field name="MAIN_CONTRACT_STAT_ID" class="java.lang.Integer"/>
+		<field name="MAIN_NDS_ID" class="java.lang.Integer"/>
+		<field name="MAIN_FUNDING_SOURCE_ID" class="java.lang.Integer"/>
+		<field name="MAIN_COMPANY_ID" class="java.lang.Integer"/>
+		<field name="MAIN_POST_WORKER_ID" class="java.lang.Integer"/>
+		<field name="WORKER_NAME" class="java.lang.String"/>
+		<field name="MAIN_SUBJECT" class="java.lang.String"/>
+		<field name="MAIN_G_C" class="java.lang.String"/>
+		<field name="MAIN_STORAGE_PLACE" class="java.lang.String"/>
+		<field name="MAIN_COMMENT" class="java.lang.String"/>
+		<field name="MAIN_ID_AIS" class="java.lang.String"/>
+		<field name="EVAL_NAME" class="java.lang.String"/>
+		<field name="MIL_NAME" class="java.lang.String"/>
+		<field name="ST_NAME" class="java.lang.String"/>
+		<field name="ND_NAME" class="java.lang.String"/>
+		<field name="FS_NAME" class="java.lang.String"/>
+		<field name="CMP_SHORT_NAME" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="searchers" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="contractId" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     CONTRACT."CONTRACT_NUMB" AS CONTRACT_CONTRACT_NUMB,
+     CONTRACT."CONTRACT_DATE" AS CONTRACT_CONTRACT_DATE
+FROM
+     "CONTRACT" CONTRACT
+WHERE
+     CONTRACT.CONTRACT_ID = $P{contractId}]]>
+	</queryString>
+	<field name="CONTRACT_CONTRACT_NUMB" class="java.lang.String"/>
+	<field name="CONTRACT_CONTRACT_DATE" class="java.sql.Timestamp"/>
+	<variable name="WHERE_LIST" class="java.lang.String">
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="27" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="395" y="0" width="82" height="20" uuid="f7d0e291-ff17-4c73-af0a-074190da4460"/>
+				<textElement>
+					<font fontName="DejaVu Serif" size="12" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CONTRACT_CONTRACT_NUMB}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="205" y="0" width="190" height="16" uuid="28a2d7fd-ca33-4d95-8198-d22579f76e77"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Доп.согдашения договора]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="0" width="33" height="16" uuid="51fd94c7-e1c3-4383-ba1d-edc4b12b9420"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[ОТ]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy" isBlankWhenNull="true">
+				<reportElement x="510" y="0" width="100" height="20" uuid="1064f3a7-2e76-4da3-b087-f6d0e9d51d8e"/>
+				<textElement>
+					<font fontName="DejaVu Serif" size="12" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CONTRACT_CONTRACT_DATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="84" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 3" style="table 3" x="-17" y="0" width="839" height="75" uuid="8b17c267-5608-4fa0-8073-f68bc113210c"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset" uuid="4df744ff-3f2d-4ef9-9a1c-8d16869a6f51">
+						<datasetParameter name="searchers">
+							<datasetParameterExpression><![CDATA[$P{searchers}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="contractIdSub">
+							<datasetParameterExpression><![CDATA[$P{contractId}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="33" uuid="b60c0a46-e6ca-401e-a134-705c6f64353d">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="33" height="44" isPrintWhenDetailOverflows="true" uuid="5204ce60-1262-4a1f-8bf9-ed6f834c6cdb"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Код]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="33" height="30" uuid="ec78f386-bbb3-4732-b474-e5cfe327b0b5"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_CONTRACT_ID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="39" uuid="6f63456f-8807-4242-9af6-c94d107a9719">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="39" height="44" isPrintWhenDetailOverflows="true" uuid="78dbc682-3065-40ff-905d-d390640f28fb"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Номер доп. соглашения]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="39" height="30" uuid="dca12417-bb00-4e0a-8b87-ef45daddb8fa"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_CONTRACT_NUMB}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="48" uuid="80b4b4e1-50d6-4ed2-be5d-62b62aa2ba7b">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="48" height="44" isPrintWhenDetailOverflows="true" uuid="ef2eb115-3a9b-4f25-b694-dc84780e17be"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Дата доп. соглашения]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="dd.MM.yyyy" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="48" height="30" uuid="aebc9a9b-422e-4ed7-8aac-d991287dcd1c"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_CONTRACT_DATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="45" uuid="e53f18fb-f7c1-4bd8-80be-e2044dbe35ee">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="45" height="44" isPrintWhenDetailOverflows="true" uuid="3df6b4dc-6c38-4d41-8bac-da24060cd6b6"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Шифр]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="45" height="30" uuid="c29c536f-f59a-49ed-8dfb-d770f006d50c"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_CIPHER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="49" uuid="28f864b2-b665-4c72-a3b9-c241db5201ff">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="49" height="44" isPrintWhenDetailOverflows="true" uuid="0495eb13-401e-46a1-be66-d5a166b3e6f6"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Тема]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="49" height="30" uuid="8f695a6e-1923-4cbb-aa58-4e3c4d4609fc"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_THEME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="54" uuid="f9051cfe-41d3-4dbb-a4cd-7c4ea1f62d93">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="54" height="44" isPrintWhenDetailOverflows="true" uuid="11e4bb8d-cbcf-435a-b18e-d5aec14a46b4"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Исполни-тель]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="54" height="30" uuid="a5f8895b-897a-41c3-8a71-648b9821c923"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ORGANIZATION_EXEC_SHORT_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="44" uuid="50b89599-4853-4ac7-af5c-3dd82b4d9762">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="44" height="44" isPrintWhenDetailOverflows="true" uuid="8eb73d78-09aa-46ee-bcfd-0632c5af6732"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Заказ-чик]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="44" height="30" uuid="52225281-d318-4612-9cc4-a4c216cfc336"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ORGANIZATION_CUSTOMER_SHORT_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="52" uuid="e123ebcf-3259-4dca-94ee-24efe3094722">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="52" height="44" isPrintWhenDetailOverflows="true" uuid="9f1df70a-2d4b-462f-88ad-0caaaf8fe064"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Головное подразделение]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="52" height="30" uuid="b8a9d374-8cac-4614-99fa-98f4769f650d"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{DEPART_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="36" uuid="1efd9df2-606d-4f89-9748-cfc47c13da11">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="36" height="44" isPrintWhenDetailOverflows="true" uuid="6fb258ed-aa59-4cba-92ee-2ae8b5d77764"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Вероятность (%)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="36" height="30" uuid="5a94a2dc-7141-45cc-b703-356ee0e8d97a"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{EVAL_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="89f0b00f-8f71-407d-bd40-340145291450">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="44" isPrintWhenDetailOverflows="true" uuid="089cc610-fecd-4485-9803-153cb059e26e"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Срок выпол-нения]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="dd.MM.yyyy" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="60" height="30" uuid="ed3f16f9-1e31-431f-ad37-30c19da736ef"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_END_DATE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="58" uuid="1db55309-9305-4039-85a6-3f80784ce9a7">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="58" height="44" isPrintWhenDetailOverflows="true" uuid="98f40ff7-793c-4b46-b86c-9f3b561c30e5"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Приемка]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="58" height="30" uuid="d2a9b02b-908f-4f59-ad10-d2c78f9446b2"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MIL_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="58" uuid="39beb991-6654-4faf-929f-ecb58ce4528f">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="58" height="44" isPrintWhenDetailOverflows="true" uuid="8a0cb66b-d405-4f78-8f85-00b977afa554"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Общая сумма с НДС (руб.)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="58" height="30" uuid="f364cb1d-70cd-4900-beb4-275f07502a07"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CONTRACT_SUMM_COST_NDS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="46" uuid="70fae81c-f8c3-42fc-9c0e-94ec294ca549">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="44" isPrintWhenDetailOverflows="true" uuid="667a2359-2075-4d4b-be5c-a276b3bf1a7a"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Статус]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="46" height="30" uuid="63551aed-9540-4fd6-94a8-6439811be63d"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ST_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="41864afe-27d5-4a60-a57e-67d00965f581">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="44" isPrintWhenDetailOverflows="true" uuid="e5b9ba5d-5969-4bbd-acb1-53b24a3c367e"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[НДС]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="40" height="30" uuid="addb3675-085f-41d1-b988-c9904ec544d0"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ND_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="62" uuid="1848ccac-f5e9-4288-af69-275d8596e0f5">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="62" height="44" isPrintWhenDetailOverflows="true" uuid="12025100-eb3f-4014-bf4b-e98927c44a47"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Источник финансирования]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="62" height="30" uuid="797b9000-f32d-49a8-bf64-dc46f5ced719"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{FS_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="94fb68dd-85a4-4e2a-a86b-b8c3b7c67e1f">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="44" isPrintWhenDetailOverflows="true" uuid="b42d7ccb-852a-424b-8e78-c305b99a5d67"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Предприятие ГПК]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="60" height="30" uuid="f4ce5d5a-d900-4606-8587-25b0de104691"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CMP_SHORT_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="47" uuid="72e67c75-26f5-4485-b792-46e9753f517d">
+						<jr:columnHeader style="table 2_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="47" height="44" isPrintWhenDetailOverflows="true" uuid="550d1a84-782e-41b4-8260-d36994243202"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+								</textElement>
+								<text><![CDATA[Сотрудник ПЭО]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="47" height="30" uuid="0c2127d3-dc41-4bf6-b182-97180ab4c05f"/>
+								<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+								<textElement>
+									<font fontName="DejaVu Sans" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{WORKER_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="702" y="0" width="100" height="20" uuid="99fc179a-9e93-4618-8b6a-d59776063b9d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

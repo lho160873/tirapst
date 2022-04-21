@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- NOTIF_OPENING -->
+    <!-- ************************************************* -->  
+    <bean id="BUILDER_NOTIF_OPENING_VO__NOTIF_OPENING_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="NOTIF_OPENING_ID"/>
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NOTIF_OPENING_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isAutoincrement" value="true"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isKey" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_NOTIF_OPENING_VO__COMPANY_ID_PURE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMPANY_ID_PURE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMPANY_ID"/>
+                        <property name="caption" value="Код предприятия"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
+
+
+    <bean id="BUILDER_NOTIF_OPENING_VO__DATEDOC"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATEDOC"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATEDOC"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="caption" value="Дата извещения"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="BUILDER_NOTIF_OPENING_VO__DATEDOC_FROM"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateFrom" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATEDOC_FROM"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATEDOC"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="caption" value="Дата извещения от"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_NOTIF_OPENING_VO__USER_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="USER_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="USER_ID"/>
+                        <property name="caption" value="Код пользователя"/>
+                        <property name="columnProperty" ref="DCPUser"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_NOTIF_OPENING_VO__DATE_CORR" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_CORR"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_CORR"/>
+                        <property name="caption" value="Дата изменения"/>
+                        <property name="columnProperty" ref="DCPDateTimeCurrent"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_NOTIF_OPENING_VO__DATEDOC_TO"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateTo" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATEDOC_TO"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATEDOC"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="caption" value="Дата извещения до"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_NOTIF_OPENING_VO__COMPANY_SHORT_NAME"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="COMPANY_FOR_USER"/>
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="COMPANY_ID"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="SHORT_NAME"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMPANY_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMPANY_ID"/>
+                        <property name="caption" value="Предприятие ГПК"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value=""/>
+                                <property name="type" value="INTEGER"/>
+                                <property name="widthColumn" value="100"/>
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_NOTIF_OPENING_VO__IS_ACTUAL" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="IS_ACTUAL"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="IS_ACTUAL"/>
+                        <property name="caption" value="Признак действующего"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_No"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_NOTIF_OPENING_VO__NUMDOC"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NUMDOC"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NUMDOC"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="caption" value="Номер извещения"/>
+                        <property name="columnProperty" ref="DCPString30"/>
+                        
+                        
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="NOTIF_OPENING_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+    <property name="columnBuilders">
+        <list>
+            <ref bean="BUILDER_NOTIF_OPENING_VO__NOTIF_OPENING_ID"/>
+            <ref bean="BUILDER_NOTIF_OPENING_VO__NUMDOC"/>
+            <ref bean="BUILDER_NOTIF_OPENING_VO__COMPANY_SHORT_NAME"/>
+            <ref bean="BUILDER_NOTIF_OPENING_VO__IS_ACTUAL"/>
+            <ref bean="BUILDER_NOTIF_OPENING_VO__USER_ID"/>
+            <ref bean="BUILDER_NOTIF_OPENING_VO__DATE_CORR"/>
+            <ref bean="BUILDER_NOTIF_OPENING_VO__DATEDOC"/>
+            <ref bean="BUILDER_NOTIF_OPENING_VO__DATEDOC_FROM"/>
+            <ref bean="BUILDER_NOTIF_OPENING_VO__DATEDOC_TO"/>
+        </list>
+    </property>
+    <property name="tables">
+        <map>
+            <entry key="MAIN" value="NOTIF_OPENING"/>
+        </map>
+    </property>
+    <property name="countRowsInFiltrColumn" value="3"/>
+    <property name="strOrderByStart" value=" MAIN.DATEDOC DESC "/>
+    <property name="strWhere"
+              value="MAIN.COMPANY_ID in (SELECT USER_COMPANY.COMPANY_ID FROM USER_COMPANY WHERE USER_COMPANY.USER_ID = %CURRENTUSERID%)"/>
+    <property name="caption" value="Извещения об открытии заказа"/>
+    <property name="helpManual" value="notif_opening.pdf"/>
+    <property name="queryName" value="NOTIF_OPENING_VO"/>
+    <property name="isSubShow" value="true"/>
+    <property name="subTables">
+        <list>
+            <bean class="pst.arm.client.modules.datagrid.domain.SRelationInfo">
+                <property name="queryName" value="ORDER_D_VO"/>
+                <property name="caption" value="Заказы"/>
+                <property name="relations">
+                    <map>
+                        <entry>
+                            <key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="NOTIF_OPENING_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </key>
+                            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                <property name="columnName" value="NOTIF_OPENING_ID"/>
+                                <property name="tableAlias" value="MAIN"/>
+                            </bean>
+                        </entry>
+                        <entry>
+                            <key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="COMPANY_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </key>
+                            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                <property name="columnName" value="COMPANY_ID"/>
+                                <property name="tableAlias" value="MAIN"/>
+                            </bean>
+                        </entry>
+                    </map>
+                </property>
+            </bean>
+        </list>
+    </property>
+</bean>
+
+    <bean id="NOTIF_OPENING_VO_FOR_ORDER_DS" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__NOTIF_OPENING_ID"/>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__NUMDOC"/>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__COMPANY_SHORT_NAME"/>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__DATEDOC"/>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__IS_ACTUAL"/>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__USER_ID"/>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__DATE_CORR"/>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__COMPANY_ID_PURE"/>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__DATEDOC_FROM"/>
+                <ref bean="BUILDER_NOTIF_OPENING_VO__DATEDOC_TO"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="NOTIF_OPENING"/>
+            </map>
+        </property>
+        <property name="countRowsInFiltrColumn" value="3"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="strOrderByStart" value=" MAIN.DATEDOC DESC "/>
+        <property name="strWhere"
+                  value="MAIN.COMPANY_ID in (SELECT USER_COMPANY.COMPANY_ID FROM USER_COMPANY WHERE USER_COMPANY.USER_ID = %CURRENTUSERID%)"/>
+        <property name="caption" value="Извещения об открытии заказа"/>
+        <property name="queryName" value="NOTIF_OPENING_VO_FOR_ORDER_DS"/>
+    </bean>
+
+</beans>

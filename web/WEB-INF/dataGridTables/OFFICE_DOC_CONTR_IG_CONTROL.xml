@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- OFFICE_DOC_CONTR_IG_CONTROL (Таблица, которая открывается по Контроль производства - Контроль - Количество невыполненных приказов и распоряжений - Невыполненные приказы и распоряжения) -->
+    <!-- ************************************************* -->  
+   
+     <!-- описываем сам "запрос" -->
+    <bean id="OFFICE_DOC_CONTR_IG_CONTROL" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_OFFICE_DOC_CONTR_HLV__WORKER_SHORT_NAME"/>  
+                <ref bean="BUILDER_OFFICE_DOC_CONTR_HLV__DOC_NUMB"/>      
+                <ref bean="BUILDER_OFFICE_DOC_CONTR_VO__OFFICE_DOC_CONTR_ID"/>
+                <ref bean="BUILDER_OFFICE_DOC_CONTR_VO__OFFICE_DOC_ID"/>
+                <ref bean="BUILDER_OFFICE_DOC_CONTR_VO__DOC_LINE"/>
+                <ref bean="BUILDER_OFFICE_DOC_CONTR_HLV__DATE_PLAN"/>
+                <ref bean="BUILDER_OFFICE_DOC_CONTR_VO__POSS_STEP_NAME"/>
+                <ref bean="BUILDER_OFFICE_DOC_CONTR_HLV__OFFICE_DOC_CONTR_RECIPIENT_ID"/>              
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="OFFICE_DOC_CONTR"/>
+                <entry key="OFFICE_DOC" value="OFFICE_DOC"/>
+                <entry key="USER_WORKER" value="USER_WORKER"/>
+                 <entry key="USER_WORKER" value="USER_WORKER"/>
+            </map>
+        </property>
+        <property name="tableJoins">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="USER_WORKER"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="RECIPIENT_ID"/>
+                                <property name="columnNameTableTwo" value="USER_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="OFFICE_DOC"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="OFFICE_DOC_ID"/>
+                                <property name="columnNameTableTwo" value="OFFICE_DOC_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+        <property name="strOrderByStart" value="USER_WORKER.SHORT_NAME, OFFICE_DOC.DOC_NUMB"/>
+        <property name="groupByAll" value="true"/>
+        <property name="countRowsInFiltrColumn" value="3"/>
+        <property name="labelFiltrWidth" value="130"/>
+        <property name="isFiltrShow" value="true"/>
+        <property name="isFilterShowAtStart" value="false"/>
+        <property name="caption" value="Невыполненные приказы и распоряжения"/>
+        <property name="queryName" value="OFFICE_DOC_CONTR_HLV"/>
+        <property name="strWhere" value="MAIN.DATE_FACT is null AND OFFICE_DOC.COMMANDER_ID in (SELECT COMMANDER_ID FROM COMMANDER WHERE USER_ID = %CURRENTUSERID%) AND OFFICE_DOC.DATE_CANCELLED is NULL"/>
+        <property name="subTables">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.SRelationInfo">
+                    <property name="queryName" value="DOC_FILE_IG"/>
+                    <property name="caption" value="Прикрепленные файлы"/>
+                    <property name="passedFieds">
+                        <map>
+                            <entry>
+                                <key>
+                                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                        <property name="columnName" value="DOC_TYPE_ID"/>
+                                        <property name="tableAlias" value="OFFICE_DOC"/>
+                                    </bean>
+                                </key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="DOC_TYPE_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </entry>
+                        </map>
+                    </property>
+                    <property name="relations">
+                        <map>
+                            <entry>
+                                <key>
+                                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                        <property name="columnName" value="OFFICE_DOC_ID"/>
+                                        <property name="tableAlias" value="MAIN"/>
+                                    </bean>
+                                </key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="DOC_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </entry>
+                        </map>
+                    </property>
+                </bean>
+                
+                <bean class="pst.arm.client.modules.datagrid.domain.SRelationInfo">
+                    <property name="queryName" value="OFFICE_DOC_EXEC_IG"/>
+                    <property name="caption" value="Действия по документу"/>
+                    <property name="relations">
+                        <map>
+                            <entry>
+                                <key>
+                                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                        <property name="columnName" value="OFFICE_DOC_CONTR_ID"/>
+                                        <property name="tableAlias" value="MAIN"/>
+                                    </bean>
+                                </key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="OFFICE_DOC_CONTR_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </entry>
+                        </map>
+                    </property>
+                </bean>
+                
+                <bean class="pst.arm.client.modules.datagrid.domain.SRelationInfo">
+                    <property name="queryName" value="OFFICE_DOC_CONTR_COLLAB_IG"/>
+                    <property name="caption" value="Соисполнители"/>
+                    
+                    <property name="passedFieds">
+                        <map>
+                            <entry>
+                                <key>
+                                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                        <property name="columnName" value="OFFICE_DOC_ID"/>
+                                        <property name="tableAlias" value="MAIN"/>
+                                    </bean>
+                                </key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="OFFICE_DOC_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </entry>
+                        </map>        
+                    </property>
+                    
+                    <property name="relations">
+                        <map>
+                            <entry>
+                                <key>
+                                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                        <property name="columnName" value="OFFICE_DOC_CONTR_ID"/>
+                                        <property name="tableAlias" value="MAIN"/>
+                                    </bean>
+                                </key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="PARENT_DOC_CONTR_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </entry>
+                        </map>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
+</beans>

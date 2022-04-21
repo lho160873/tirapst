@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- OC_DEPART_SUM -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_OCP_DEPART_SUM__OCP_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="OCP_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="OCP_ID"/>
+                        <property name="caption" value="Код ОКП"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_OCP_DEPART_SUM__WORK_PLAN_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WORK_PLAN_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WORK_PLAN_ID"/>
+                        <property name="caption" value="Код этапа"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_OCP_DEPART_SUM__DEPART_ID"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="DEPART_STRUCTURE"/>
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="DEPART_ID"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="SHORT_NAME"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DEPART_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DEPART_ID"/>
+                        <property name="caption" value="Ответственное подразделение"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value=""/>
+                                <property name="type" value="INTEGER"/>
+                                <property name="widthColumn" value="100"/>
+                            </bean>
+                        </property>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_OCP_DEPART_SUM__SUM_PLAN_LABOUR1" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="SUM_PLAN_LABOUR1"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SUM_PLAN_LABOUR1"/>
+                        <property name="caption" value="Суммарная трудоемкость, чел/мес."/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative38_2"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_OCP_DEPART_SUM__SUM_PLAN_COST1" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="SUM_PLAN_COST1"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SUM_PLAN_COST1"/>
+                        <property name="caption" value="Суммарный РОТ, руб."/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative38_4_00"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_OCP_DEPART_SUM__SUM_PLAN_COST_NORM1" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="SUM_PLAN_COST_NORM1"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SUM_PLAN_COST_NORM1"/>
+                        <property name="caption" value="Суммарный РОТ по нормативу, руб."/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative38_4_00"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="OCP_DEPART_SUM_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_OCP_DEPART_SUM__OCP_ID"/>
+                <ref bean="BUILDER_OCP_DEPART_SUM__DEPART_ID"/>
+                <ref bean="BUILDER_OCP_DEPART_SUM__SUM_PLAN_LABOUR1"/>
+                <ref bean="BUILDER_OCP_DEPART_SUM__SUM_PLAN_COST1"/>
+                <ref bean="BUILDER_OCP_DEPART_SUM__SUM_PLAN_COST_NORM1"/>
+            </list>
+        </property>
+        <!--<property name="strOrderByStart" value=" SCS.STAGE_NUMBER ASC, MAIN.WORK_NUMBER ASC "/>-->
+        <property name="isFiltrShow" value="false"/>
+        <property name="reportTemplate" value="OCP.DEPART_SUM_IT"/>
+        <property name="reportParams">
+            <map>
+                <entry key="ocpId" value="MAIN:OCP_ID"/>
+            </map>
+        </property>
+        <property name="reportExportFormat" value="pdf"/>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="[WorkPlanSummary](NULL,NULL)"/>
+            </map>
+        </property>
+        <property name="caption" value="Итоги"/>
+        <property name="queryName" value="OCP_DEPART_SUM_VO"/>
+    </bean>
+</beans>

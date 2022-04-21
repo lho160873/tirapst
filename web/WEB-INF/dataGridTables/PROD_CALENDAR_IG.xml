@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- PROD_CALENDAR_IG -->
+    <!-- ************************************************* -->
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__PROD_CALENDAR_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="PROD_CALENDAR_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="PROD_CALENDAR_ID"/>
+                        <property name="caption" value="PROD_CALENDAR_ID"/>
+                        <property name="isAutoincrement" value="true"/>
+                        <property name="isKey" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__WEEK" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATEPART"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATEPART(wk, PROD_DAY)"/>
+                        <property name="sqlForColumn" value="DATEPART(wk, PROD_DAY)"/>
+                        <property name="caption" value="Неделя"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__PROD_DAY" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="PROD_DAY"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="PROD_DAY"/>
+                        <property name="caption" value="Дата"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="columnProperty" ref="DCPDateShort"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__PROD_DAY_FROM" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateFrom"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="PROD_DAY_FROM"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="PROD_DAY"/>
+                        <property name="caption" value="Дата от"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isHidden" value="true"/>
+                        <property name="columnProperty" ref="DCPDateShortCurrentYearStart"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__WORKING_DAYS_FILTER" class="pst.arm.client.modules.datagrid.domain.expansion.DColumnBuilderComboBoxForWorkingDays"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WORKING_DAYS_FILTER"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DAY_TYPE"/>
+                        <property name="caption" value="Не показывать рабочие дни"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_No"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isHidden" value="true"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__PROD_DAY_TO" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateTo"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="PROD_DAY_TO"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="PROD_DAY"/>
+                        <property name="caption" value="Дата до"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isHidden" value="true"/>
+                        <property name="columnProperty" ref="DCPDateShortCurrentYearEnd"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__NO_WORKING_DAYS_FILTER" class="pst.arm.client.modules.datagrid.domain.expansion.DColumnBuilderComboBoxForNoWorkingDays"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NO_WORKING_DAYS_FILTER"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DAY_TYPE"/>
+                        <property name="caption" value="Не показывать выходные дни"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_No"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isHidden" value="true"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__WD_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="WD_NAME"/>
+                            <property name="tableAlias" value="WEEKS_DAY"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="WD_NAME"/>
+                        <property name="caption" value="День недели"/>
+                        <property name="columnProperty" ref="DCPString20"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__DT_NAME"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="DAY_TYPE"/>
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="DAY_TYPE_ID"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="DT_NAME"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DAY_TYPE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DAY_TYPE"/>
+                        <property name="caption" value="Признак дня"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value=""/>
+                                <property name="type" value="INTEGER"/>
+                                <property name="widthColumn" value="100"/>
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_PROD_CALENDAR_IG__COMMENT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMMENT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMMENT"/>
+                        <property name="caption" value="Комментарий"/>
+                        <property name="columnProperty" ref="DCPString200"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isEditable" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="PROD_CALENDAR_IG" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__PROD_CALENDAR_ID"/>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__WEEK"/>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__PROD_DAY"/>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__PROD_DAY_FROM"/>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__WORKING_DAYS_FILTER"/>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__PROD_DAY_TO"/>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__NO_WORKING_DAYS_FILTER"/>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__WD_NAME"/>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__DT_NAME"/>
+                <ref bean="BUILDER_PROD_CALENDAR_IG__COMMENT"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="PROD_CALENDAR"/>
+                <entry key="WEEKS_DAY" value="WEEKS_DAY"/>
+            </map>
+        </property>
+        <property name="caption" value="Производственный календарь"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="isShowReport" value="false"/>     
+        <property name="queryName" value="PROD_CALENDAR_IG"/>
+        <property name="strOrderByStart" value="MAIN.PROD_DAY ASC "/>
+        <property name="tableJoins">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="WEEKS_DAY"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="WEEKS_DAY_ID"/>
+                                <property name="columnNameTableTwo" value="WEEKS_DAY_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
+</beans>

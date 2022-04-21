@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- DOC_TYPE_IG -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_DOC_TYPE_IG__DOC_TYPE_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DOC_TYPE_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DOC_TYPE_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative1"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_DOC_TYPE_IG__COMMENT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMMENT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMMENT"/>
+                        <property name="caption" value="Название типа документа"/>
+                        <property name="columnProperty" ref="DCPString100"/>
+                        <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_DOC_TYPE_IG__TAB_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="TAB_NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="TAB_NAME"/>
+                        <property name="caption" value="Имя таблицы БД"/>
+                        <property name="columnProperty" ref="DCPString30"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DOC_TYPE_IG__ENABLED_FOR_DF" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ENABLED_FOR_DF"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ENABLED_FOR_DF"/>
+                        <property name="caption" value="Признак обработки в ЭДОБ"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_"/> 
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="DOC_TYPE_IG_1" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_DOC_TYPE_IG__DOC_TYPE_ID"/>
+                <ref bean="BUILDER_DOC_TYPE_IG__COMMENT"/>
+                <ref bean="BUILDER_DOC_TYPE_IG__TAB_NAME"/>
+                <ref bean="BUILDER_DOC_TYPE_IG__ENABLED_FOR_DF"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="DOC_TYPE" />
+            </map>
+        </property>
+        <property name="caption" value="Тип документа"/>
+        <property name="queryName" value="DOC_TYPE_IG"/>
+        <property name="strOrderByStart" value="MAIN.DOC_TYPE_ID ASC "/>
+        <property name="isShowReport" value="false"/>
+    </bean>
+    
+     <bean id="DOC_TYPE_IG" parent="DOC_TYPE_IG_1" lazy-init="false">
+        <property name="caption" value="Тип документа"/>
+    </bean>
+  
+</beans>

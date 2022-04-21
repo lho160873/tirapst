@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PlanFactNiokrPlanWorksDop2" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" uuid="aed8718a-217d-424c-add0-3f031089e86f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="DatasetPlanFactNiokr" uuid="d645d578-0c5f-4614-8824-daf4ecccf312">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Passat DB"/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<parameter name="departId" class="java.lang.Integer"/>
+		<parameter name="dateNum" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[
+SELECT
+    DEPART.DEPART_ID,
+SERV_CONTRACT_STAGE.STAGE_NUMBER,
+    ORDER_D.ORDER_NUMBER,
+    PLAN_FACT_NIOKR.END_DATE,
+    SUM(CONVERT(DECIMAL(30,2),PLAN_FACT_NIOKR.PLAN_LABOUR - dbo.SUMM_FACT_LABOUR(PLAN_FACT_NIOKR.WORK_PLAN_ID,$P{dateNum}))) AS SUM_PLAN_LABOUR,
+    SUM(CONVERT(DECIMAL(30,2),PLAN_FACT_NIOKR.PLAN_COST- dbo.SUMM_FACT_COST(PLAN_FACT_NIOKR.WORK_PLAN_ID,$P{dateNum}))) AS SUM_PLAN_COST,
+    SUM(CONVERT(DECIMAL(30,2),(dbo.SUMM_FACT_LABOUR(PLAN_FACT_NIOKR.WORK_PLAN_ID,DATEADD(month, 1, $P{dateNum})) -
+        dbo.SUMM_FACT_LABOUR(PLAN_FACT_NIOKR.WORK_PLAN_ID,$P{dateNum})))) AS SUM_FACT_LABOUR,
+    SUM(CONVERT(DECIMAL(30,2),(dbo.SUMM_FACT_COST(PLAN_FACT_NIOKR.WORK_PLAN_ID,DATEADD(month, 1, $P{dateNum})) -
+	dbo.SUMM_FACT_COST(PLAN_FACT_NIOKR.WORK_PLAN_ID,$P{dateNum})))) AS SUM_FACT_COST
+FROM PLAN_FACT_NIOKR
+    INNER JOIN DEPART ON PLAN_FACT_NIOKR.DEPART_ID = DEPART.DEPART_ID
+    INNER JOIN WORK_PLAN ON PLAN_FACT_NIOKR.WORK_PLAN_ID=WORK_PLAN.WORK_PLAN_ID
+    INNER JOIN SERV_CONTRACT_STAGE ON WORK_PLAN.CONTRACT_STAGE_ID=SERV_CONTRACT_STAGE.CONTRACT_STAGE_ID
+    INNER JOIN OCP ON SERV_CONTRACT_STAGE.OCP_ID=OCP.OCP_ID
+    INNER JOIN ORDER_D ON OCP.ORDER_ID=ORDER_D.ORDER_ID
+WHERE (PLAN_FACT_NIOKR.END_DATE< $P{dateNum} OR PLAN_FACT_NIOKR.END_DATE IS NULL)
+    AND PLAN_FACT_NIOKR.DEPART_ID = $P{departId}
+    AND dbo.SUMM_FACT_LABOUR(PLAN_FACT_NIOKR.WORK_PLAN_ID, $P{dateNum}) < PLAN_FACT_NIOKR.PLAN_LABOUR 
+GROUP BY SERV_CONTRACT_STAGE.STAGE_NUMBER, ORDER_D.ORDER_NUMBER, DEPART.DEPART_ID, PLAN_FACT_NIOKR.END_DATE
+ORDER BY ORDER_D.ORDER_NUMBER]]>
+		</queryString>
+		<field name="DEPART_ID" class="java.lang.Integer"/>
+		<field name="STAGE_NUMBER" class="java.lang.String"/>
+		<field name="ORDER_NUMBER" class="java.lang.String"/>
+		<field name="END_DATE" class="java.sql.Timestamp"/>
+		<field name="SUM_PLAN_LABOUR" class="java.math.BigDecimal"/>
+		<field name="SUM_PLAN_COST" class="java.math.BigDecimal"/>
+		<field name="SUM_FACT_LABOUR" class="java.math.BigDecimal"/>
+		<field name="SUM_FACT_COST" class="java.math.BigDecimal"/>
+		<variable name="S_SUM_PLAN_LABOUR" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{SUM_PLAN_LABOUR}]]></variableExpression>
+		</variable>
+		<variable name="S_SUM_PLAN_COST" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{SUM_PLAN_COST}]]></variableExpression>
+		</variable>
+		<variable name="S_SUM_FACT_LABOUR" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{SUM_FACT_LABOUR}]]></variableExpression>
+		</variable>
+		<variable name="S_SUM_FACT_COST" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{SUM_FACT_COST}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="DatasetPlanFactNiokrSum" whenResourceMissingType="Empty" uuid="1190db2d-02e0-490b-bcb2-3afeb4aa2f99">
+		<parameter name="departId" class="java.lang.String"/>
+		<parameter name="dateNum" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[
+SELECT
+    SUM(CONVERT(DECIMAL(30,2),PLAN_FACT_NIOKR.PLAN_LABOUR - dbo.SUMM_FACT_LABOUR(PLAN_FACT_NIOKR.WORK_PLAN_ID,$P{dateNum}))) AS SUM_SUM_PLAN_LABOUR,
+    SUM(CONVERT(DECIMAL(30,2),PLAN_FACT_NIOKR.PLAN_COST- dbo.SUMM_FACT_COST(PLAN_FACT_NIOKR.WORK_PLAN_ID,$P{dateNum}))) AS SUM_SUM_PLAN_COST,
+    SUM(CONVERT(DECIMAL(30,2),(dbo.SUMM_FACT_LABOUR(PLAN_FACT_NIOKR.WORK_PLAN_ID,DATEADD(month, 1, $P{dateNum})) -
+        dbo.SUMM_FACT_LABOUR(PLAN_FACT_NIOKR.WORK_PLAN_ID,$P{dateNum})))) AS SUM_SUM_FACT_LABOUR,
+    SUM(CONVERT(DECIMAL(30,2),(dbo.SUMM_FACT_COST(PLAN_FACT_NIOKR.WORK_PLAN_ID,DATEADD(month, 1, $P{dateNum})) -
+        dbo.SUMM_FACT_COST(PLAN_FACT_NIOKR.WORK_PLAN_ID,$P{dateNum})))) AS SUM_SUM_FACT_COST
+FROM PLAN_FACT_NIOKR 
+    INNER JOIN DEPART ON PLAN_FACT_NIOKR.DEPART_ID = DEPART.DEPART_ID 
+    INNER JOIN WORK_PLAN ON PLAN_FACT_NIOKR.WORK_PLAN_ID=WORK_PLAN.WORK_PLAN_ID 
+    INNER JOIN SERV_CONTRACT_STAGE ON WORK_PLAN.CONTRACT_STAGE_ID=SERV_CONTRACT_STAGE.CONTRACT_STAGE_ID 
+    INNER JOIN OCP ON SERV_CONTRACT_STAGE.OCP_ID=OCP.OCP_ID 
+    INNER JOIN ORDER_D ON OCP.ORDER_ID=ORDER_D.ORDER_ID 
+WHERE (PLAN_FACT_NIOKR.END_DATE< $P{dateNum} OR PLAN_FACT_NIOKR.END_DATE IS NULL) 
+    AND PLAN_FACT_NIOKR.DEPART_ID = $P{departId} 
+    AND dbo.SUMM_FACT_LABOUR(PLAN_FACT_NIOKR.WORK_PLAN_ID, $P{dateNum}) <  PLAN_FACT_NIOKR.PLAN_LABOUR]]>
+		</queryString>
+		<field name="SUM_SUM_PLAN_LABOUR" class="java.math.BigDecimal"/>
+		<field name="SUM_SUM_PLAN_COST" class="java.math.BigDecimal"/>
+		<field name="SUM_SUM_FACT_LABOUR" class="java.math.BigDecimal"/>
+		<field name="SUM_SUM_FACT_COST" class="java.math.BigDecimal"/>
+	</subDataset>
+	<parameter name="departId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateNum" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[
+SELECT DISTINCT DEPART.DEPART_ID, DEPART.CODE as CODE, DATENAME(mm,$P{dateNum})+' '+ DATENAME(yyyy,$P{dateNum}) as PLAN_NIOKR_MONTH 
+FROM PLAN_FACT_NIOKR 
+    INNER JOIN DEPART ON PLAN_FACT_NIOKR.DEPART_ID = DEPART.DEPART_ID 
+    INNER JOIN PLAN_NIOKR  ON PLAN_NIOKR.DEPART_ID = PLAN_FACT_NIOKR.DEPART_ID 
+WHERE (PLAN_FACT_NIOKR.END_DATE< $P{dateNum} OR PLAN_FACT_NIOKR.END_DATE IS NULL) 
+    AND PLAN_FACT_NIOKR.DEPART_ID= $P{departId} 
+    AND dbo.SUMM_FACT_LABOUR(PLAN_FACT_NIOKR.WORK_PLAN_ID, $P{dateNum}) <  PLAN_FACT_NIOKR.PLAN_LABOUR]]>
+	</queryString>
+	<field name="DEPART_ID" class="java.lang.Integer"/>
+	<field name="CODE" class="java.lang.String"/>
+	<field name="PLAN_NIOKR_MONTH" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="143" y="0" width="155" height="17" uuid="d1d61c62-f6e0-425e-b63e-63cc7d119bc3"/>
+				<textElement>
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[По подразделению]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="298" y="0" width="59" height="17" uuid="201f219f-0fcd-4301-8a91-a5de8763fa62"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CODE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="0" width="112" height="17" uuid="a2a7401e-b4d6-43e4-bab9-c509c40880df"/>
+				<textElement>
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PLAN_NIOKR_MONTH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="0" width="21" height="17" uuid="516ad91c-8b79-44c6-a093-32f0cca99548"/>
+				<textElement>
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[за]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="0" width="306" height="17" uuid="5d809107-b096-438b-b5c5-52ea12a66cd4"/>
+				<textElement>
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[затраты по работам Дополнения 1]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="126" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<componentElement>
+				<reportElement key="table 5" style="table 5" stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="1" width="802" height="125" uuid="abf3bf0a-1fc8-47ba-95f5-9f5d675a2550"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DatasetPlanFactNiokr" uuid="948dd9a8-7574-4029-87ec-95449d5c1832">
+						<datasetParameter name="departId">
+								<datasetParameterExpression><![CDATA[$P{departId}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="dateNum">
+								<datasetParameterExpression><![CDATA[$P{dateNum}]]></datasetParameterExpression>
+							</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="97" uuid="28423ba2-03c5-41b8-b0b1-61e1360fdc74">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="97" height="29" uuid="46f8ed70-8630-48d6-a829-b1ad2b29890b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Номер заказа]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="97" height="30" uuid="2b248e87-223f-4172-a421-4cdc7388c29f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ORDER_NUMBER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="97" uuid="28423ba2-03c5-41b8-b0b1-61e1360fdc74">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="97" height="29" uuid="46f8ed70-8630-48d6-a829-b1ad2b29890b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Номер этапа]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="97" height="30" uuid="2b248e87-223f-4172-a421-4cdc7388c29f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{STAGE_NUMBER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="131" uuid="484be3b0-0254-4efb-9a73-8b6342c7206f">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="131" height="29" uuid="02515881-4dd6-4955-846e-4d9ab95fc137"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Утвержденный план, чел/мес.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="131" height="30" uuid="ba775e3e-ef30-4083-a081-7e9e4b82dcc5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUM_PLAN_LABOUR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="147" uuid="2bf505e3-d539-4e1b-8d11-c9801a708e6b">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="147" height="29" uuid="70528bda-182e-401d-9804-459a7451cbe4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Утвержденный план, руб.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="147" height="30" uuid="573ec43f-6fd6-45ae-85fe-b4d71936ded1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUM_PLAN_COST}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="109" uuid="90eac463-0074-438b-b329-d2d0a5a1fdae">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="109" height="29" uuid="7b276ae0-7997-465f-996b-e4025044e6dd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Фактически выполнено, чел/мес.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="109" height="30" uuid="b2916482-8b93-4db2-8bad-ed3807b9e234"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUM_FACT_LABOUR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="113" uuid="5cb624a2-bcc7-483b-b6a2-d71dc39d013f">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="113" height="29" uuid="af57a37e-17b2-482c-b792-f2cc714c4f25"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Фактически выполнено, руб.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="113" height="30" uuid="e337662a-f748-4b86-ab71-6f72f9a83315"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUM_FACT_COST}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="50">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<componentElement>
+				<reportElement key="table 5" style="table 5" stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="802" height="50" uuid="41d6cb31-6dd5-44e7-97e8-fde649fc1440"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DatasetPlanFactNiokrSum" uuid="b0eabc98-1e69-4598-b4ef-3ff4372e2bbd">
+						<datasetParameter name="departId">
+							<datasetParameterExpression><![CDATA[$P{departId}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="dateNum">
+							<datasetParameterExpression><![CDATA[$P{dateNum}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="97" uuid="4520216e-a361-4dda-a61b-74fab1f2c3bf">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="97" height="29" uuid="0fc83032-29c2-4804-90a1-f3bb97cb260e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Номер заказа]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="97" height="30" uuid="705e8b6e-1b2f-40ab-8254-924cdfc27088"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<text><![CDATA[Итого:]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="97" uuid="4520216e-a361-4dda-a61b-74fab1f2c3bf">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="97" height="29" uuid="0fc83032-29c2-4804-90a1-f3bb97cb260e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Номер этапа]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="97" height="30" uuid="705e8b6e-1b2f-40ab-8254-924cdfc27088"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="131" uuid="70460de7-bfb4-4507-a072-7bc9aa244f91">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="131" height="29" uuid="ec8d58ae-7835-41bd-8af1-8cd6fce7d529"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Утвержденный план, чел/мес.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="131" height="30" uuid="21d8aa74-6836-40e8-99e5-aa2c1fb0c613"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUM_SUM_PLAN_LABOUR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="147" uuid="546c36aa-9a17-4edc-a598-df75d67e8b80">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="147" height="29" uuid="fa553d95-f16b-48be-97b2-b87568d7edc5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Утвержденный план, руб.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="147" height="30" uuid="15e85b3e-1bc1-4d41-adc6-654decf87ab1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUM_SUM_PLAN_COST}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="109" uuid="5cd759de-02cb-45b3-8d39-698837fc6e37">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="109" height="29" uuid="bfc297d6-3647-454c-825b-92123d42e83a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Фактически выполнено, чел/мес.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="109" height="30" uuid="3009e99a-f4bd-4112-aa99-18ab4de40218"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUM_SUM_FACT_LABOUR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="113" uuid="f18d021a-a2d3-4255-8f5d-0e43f83057b3">
+						<jr:columnHeader style="table 5_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="113" height="29" uuid="b974aed5-97e9-4c7c-8eb3-bc5cca952293"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="8"/>
+								</textElement>
+								<text><![CDATA[Фактически выполнено, руб.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 5_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="113" height="30" uuid="c5ebddaf-023b-422c-8cb3-d90ed1f1deee"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUM_SUM_FACT_COST}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="702" y="0" width="100" height="20" uuid="e455e3a6-62a6-417d-beb0-0963a1f6e12f"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

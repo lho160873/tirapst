@@ -1,0 +1,1597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    
+     <bean id="dateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="dd.MM.yyyy" />
+    </bean>
+    
+     <bean id="decFormat" class="java.text.DecimalFormat">
+        <constructor-arg value="" />
+    </bean>
+    
+
+
+    <!-- разные свойства для полей-->    
+    <bean id="DCPUser" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyUserField" lazy-init="false">
+        <property name="type" value ="INTEGER"/>  
+        <property name="allowNegative" value ="FALSE"/>       
+        <property name="widthColumn" value ="100"/>        
+    </bean>
+            
+    
+    
+     <bean id="DCPWorker" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyWorkerName" lazy-init="false">
+        <property name="type" value ="STRING"/>       
+        <property name="widthColumn" value ="100"/>        
+    </bean>
+    
+       
+    <bean id="DCPInteger" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="INTEGER"/>     
+        <property name="widthColumn" value ="100"/>        
+    </bean>
+    
+     <bean id="DCPIntegerNotNegative" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="INTEGER"/>  
+        <property name="allowNegative" value ="FALSE"/>       
+        <property name="widthColumn" value ="100"/>        
+    </bean>
+
+    <bean id="DCPIntegerNotNegativeMax3def1" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="INTEGER"/>
+        <property name="allowNegative" value ="FALSE"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="maxLength" value="3"/>
+    </bean>
+    
+    <bean id="DCPIntegerNotNegative1" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="INTEGER"/>    
+        <property name="widthColumn" value ="100"/> 
+        <property name="allowNegative" value ="FALSE"/>  
+        <property name="strMinValue" value ="1"/>
+    </bean>
+
+    <bean id="DCPIntegerNotNegative12" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="INTEGER"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="allowNegative" value ="FALSE"/>
+        <property name="maxLength" value ="12"/>
+        <property name="minLength" value ="12"/>
+    </bean>
+
+    <bean id="DCPIntegerNotNegative0100" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="INTEGER"/>    
+        <property name="widthColumn" value ="100"/> 
+        <property name="allowNegative" value ="FALSE"/>  
+        <property name="strMinValue" value ="0"/>
+        <property name="strMaxValue" value="100"/>
+    </bean>
+    
+    <bean id="DCPIntegerNotNegative1MinMaxLength3" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="STRING"/>    
+        <property name="widthColumn" value ="100"/> 
+        <property name="allowNegative" value ="FALSE"/>  
+        <property name="strMinValue" value ="1"/>
+        <property name="minLength" value ="3"/>
+        <property name="maxLength" value ="3"/>
+    </bean>    
+
+     <bean id="DCPIntegerDigitsNotNegative4" class="pst.arm.client.modules.datagrid.domain.DColumnProperty4DigitsField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>  
+       <!-- <property name="allowNegative" value ="FALSE"/> -->
+        <property name="minLength" value ="4"/>
+        <property name="maxLength" value ="4"/> 
+        <property name="widthColumn" value ="100"/> 
+       
+    </bean>
+
+    <bean id="DCPLong" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="LONG"/>    
+        <property name="widthColumn" value ="100"/>
+    </bean>
+    
+    <bean id="DCPNumber" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="NUMBER"/>    
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    
+     <bean id="DCPCheckBox" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyCheckBox" lazy-init="false">
+        <property name="type" value ="BOOLEAN"/> 
+         <property name="defaultValue" value="FALSE" />
+        <property name="widthColumn" value ="100"/>               
+    </bean>
+
+    <bean id="DCPCheckBoxTrue" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyCheckBox" lazy-init="false">
+        <property name="type" value="BOOLEAN"/>
+        <property name="defaultValue" value="TRUE" />
+        <property name="widthColumn" value="50"/>
+    </bean>
+
+   <bean id="DCPNumber_0" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="NUMBER"/>    
+        <property name="widthColumn" value ="100"/>  
+         <property name="format" value ="0"/>  
+         <property name="emptyVal" value ="0"/>              
+    </bean>
+    
+    <bean id="DCPNumber_1" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="NUMBER"/>    
+        <property name="widthColumn" value ="100"/>  
+        <property name="format" value ="0.0"/>    
+        <property name="emptyVal" value ="0.0"/>  
+    </bean>
+   
+    <bean id="DCPDecimalNotNegative6_2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>    
+        <property name="widthColumn" value ="100"/> 
+        <property name="allowNegative" value ="FALSE"/> 
+        <property name="format" value ="0.00"/> 
+        <property name="precision" value ="4"/>
+        <property name="scale" value ="2"/>
+    </bean>  
+    
+   
+    
+    <bean id="DCPDecimalProcent" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>    
+        <property name="widthColumn" value ="100"/> 
+        <property name="allowNegative" value ="FALSE"/> 
+        <property name="format" value ="0.00"/> 
+        <property name="precision" value ="4"/>
+        <property name="scale" value ="2"/>
+        <property name="strMaxValue" value ="100"/>
+        <property name="strMinValue" value ="0"/>
+    </bean>   
+    <bean id="DCPDecimalNotNegativeWhithMaxMin4_2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+       <property name="type" value ="DOUBLE"/>    
+       <property name="widthColumn" value ="100"/>    
+       <property name="allowNegative" value ="FALSE"/> 
+       <property name="format" value ="0.00"/>
+       <property name="precision" value ="2"/>
+       <property name="scale" value ="2"/>
+       <property name="strMaxValue" value ="99.99"/>
+        <property name="strMinValue" value ="0"/>
+    </bean>
+     <bean id="DCPDecimalNotNegative4_2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+       <property name="type" value ="DOUBLE"/>    
+       <property name="widthColumn" value ="100"/>    
+       <property name="allowNegative" value ="FALSE"/> 
+       <property name="format" value ="0.00"/>
+       <property name="precision" value ="2"/>
+       <property name="scale" value ="2"/>
+    </bean>
+    <bean id="DCPDecimalNotNegative5_2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+       <property name="type" value ="DOUBLE"/>    
+       <property name="widthColumn" value ="100"/>    
+       <property name="allowNegative" value ="FALSE"/> 
+       <property name="format" value ="0.00"/>
+       <property name="precision" value ="2"/>
+       <property name="scale" value ="2"/>
+    </bean>
+    <bean id="DCPDecimalNotNegative12_2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.00"/>
+        <property name="precision" value="10"/>
+        <property name="scale" value="2"/>
+    </bean>
+
+    <bean id="DCPDecimalNotNegative15_3" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.00"/>
+        <property name="precision" value="12"/>
+        <property name="scale" value="3"/>
+    </bean>
+    
+    <bean id="DCPDecimalNotNegative15_3_" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.000"/>
+        <property name="precision" value="12"/>
+        <property name="scale" value="3"/>
+    </bean>
+
+    <bean id="DCPDecimalNotNegative15_2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.00"/>
+        <property name="precision" value="13"/>
+        <property name="scale" value="2"/>
+    </bean>
+    
+      <bean id="DCPDecimalNotNegative15_1" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.0"/>
+        <property name="precision" value="13"/>
+        <property name="scale" value="2"/>
+    </bean>
+
+    <bean id="DCPDecimalNotNegative12_3" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.000"/>
+        <property name="precision" value="9"/>
+        <property name="scale" value="3"/>
+    </bean>
+    
+     
+
+    <bean id="DCPDecimalNotNegative12_2_maxmin" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.00"/>
+        <property name="precision" value="10"/>
+        <property name="scale" value="2"/>
+        <property name="strMaxValue" value="9999999999.99"/>
+    </bean>
+
+
+    <bean id="DCPDecimalNotNegative12_2_maxmin_ocp" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="62"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.00"/>
+        <property name="precision" value="10"/>
+        <property name="scale" value="2"/>
+        <property name="strMaxValue" value="9999999999.99"/>
+    </bean>
+
+
+    <bean id="DCPDecimalNotNegative12_3_maxmin" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.000"/>
+        <property name="precision" value="9"/>
+        <property name="scale" value="3"/>
+        <property name="strMaxValue" value="999999999.999"/>
+    </bean>
+    
+    <bean id="DCPDecimalNotNegative4_2_maxmin" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.00"/>
+        <property name="precision" value="2"/>
+        <property name="scale" value="2"/>
+        <property name="strMaxValue" value="99.99"/>
+        <property name="strMinValue" value="0.01"/>
+         <property name="defaultValue">
+            <bean factory-bean="decFormat" factory-method="parse">
+                <constructor-arg value="1" />
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="DCPDecimalNotNegative4_2_maxmin0" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="0.00"/>
+        <property name="precision" value="2"/>
+        <property name="scale" value="2"/>
+        <property name="strMaxValue" value="99.99"/>
+        <property name="strMinValue" value="0"/>
+        <property name="defaultValue">
+            <bean factory-bean="decFormat" factory-method="parse">
+                <constructor-arg value="1" />
+            </bean>
+        </property>
+    </bean>
+    <bean id="DCPDecimalNotNegative38_2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>    
+        <property name="widthColumn" value ="100"/> 
+        <property name="allowNegative" value ="FALSE"/> 
+        <property name="format" value ="0.00"/> 
+        <property name="precision" value ="36"/>
+        <property name="scale" value ="2"/>
+    </bean>
+
+    <bean id="DCPDecimalNotNegative38_2_00" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="allowNegative" value ="FALSE"/>
+        <property name="format" value ="#,##0.00"/>
+        <property name="precision" value ="36"/>
+        <property name="scale" value ="2"/>
+    </bean>
+    
+    <bean id="DCPDecimalNotNegative38_3_5" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>    
+        <property name="widthColumn" value ="100"/> 
+        <property name="allowNegative" value ="FALSE"/> 
+        <property name="format" value ="0.000"/> 
+        <property name="precision" value ="36"/>
+        <property name="scale" value ="3"/>
+        <property name="strMaxValue" value="9.999"/>
+    </bean>
+
+   <bean id="DCPDecimalNotNegative38_4" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>    
+        <property name="widthColumn" value ="100"/> 
+        <property name="allowNegative" value ="FALSE"/> 
+        <property name="format" value ="0.0000"/> 
+        <property name="precision" value ="34"/>
+        <property name="scale" value ="4"/>
+    </bean>
+
+    <bean id="DCPDecimalNotNegative38_4_00" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="#,##0.00"/>
+        <property name="precision" value="34"/>
+        <property name="scale" value="4"/>
+    </bean>
+    
+    <bean id="DCPDecimalNotNegative38_4_00_def0" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField"
+          lazy-init="false">
+        <property name="defaultValue">
+            <bean factory-bean="decFormat" factory-method="parse">
+                <constructor-arg value="0" />
+            </bean>
+        </property>
+        <property name="type" value="DOUBLE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="allowNegative" value="FALSE"/>
+        <property name="format" value="#,##0.00"/>
+        <property name="precision" value="36"/>
+        <property name="scale" value="4"/>
+    </bean>
+
+     <bean id="DCPDecimalNotNegative" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>    
+        <property name="widthColumn" value ="100"/>    
+       <property name="maxLength" value ="4"/> 
+       <property name="allowNegative" value ="FALSE"/>        
+    </bean>
+    
+    <bean id="DCPDecimalNotNegativeFormat_1" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>    
+        <property name="widthColumn" value ="100"/>    
+       <property name="allowNegative" value ="FALSE"/> 
+       <property name="format" value ="0.0"/> 
+    </bean>
+
+    <bean id="DCPDecimalNotNegativeFormat_2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="allowNegative" value ="FALSE"/>
+        <property name="format" value ="0.00"/>
+    </bean>
+   
+    
+    
+    <bean id="DCPNumberFieldNotNegative_0001" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberFieldFactor" lazy-init="false">
+        <property name="type" value ="DOUBLE"/>      
+        <property name="typeEditor" value ="INTEGER"/>  
+        <property name="allowNegative" value ="FALSE"/>
+        <property name="maxLength" value ="5"/>        
+        <property name="factor" value ="0.001"/>          
+        <property name="widthColumn" value ="100"/>  
+    </bean>
+
+    <bean id="DCPFile" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyFileField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="200"/>
+    </bean>
+
+    <bean id="DCPString" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>   
+        <property name="widthColumn" value ="200"/>
+    </bean>
+
+    <bean id="DCPString_ocp" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="60"/>
+    </bean>
+
+    <bean id="DCPString1" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="1"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+
+    <bean id="DCPString1Fit" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="1"/>
+        <property name="widthColumn" value ="70"/>            
+    </bean>
+
+    <bean id="DCPString2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="2"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    <bean id="DCPStringMinMaxLength2" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextFieldAlphabetOnly" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="minLength" value ="2"/>
+        <property name="maxLength" value ="2"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    <bean id="DCPString3" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="3"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    <bean id="DCPStringMinMaxLength3" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextFieldAlphabetOnly" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="minLength" value ="3"/>
+        <property name="maxLength" value ="3"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+     <bean id="DCPString4" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="4"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    <bean id="DCPString5" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="5"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+     <bean id="DCPString6" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="6"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+     <bean id="DCPString8" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="8"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+     <bean id="DCPString9" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="9"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+     <bean id="DCPString9CPP" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextFieldNumberOnly" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="9"/>
+        <property name="minLength" value ="9"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+     <bean id="DCPStringINN" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextFieldNumberInn" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="12"/>
+        <property name="minLength" value ="10"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+
+    <bean id="DCPStringINN12" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextFieldNumberInn" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="maxLength" value ="12"/>
+        <property name="minLength" value ="12"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="validator" value="DIGITINN12"/>
+    </bean>
+
+    <bean id="DCPStringINNFILTR" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextFieldNumberOnly" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="12"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    <bean id="DCPString10" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="10"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+
+    <bean id="DCPString10_ocp" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="maxLength" value ="10"/>
+        <property name="widthColumn" value ="60"/>
+    </bean>
+
+    <bean id="DCPString11" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value="STRING"/>
+        <property name="maxLength" value="11"/>
+        <property name="widthColumn" value="100"/>
+    </bean>
+    <bean id="DCPString12" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value="STRING"/>
+        <property name="maxLength" value="12"/>
+        <property name="widthColumn" value="100"/>
+    </bean>
+    <bean id="DCPString15" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="15"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    <bean id="DCPString20" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="20"/>
+        <property name="widthColumn" value = "200"/>            
+    </bean>
+    <bean id="DCPString20-100px" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="maxLength" value ="20"/>
+        <property name="widthColumn" value = "100"/>
+    </bean>
+    <bean id="DCPString22" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value="STRING"/>
+        <property name="maxLength" value="22"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+    <bean id="DCPString22_100" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value="STRING"/>
+        <property name="maxLength" value="22"/>
+        <property name="widthColumn" value="100"/>
+    </bean>
+    <bean id="DCPString25" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="25"/>
+        <property name="widthColumn" value = "200"/>            
+    </bean>
+    <bean id="DCPString30" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="30"/>
+        <property name="widthColumn" value ="200"/>         
+    </bean>
+    <bean id="DCPString30_100" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="30"/>
+        <property name="widthColumn" value ="100"/>         
+    </bean>
+    <bean id="DCPString30_150" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="maxLength" value ="30"/>
+        <property name="widthColumn" value ="150"/>
+    </bean>
+     <bean id="DCPString32" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="32"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    <bean id="DCPString35" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="35"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+
+    <bean id="DCPString63" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="maxLength" value ="63"/>
+        <property name="widthColumn" value ="200"/>
+    </bean>
+    <bean id="DCPString40" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="40"/>
+        <property name="widthColumn" value ="200"/>
+    </bean>
+    <bean id="DCPString40_80" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="40"/>
+        <property name="widthColumn" value ="80"/>
+    </bean>
+    <bean id="DCPString40_100" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="40"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+   <bean id="DCPString50" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="50"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+     <bean id="DCPString50_100" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="50"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    <bean id="DCPString60" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="60"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    <bean id="DCPString64" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="64"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    <bean id="DCPString70" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="70"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+     <bean id="DCPString80" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="80"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    <bean id="DCPString80_100" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="80"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+     <bean id="DCPString100" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="100"/>
+        <property name="widthColumn" value ="200"/>
+    </bean>
+
+    <bean id="DCPString100DOC_LINE" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="maxLength" value ="100"/>
+        <property name="widthColumn" value ="200"/>
+        <property name="defaultValue" value="Все пункты"/>
+    </bean>
+
+    <bean id="DCPString100_100" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="100"/>
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+     <bean id="DCPString120" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="120"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+     <bean id="DCPString150" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="150"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    <bean id="DCPString150_150" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="150"/>
+        <property name="widthColumn" value ="150"/>            
+    </bean>
+    <bean id="DCPString300_550" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="300"/>
+        <property name="widthColumn" value ="550"/>            
+    </bean>
+    
+    <bean id="DCPString300_850" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="300"/>
+        <property name="widthColumn" value ="850"/>
+    </bean>
+
+    <bean id="DCPString200" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value="STRING"/>
+        <property name="maxLength" value="200"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+
+    <bean id="DCPString300" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="maxLength" value ="300"/>
+        <property name="widthColumn" value ="200"/>
+    </bean>
+
+    <bean id="DCPString254" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="254"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+
+    <bean id="DCPString255" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value="STRING"/>
+        <property name="maxLength" value="255"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+
+    <bean id="DCPString255-150px" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value="STRING"/>
+        <property name="maxLength" value="255"/>
+        <property name="widthColumn" value="100"/>
+    </bean>
+
+    <bean id="DCPString1000" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextField" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value="STRING"/>
+        <property name="maxLength" value="1000"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+    <bean id="DCPTextArea200" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="200"/>
+        <property name="widthColumn" value ="200"/>
+    </bean>
+
+    <bean id="DCPTextArea200NotFirstEmpty" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="maxLength" value ="200"/>
+        <property name="widthColumn" value ="200"/>
+        <property name="isNotFirstEmpty" value="true"/>
+    </bean>
+
+    <bean id="DCPTextArea255" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="255"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    <bean id="DCPTextArea300" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="maxLength" value ="300"/>
+        <property name="widthColumn" value ="200"/>
+    </bean>
+    <bean id="DCPTextArea500" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="500"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    <bean id="DCPTextArea1000" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="1000"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    
+     <bean id="DCPTextArea1000_h150" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="1000"/>
+        <property name="widthColumn" value ="300"/>    
+        <property name="fieldHeight" value ="150"/>                    
+    </bean>
+    
+    
+     <bean id="DCPTextArea1024" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="1024"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    <bean id="DCPTextArea2000" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="2000"/>
+        <property name="widthColumn" value ="200"/>            
+    </bean>
+    <bean id="DCPTextAreaMax" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="2147483647"/>
+        <property name="widthColumn" value ="400"/>            
+    </bean>
+    <bean id="DCPTextAreaMaxBig" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextAreaBig" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+        <property name="maxLength" value ="2147483647"/>
+        <property name="widthColumn" value ="400"/>            
+    </bean>
+    
+     <bean id="DCPDateTimeStr" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateStr" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy HH:mm"/> 
+        <property name="type" value ="STRING"/>    
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    
+    <bean id="DCPDateStr" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateStr" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/> 
+        <property name="type" value ="STRING"/>    
+        <property name="widthColumn" value ="70"/>            
+    </bean>
+    
+    <bean id="DCPDateStrDayMonth" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateStr" lazy-init="false">
+        <property name="format" value="dd.MM"/> 
+        <property name="type" value ="STRING"/>    
+        <property name="widthColumn" value ="70"/>            
+    </bean>
+    
+     <bean id="DCPDateStrEmptyNull" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateStr" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="STRING"/>
+        <property name="isNullWhenEmptySearch" value="true"/>
+        <property name="widthColumn" value="80"/>
+    </bean>
+    
+    <bean id="DCPDateCurrent" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyCurrentTimeWhenAdd" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/> 
+        <property name="type" value ="DATE"/>    
+        <property name="widthColumn" value ="70"/>            
+    </bean>
+    
+   <bean id="DCPDateCurrentTime" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyCurrentTimeWhenAdd" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy HH:mm"/> 
+        <property name="type" value ="DATE"/>    
+        <property name="widthColumn" value ="100"/>            
+    </bean>
+    
+
+    <bean id="DCPDateShort" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateField" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+    </bean>
+
+    <bean id="DCPDateShort_ocp" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateField" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="70"/>
+    </bean>
+
+    <bean id="DCPDateShortCurrentYearStart" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateFieldCurrentYearStart" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="defaultValueForFiltr">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="31.01.2010" />
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="DCPDateShortNextMonthStart" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateFieldNextMonthStart" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="defaultValueForFiltr">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="31.01.2010" />
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="DCPDateShortCurrentMonthStart" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateFieldCurrentMonthStart" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="defaultValueForFiltr">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="31.01.2010" />
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="DCPDateShortCurrentDay" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateFieldCurrentDay" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="defaultValueForFiltr">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="31.01.2010" />
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="DCPDateShortCurrentDayLastYear" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateFieldCurrentDayLastYear" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="defaultValueForFiltr">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="31.01.2010" />
+            </bean>
+        </property>
+    </bean>
+    
+    
+
+    <bean id="DCPDateShortCurrentYearEnd" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateFieldCurrentYearEnd" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="defaultValueForFiltr">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="31.01.2010" />
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="DCPDateShortNextMonthEnd" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateFieldNextMonthEnd" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="defaultValueForFiltr">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="31.01.2010" />
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="DCPDateShortCurrentMonthEnd" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateFieldCurrentMonthEnd" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+        <property name="defaultValueForFiltr">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="31.01.2010" />
+            </bean>
+        </property>
+    </bean>
+    
+     <bean id="DCPDateStatus" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateStatus" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value="100"/>
+    </bean>
+
+    <bean id="DCPDateShortEmptyNull" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateField" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="isNullWhenEmptySearch" value="true"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+
+    <bean id="DCPDateShortMonthYear" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyMonthYearField" lazy-init="false">
+        <property name="format" value="MM.yyyy"/>
+        <property name="type" value="DATE"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+
+    <bean id="DCPDateShortMonthPickerSQLFormat" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyMonthYearField" lazy-init="false">
+        <property name="format" value="yyyy-MM-dd"/>
+        <property name="type" value="DATE"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+    
+    <bean id="DCPDateMonth" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateField" lazy-init="false">
+        <property name="format" value="MM.yyyy"/> 
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="200"/>        
+    </bean>
+    
+    <bean id="DCPDateTime" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateField" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy HH:mm"/> 
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+    
+    <bean id="DCPDateTimeShortYear" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateField" lazy-init="false">
+        <property name="format" value="dd.MM.yy HH:mm"/> 
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+    </bean>
+    
+    <bean id="DCPDateShortYear" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateField" lazy-init="false">
+        <property name="format" value="dd.MM.yy"/> 
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="80"/>
+    </bean>
+    
+    <bean id="DCPDatePlan" class="pst.arm.client.modules.datagrid.domain.expansion.DColumnPropertyDatePlan" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/> 
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="100"/>
+    </bean>
+
+    <bean id="DCPDateTimeEmptyNull" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateField" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy HH:mm"/>
+        <property name="type" value="DATE"/>
+        <property name="isNullWhenEmptySearch" value="true"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+
+    <bean id="DCPDateTimeCurrent" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyCurrentTimeWhenEdit" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy HH:mm"/>
+        <property name="type" value="DATE"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+    
+    <bean id="DCPDateTimeCurrent_120" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyCurrentTimeWhenEdit" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy HH:mm"/>
+        <property name="type" value="DATE"/>
+        <property name="widthColumn" value="120"/>
+    </bean>
+
+    <bean id="DCPDateTimeCurrentShort" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyCurrentTimeWhenEdit" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value="DATE"/>
+        <property name="widthColumn" value="200"/>
+    </bean>
+
+    <bean id="DCPEMail" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextFieldEMail" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>    
+    </bean>
+
+    
+    
+    <!-- ************************************************* -->  
+    <!-- DColumnPropertyComboBo -->
+    <!-- ************************************************* -->   
+
+    <bean id="DCPComboBoxDB" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxString" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>  
+        <property name="widthColumn" value ="200"/>
+    </bean>
+    
+    <bean id="DCPComboBoxDBInteger" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>   
+        <property name="isNewVal" value="FALSE"/>
+        <property name="widthColumn" value ="200"/>
+    </bean>
+    
+  
+     <bean id="DCPComboBox_PERMANENT" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="200"/>
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="одноразовый"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="многороазовый"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+   
+    <bean id="DCPComboBox_TAKESIGN" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="200"/>
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="не требуется"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="требуется"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+    
+     <bean id="DCPComboBox_SIGN" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="200"/>
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="входящее"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="исходящее"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+    
+    <bean id="DCPComboBox_GENDER" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="200"/>
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="мужской"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="женский"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+    
+    <bean id="DCPComboBoxYesNo_Yes" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="100"/>
+        <property name="defaultValue" value="1" />
+        <property name="defaultValueForFiltr" value="1" />
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="нет"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="да"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+
+    <bean id="DCPComboBoxYesNo" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxNullNotNull" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="INTEGER"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="isNewVal" value="FALSE"/>
+        <property name="defaultValueForFiltr" value="-1"/>
+        <property name="list">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="0"/>
+                    <property name="val" value="нет"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="1"/>
+                    <property name="val" value="да"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="DCPComboBoxYesNo_text" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxString" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="isNewVal" value="FALSE"/>
+        <property name="list">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="нет"/>
+                    <property name="val" value="нет"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="да"/>
+                    <property name="val" value="да"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+      
+    <bean id="DCPComboBox_V_WORK_PLAN_AUDIT_TYPE_AUDIT" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxString" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="150"/>
+        <property name="defaultValue" value="U" />
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="U"/>
+                    <property name="val" value="Отредактировано"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="D"/>
+                    <property name="val" value="Удалено"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+
+    <bean id="DCPComboBox_DEPART_EXECUTOR_FACT_AUDIT_TYPE_ROW_AUDIT" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxString" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="defaultValue" value="I" />
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="I"/>
+                    <property name="val" value="стало"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="D"/>
+                    <property name="val" value="было"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+
+    <bean id="DCPComboBox_APP_PRODUCTION_AUDIT_TYPE_ROW_AUDIT" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxString" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="60"/>
+        <property name="defaultValue" value="I" />
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="I"/>
+                    <property name="val" value="Стало"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="D"/>
+                    <property name="val" value="Было"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+
+    <bean id="DCPComboBox_APP_PRODUCTION_AUDIT_TYPE_AUDIT" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxString" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="80"/>
+        <property name="defaultValue" value="I" />
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="I"/>
+                    <property name="val" value="Добавлено"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="D"/>
+                    <property name="val" value="Удалено"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="U"/>
+                    <property name="val" value="Обновлено"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+
+    <bean id="DCPComboBoxYesNo_" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="INTEGER"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="defaultValue" value="1" />
+        <property name="isNewVal" value="FALSE"/>
+        <property name="list">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="0"/>
+                    <property name="val" value="нет"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="1"/>
+                    <property name="val" value="да"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+      
+    <bean id="DCPComboBoxYesNo_No" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="100"/>
+        <property name="defaultValue" value="0" />
+        <!--<property name="defaultValueForFiltr" value="0" />-->
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="нет"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="да"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+    
+    <bean id="DCPComboBoxYesNo_No_WITH_FILTR" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="100"/>
+        <property name="defaultValue" value="0" />
+        <property name="defaultValueForFiltr" value="0" />
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="нет"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="да"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+    
+    <bean id="DCPComboBoxYesNo_Yes_WITH_FILTR" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="100"/>
+        <property name="defaultValue" value="1" />
+        <property name="defaultValueForFiltr" value="1" />
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="нет"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="да"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+
+
+    <bean id="DCPComboBoxYesNo_No_OFFICE_DOC__FILE_FILTER" class="pst.arm.client.modules.datagrid.domain.expansion.DColumnPropertyComboBoxIntegerForOfficeDocFileFilter" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="INTEGER"/>
+        <property name="widthColumn" value ="100"/>
+        <property name="defaultValue" value="0" />
+        <property name="isNewVal" value="FALSE"/>
+        <property name="list">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="0"/>
+                    <property name="val" value="нет"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="1"/>
+                    <property name="val" value="да"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="DCPComboBoxYesNo_ENABLED" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="100"/>
+        <property name="defaultValue" value="1" />
+        <property name="defaultValueForFiltr" value="1" />
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="нет"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="да"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+    
+    <bean id="DCPComboBoxYesNo_PWD" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="INTEGER"/>  
+        <property name="widthColumn" value ="100"/>
+        <property name="defaultValue" value="0" />
+        <property name="isNewVal" value="FALSE"/>
+         <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="0"/> 
+                    <property name="val" value="нет"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                    <property name="key" value="1"/> 
+                    <property name="val" value="да"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+    
+    <bean id="DCPComboBox_FacilitiesType" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxString" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>  
+        <property name="widthColumn" value ="200"/>
+        <property name="isNewVal" value="FALSE"/>
+        <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">  
+                    <property name="key" value="module"/> 
+                    <property name="val" value="module"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">  
+                    <property name="key" value="module_operation"/> 
+                    <property name="val" value="module_operation"/>
+               </bean>
+            </list>           
+        </property>
+    </bean>
+
+    <bean id="DCPComboBox12Months" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxMonths" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="200"/>
+        <property name="isNewVal" value="FALSE"/>
+    </bean>
+
+
+
+    <bean id="DCPComboBox_FacilitiesName" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxString" lazy-init="false">
+        <property name="format" value=""/> 
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="200"/>
+        <property name="isNewVal" value="TRUE"/>
+        <property name="list">
+           <list>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">  
+                    <property name="key" value="access"/> 
+                    <property name="val" value="access"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">  
+                    <property name="key" value="dictEditFull"/> 
+                    <property name="val" value="dictEditFull"/>
+               </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValString">  
+                    <property name="key" value="dictAdd"/> 
+                    <property name="val" value="dictAdd"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">  
+                    <property name="key" value="dictDelete"/> 
+                    <property name="val" value="dictDelete"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">  
+                    <property name="key" value="dictEdit"/> 
+                    <property name="val" value="dictEdit"/>
+               </bean>
+               <bean class="pst.arm.client.modules.datagrid.domain.DListValString">  
+                    <property name="key" value="dictView"/> 
+                    <property name="val" value="dictView"/>
+               </bean>
+               
+
+            </list>           
+        </property>
+    </bean>
+        
+    <bean id="DCPDateWithDefault" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyDateField" lazy-init="false">
+        <property name="format" value="dd.MM.yyyy"/>
+        <property name="type" value ="DATE"/>
+        <property name="widthColumn" value="200"/>
+
+        <property name="defaultValue">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="31.01.2010" />
+            </bean>
+        </property>
+    </bean>
+
+   <bean id="DCPComboBoxUrgency" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxIntegerQtip" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="INTEGER"/>
+        <property name="widthColumn" value ="45"/>
+        <property name="defaultValue" value="0" />
+        <property name="isNewVal" value="FALSE"/>
+        <property name="list">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="-1"/>
+                    <property name="val" value="Не срочно"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="0"/>
+                    <property name="val" value="Обычная срочность"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="1"/>
+                    <property name="val" value="Срочно"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">
+                    <property name="key" value="2"/>
+                    <property name="val" value="Очень срочно"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="DCPComboBoxStatus" class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxAndCheckList" lazy-init="false">
+        <property name="format" value=""/>
+        <property name="type" value ="STRING"/>
+        <property name="widthColumn" value ="100"/>
+        <!--<property name="defaultValueForFiltr" value="0" />-->
+        <property name="isNewVal" value="FALSE"/>
+        <!--<property name="list">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="0"/>
+                    <property name="val" value="Новая"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="1"/>
+                    <property name="val" value="Передано в ОГТ"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="2"/>
+                    <property name="val" value="Отказ"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="3"/>
+                    <property name="val" value="Снято"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="4"/>
+                    <property name="val" value="Выполнено"/>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DListValString">
+                    <property name="key" value="5"/>
+                    <property name="val" value="Направлено КП заказчику"/>
+                </bean>
+            </list>
+        </property>-->
+    </bean>
+      
+</beans>

@@ -1,0 +1,119 @@
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <meta name="viewport" content="width=1040">
+                <link type="text/css" rel="stylesheet" href="css/pst_news.css">
+                    <title>Новости компании "ТИРА"</title>
+                    <script
+                        src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">        
+                    </script>
+                    </head>
+
+                    <!--<body onload='myFunction();'>-->
+                    <body  onload='getNews(2,-1);'>
+                        <script type="text/javascript">
+                            
+                            
+                            function getNews(id_type, id_news) {
+                                //function which send ajax request to the server
+                                //$("#paragraph").text("идет загрузка...");     					
+                                document.getElementById('paragraph_news').innerHTML = '';
+                                var o=document.createElement('div');	
+                                if (id_type==2)	{					
+                                    o.innerHTML ='<h1>'+'Новости компании'+'</h1>';					
+                                } else
+                                    if (id_type==3)	{					
+                                        o.innerHTML ='<h1>'+'События и мероприятия'+'</h1>';					
+                                    } else if (id_type==4)	{					
+                                    o.innerHTML ='<h1>'+'Рекомендуем'+'</h1>';					
+                                }                                
+                                document.getElementById('paragraph_news').appendChild(o);	            
+                                
+                                $.ajax({
+                                    //url: 'http://192.168.10.112:8080/tirapst/api/getnews.htm', 
+                                    //url: 'http://localhost:8080/api/getnews.htm', 
+                                    //url: 'http://192.168.10.133:8080/isup/api/getnews.htm', 
+                                    url: 'http://172.16.10.60:8080/isup/api/getnews.htm',
+                                    //type : "get",
+                                    contentType : "application/json",
+                                    data : ({
+                                        name : 'type_news',
+                                        id_type : id_type,
+                                        id_news: id_news
+                                    }),                
+                                    success: function(data){
+                                        //$("#paragraph").text(""); 
+                                        //$("#paragraph").text(data.message);
+                                        //$("#paragraph_1").text(data[1].name);                        
+                                        
+                                        var o=document.createElement('div');
+                                        
+                                        //var i;
+                                        for (var i = data.length; i > 0; i--) {
+                                            //o.innerHTML =o.innerHTML+'<h2>Заголовок новости</h2>';
+                                            if (id_news == -1)
+                                            {
+                                                var strAhref = '<a class="pst_news_date_header" href="javascript:getNews('+id_type+','+ data[data.length-i].id_news+');">';
+                                                o.innerHTML =o.innerHTML +'<p>'+strAhref+data[data.length-i].date_news+'</a></p>';                                                                                                
+                                                o.innerHTML =o.innerHTML+'<p class="pst_news_data">'+data[data.length-i].name.substr(0, 200)+((data[data.length-i].name.length>200)?strAhref+' ...... </a></p>':'</p>');				
+                                            }
+                                            else
+                                            {
+                                                o.innerHTML =o.innerHTML +'<p>'+'<a class="pst_news_date_header" href="javascript:getNews('+id_type+',-1);">НАЗАД</a></p>';  
+                                                o.innerHTML =o.innerHTML+'<p>'+data[data.length-i].name+'</p>';	
+                                                o.innerHTML =o.innerHTML+'<p>'+data[data.length-i].date_news+'</p>';	
+                                            }
+                                            
+                                        }
+                                        document.getElementById('paragraph_news').appendChild(o);
+                                        
+                                        
+                                        //$("#paragraph_news").text(data[data.length-1].name);
+                                        //$("#paragraph_3").text(data[data.length-2].name);
+                                        //$("#paragraph_4").text(data[data.length-3].name);
+                                        
+                                    },
+                                    error: function () {
+                                        $("#paragraph").text("error");
+                                    }
+                                });
+                            }
+                        </script>
+
+                        <div class="_pr">
+
+
+                            <div class="pst_container---3POch">
+                                <aside class="pst_aside---1Hmc9">
+
+                                    <ul class="pst_menu_ul">
+
+                                        <li class="pst_navItem---2IDzk">Рубрики
+                                            <ul class="pst_subNav---5zRzK">
+                                                <li class="pst_subNavItem---1n_Pw">
+                                                    <a class="pst_subNavItemLink---1SU0M" href="javascript:getNews(2,-1);"><span>Новости компании</span></a>
+                                                </li>
+                                                <li class="pst_subNavItem---1n_Pw">
+                                                    <a class="pst_subNavItemLink---1SU0M" href="javascript:getNews(3,-1);"><span>События и мероприятия</span></a>
+                                                </li>
+                                                <li class="pst_subNavItem---1n_Pw">
+                                                    <a class="pst_subNavItemLink---1SU0M" href="javascript:getNews(4,-1);"><span>Рекомендуем</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                </aside>
+
+                                <div class="pst_content---w_D3B">
+
+                                    <div id="paragraph_news">  </div>
+
+                                </div>		
+                            </div>
+                        </div>
+
+
+                    </body>
+                    </html>

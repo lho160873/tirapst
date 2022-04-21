@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <!-- ************************************************* -->
+    <!-- NEWS_TYPE -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_NEWS_TYPE_HLV__NEWS_TYPE_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="NEWS_TYPE_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NEWS_TYPE_ID"/>
+                        <property name="caption" value="Код типа новостей"/>
+                        <property name="isKey" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_NEWS_TYPE_HLV__NEWS_TYPE_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Название"/>
+                        <property name="columnProperty" ref="DCPString255"/>
+                        <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+   
+    
+    <!-- описываем сам "запрос" -->
+    <bean id="NEWS_TYPE_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+       <property name="columnBuilders">
+           <list>
+               <ref bean="BUILDER_NEWS_TYPE_HLV__NEWS_TYPE_ID"/>
+               <ref bean="BUILDER_NEWS_TYPE_HLV__NEWS_TYPE_NAME"/>
+            </list>
+        </property>
+        <property name="tables">
+           <map>
+               <entry key="MAIN" value="NEWS_TYPE" />
+            </map>
+        </property>
+        <property name="caption" value="Тип новостей"/>
+        <property name="queryName" value="NEWS_TYPE_HLV"/>
+    </bean>
+    
+    
+    
+    <bean id="BUILDER_NEWS_HLV__NEWS_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="NEWS_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NEWS_ID"/>
+                        <property name="caption" value="Код новости"/>
+                        <property name="isKey" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                         <property name="isFiltr" value="false"/>
+                        <property name="isAutoincrement" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_NEWS_HLV__COMMENT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderText" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMMENT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMMENT"/>
+                        <property name="caption" value="Новость"/>
+                        <property name="columnProperty" ref="DCPTextAreaMaxBig"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+      <bean id="BUILDER_NEWS_HLV__COMMENT_FOR_FILTR" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderText" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMMENT_FOR_FILTR"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMMENT"/>
+                        <property name="caption" value="Новость"/>
+                        <property name="columnProperty" ref="DCPTextAreaMax"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isAlwaysUpdated" value="false"/>
+                        <property name="isHidden" value="true"/>
+                        <property name="isInserted" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_NEWS_HLV__DATE_NEWS" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_NEWS"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_NEWS"/>
+                        <property name="isNotNull" value="TRUE"/>
+                        <property name="caption" value="Дата новости"/>
+                        <property name="columnProperty" ref="DCPDateCurrentTime"/>
+                        <property name="isFiltr" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_NEWS_HLV__DATE_NEWS_FILTR" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_NEWS_FILTR"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_NEWS"/>
+                        <property name="isNotNull" value="TRUE"/>
+                        <property name="caption" value="Дата новости"/>
+                        <property name="columnProperty" ref="DCPDateCurrent"/>
+                        <property name="isFiltr" value="TRUE"/>
+                        <property name="isHidden" value="TRUE"/>
+                        <property name="isVisible" value="FALSE"/>
+                        <property name="isVisibleEdit" value="FALSE"/>
+                        <property name="isInserted" value="FALSE"/>
+                        <property name="isEditable" value="FALSE"/>
+                        <property name="isAlwaysUpdated" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_NEWS_HLV__NEWS_TYPE_ID"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="NEWS_TYPE_HLV"/>
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="NEWS_TYPE_ID"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="NAME"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NEWS_TYPE_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NEWS_TYPE_ID"/>
+                        <property name="caption" value="Тип новости"/>
+                        <property name="isNotNull" value="false"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value=""/>
+                                <property name="type" value="INTEGER"/>
+                                <property name="widthColumn" value="200"/>
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="true"/>
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    
+<!-- описываем сам "запрос" -->
+    <bean id="NEWS_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+       <property name="columnBuilders">
+           <list>
+               <ref bean="BUILDER_NEWS_HLV__NEWS_ID"/>
+               <ref bean="BUILDER_NEWS_HLV__DATE_NEWS"/>
+               <ref bean="BUILDER_NEWS_HLV__DATE_NEWS_FILTR"/>
+               <ref bean="BUILDER_NEWS_HLV__NEWS_TYPE_ID"/>
+               <ref bean="BUILDER_NEWS_HLV__COMMENT"/>
+              <ref bean="BUILDER_NEWS_HLV__COMMENT_FOR_FILTR"/>
+            </list>
+        </property>
+        <property name="tables">
+           <map>
+               <entry key="MAIN" value="NEWS" />
+            </map>
+        </property>
+        <property name="caption" value="Новости"/>
+        <property name="queryName" value="NEWS_HLV"/>
+        <property name="strOrderByStart" value=" MAIN.DATE_NEWS DESC"/>    
+    </bean>
+    
+            
+</beans>

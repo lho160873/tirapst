@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : build-compile.xml
+    Created on : 06 April 2011, 11:00
+    Author     : s_smirnov
+    Description:
+        Add features to defalut compile's target:
+            Compile for specific archive.
+-->
+
+<project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1"
+         xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3"
+         xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc"
+         basedir=".." default="default" name="arm-compile">
+
+    <!--
+    ****************************************************************************
+    *                               DEFINE PROPS                               *
+    ****************************************************************************
+    -->
+    <!-- set properties file location to default, if it has not yet been settled -->
+    <target name="-pre-post-compile:define-props:set-properties-location"
+            unless="compile.property.file.location">
+        <!--<fail message="Property compile.property.file.location is not set!"/>-->
+        <property name="compile.property.file.location"
+                  value="${compile.property.file.location.default}" />
+    </target>
+    <target depends="-pre-post-compile:define-props:set-properties-location"
+            name="-pre-post-compile:define-props">
+        <property file="${compile.property.file.location}"/>
+    </target>
+
+    <!--
+    ****************************************************************************
+    *                               CLIENT GWT                                 *
+    ****************************************************************************
+    -->
+    <target depends="-pre-post-compile:define-props"
+            name="-pre-compile:set-gwtprops" if="compile.client.replacement">
+        <!-- append props to Configuration.properties -->
+        <concat destfile="${compile.src.client.configuration.file}"
+                append="true">
+            <header filtering="no" trimleading="yes">
+                #Following text is appended by ant
+            </header>
+            <fileset file="${compile.client.configuration.file}"/>
+        </concat>
+        <!-- append props to locale files satisified template '*ru_RU.properties' -->
+        <taskdef resource="net/sf/antcontrib/antlib.xml">
+            <classpath>
+                <pathelement location="${tools.ant.contrib.jar}"/>
+            </classpath>
+        </taskdef>
+        <for param="file">
+            <path>
+                <fileset dir="${src.dir}" includes="**/*ru_RU.properties"/>
+            </path>
+            <sequential>
+                <concat destfile="@{file}"
+                        append="true">
+                    <header filtering="no" trimleading="yes">
+                        #Following text is appended by ant
+                    </header>
+                    <fileset file="${compile.client.locale.file.ru_RU}"/>
+                </concat>
+            </sequential>
+        </for>
+    </target>
+    <!--
+    ****************************************************************************
+    *                               PREPARATION                                *
+    ****************************************************************************
+    -->
+    <target depends="-pre-post-compile:define-props"
+            name="-post-compile:configure">
+        <!-- replace tokens in properties files,
+        using copy to temp dir and then copy back-->
+        <mkdir dir="${compile.tempdir}"/>
+        <copy todir="${compile.tempdir}">
+            <fileset dir="${build.classes.dir}">
+                <include name="${compile.server.env.file}"/>
+                <include name="${compile.server.application.file}"/>
+                <include name="${compile.server.log4j.file}"/>
+            </fileset>
+            <filterset>
+                <filtersfile file="${compile.application.default.properties}"/>
+                <filtersfile file="${compile.property.file.location}"/>
+            </filterset>
+        </copy>
+        <copy todir="${build.classes.dir}" overwrite="true">
+            <fileset dir="${compile.tempdir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <delete dir="${compile.tempdir}"/>
+
+        <!-- replace tokens in locale's files,
+        using copy to temp dir and then copy back-->
+        <mkdir dir="${compile.tempdir}"/>
+        <mkdir dir="${compile.tempdir.screenunicode.dir}"/>
+
+        <!-- encode unicode spec. characters in locale files, for example '\u0403' -> '\\u0403' -->
+        <copyfile src="${compile.application.locale.ru_RU}"
+                  dest="${compile.tempdir.screenunicode.app.locale.ru_RU}"/>
+        <replace token="\u0" value="\\u0" file="${compile.tempdir.screenunicode.app.locale.ru_RU}"/>
+        <copyfile src="${compile.locale.file.ru_RU}"
+                  dest="${compile.tempdir.screenunicode.compile.locale.ru_RU}"/>
+        <replace token="\u0" value="\\u0" file="${compile.tempdir.screenunicode.compile.locale.ru_RU}"/>
+        <!--
+        <copyfile src="${compile.application.locale.en}"
+                  todir="${compile.tempdir.screenunicode.app.locale.en}"/>
+        <copyfile src="${compile.locale.file.en}"
+                  todir="${compile.tempdir.screenunicode.compile.locale.en}"/>
+        -->
+
+        <!-- ru_RU -->
+        <copy todir="${compile.tempdir}">
+            <fileset dir="${build.classes.dir}">
+                <include name="**/*ru_RU.properties"/>
+            </fileset>
+            <filterset>
+                <filtersfile file="${compile.tempdir.screenunicode.app.locale.ru_RU}"/>
+                <filtersfile file="${compile.tempdir.screenunicode.compile.locale.ru_RU}"/>
+            </filterset>
+        </copy>
+
+        <!-- en -->
+        <!--
+        <copy todir="${compile.tempdir}">
+            <fileset dir="${build.classes.dir}">
+                <include name="**/*en.properties"/>
+            </fileset>
+            <filterset>
+                <filtersfile file="${compile.application.locale.en}"/>
+                <filtersfile file="${compile.locale.file.en}"/>
+            </filterset>
+        </copy>
+        -->
+
+        <copy todir="${build.classes.dir}" overwrite="true">
+            <fileset dir="${compile.tempdir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <delete dir="${compile.tempdir}"/>
+
+    </target>
+
+    <!-- overriding targets from build-impl.xml -->
+    <target depends="-pre-post-compile:define-props,-pre-compile:set-gwtprops" name="-pre-compile"/>
+    <target depends="-pre-post-compile:define-props,-post-compile:configure"
+            name="-post-compile"/>
+</project>

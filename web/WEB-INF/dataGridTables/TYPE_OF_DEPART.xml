@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->  
+    <!-- TYPE_OF_DEPART (by Igor) -->
+    <!-- ************************************************* -->  
+    <bean id="BUILDER_TYPE_OF_DEPART__TYPE_OF_DEPART_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="TYPE_OF_DEPART_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="TYPE_OF_DEPART_ID"/>
+                        <property name="caption" value="Код типа подразделения"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+           
+    <bean id="BUILDER_TYPE_OF_DEPART__TYPE_OF_DEPART_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="TYPE_OF_DEPART_NAME"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="TYPE_OF_DEPART_NAME"/>
+                        <property name="caption" value="Название типа подразделения"/>
+                        <property name="columnProperty" ref="DCPString20"/>
+                        <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+    
+    <!-- описываем сам "запрос" -->
+    <bean id="TYPE_OF_DEPART" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+       <property name="columnBuilders">
+           <list>
+               <ref bean="BUILDER_TYPE_OF_DEPART__TYPE_OF_DEPART_ID" />
+               <ref bean="BUILDER_TYPE_OF_DEPART__TYPE_OF_DEPART_NAME" />
+            </list>           
+        </property>
+        <property name="tables">
+           <map>
+               <entry key="MAIN" value="TYPE_OF_DEPART" />
+            </map>
+        </property>
+        <property name="caption" value="Тип подразделения"/>  
+        <property name="queryName" value="TYPE_OF_DEPART"/>             
+        <property name="isShowReport" value="false"/>
+    </bean>
+    
+    
+</beans>

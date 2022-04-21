@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- HEADER_SPEC -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_HEADER_SPEC__ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="HEADER_SPEC_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="HEADER_SPEC_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="isAutoincrement" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="FALSE"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    
+   <bean id="BUILDER_HEADER_SPEC__DOC_TYPE_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="DOC_TYPE_IG" />
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="DOC_TYPE_ID" />
+                <property name="tableAlias" value="MAIN" />
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="COMMENT" />
+                <property name="tableAlias" value="MAIN" />
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DOC_TYPE_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DOC_TYPE_ID"/>
+                        <property name="caption" value="Тип документа"/>
+                        <property name="isNotNull" value="true" />
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value="" />
+                                <property name="type" value="INTEGER" />
+                                <property name="widthColumn" value="150" />
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="true" />
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="true" />
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+   <bean id="BUILDER_HEADER_SPEC__COMPANY_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="COMPANY" />
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="COMPANY_ID" />
+                <property name="tableAlias" value="MAIN" />
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="SHORT_NAME" />
+                <property name="tableAlias" value="MAIN" />
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="COMPANY_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMPANY_ID"/>
+                        <property name="caption" value="Предприятие"/>
+                        <property name="isNotNull" value="true" />
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value="" />
+                                <property name="type" value="INTEGER" />
+                                <property name="widthColumn" value="150" />
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="true" />
+                        <property name="isVisibleEdit" value="true"/>
+                        <property name="isFiltr" value="true" />
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_HEADER_SPEC__V_POS_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="V_POS" />
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="V_POS_ID" />
+                <property name="tableAlias" value="MAIN" />
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="V_NAME" />
+                <property name="tableAlias" value="MAIN" />
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="V_POS_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="V_POS_ID"/>
+                        <property name="caption" value="Блок по вертикали"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isNotNull" value="true" />
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value="" />
+                                <property name="type" value="INTEGER" />
+                                <property name="widthColumn" value="150" />
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="true" />
+                        <property name="isVisibleEdit" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+ <bean id="BUILDER_HEADER_SPEC__G_POS_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB"
+          lazy-init="false">
+        <property name="queryNameForRelation" value="G_POS" />
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="G_POS_ID" />
+                <property name="tableAlias" value="MAIN" />
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="G_NAME" />
+                <property name="tableAlias" value="MAIN" />
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="G_POS_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="G_POS_ID"/>
+                        <property name="caption" value="Блок по горизонтали"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isNotNull" value="true" />
+                        
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value="" />
+                                <property name="type" value="INTEGER" />
+                                <property name="widthColumn" value="150" />
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="true" />
+                        <property name="isVisibleEdit" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+  <bean id="BUILDER_HEADER_SPEC__IS_HEADER" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="IS_HEADER"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="IS_HEADER"/>
+                        <property name="caption" value="Заголовок/подпись"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isNotNull" value="true" />
+                        <property name="columnProperty">
+                           <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+                                <property name="format" value=""/> 
+                                <property name="type" value ="INTEGER"/>  
+                                <property name="widthColumn" value ="150"/>
+                                <property name="defaultValue" value="1" />
+                                <property name="defaultValueForFiltr" value="1" />
+                                <property name="isNewVal" value="FALSE"/>
+                                <property name="list">
+                                    <list>
+                                        <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                                            <property name="key" value="0"/> 
+                                            <property name="val" value="подпись"/>
+                                        </bean>
+                                        <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                                            <property name="key" value="1"/> 
+                                            <property name="val" value="заголовок"/>
+                                        </bean>
+                                    </list>           
+                                </property>
+                            </bean>
+                        </property>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+
+    
+    <bean id="HEADER_SPEC" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_HEADER_SPEC__ID"/>
+                <ref bean="BUILDER_HEADER_SPEC__DOC_TYPE_ID"/>
+                <ref bean="BUILDER_HEADER_SPEC__COMPANY_ID"/>
+                <ref bean="BUILDER_HEADER_SPEC__V_POS_ID"/>
+                <ref bean="BUILDER_HEADER_SPEC__G_POS_ID"/>    
+                <ref bean="BUILDER_HEADER_SPEC__IS_HEADER"/>                            
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="HEADER_SPEC"/>
+            </map>
+        </property>
+        <property name="caption" value="Данные для титульных листов"/>
+        <property name="queryName" value="HEADER_SPEC"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="isSubShow" value="true"/>
+        <property name="strOrderByStart" value=" MAIN.HEADER_SPEC_ID "/>
+        <property name="subTables">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.SRelationInfo">
+                    <property name="queryName" value="DT_HEADER_SPEC"/>
+                    <property name="caption" value="Строки блока"/>
+                    <property name="relations">
+                        <map>
+                            <entry>
+                                <key>
+                                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                        <property name="columnName" value="HEADER_SPEC_ID"/>
+                                        <property name="tableAlias" value="MAIN"/>
+                                    </bean>
+                                </key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="HEADER_SPEC_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </entry>
+                        </map>
+                    </property>
+                </bean>                
+            </list>
+        </property>
+
+    </bean>
+
+    
+</beans>

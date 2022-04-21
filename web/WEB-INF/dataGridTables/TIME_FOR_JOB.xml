@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->  
+    <!-- TIME_FOR_JOB -->
+    <!-- ************************************************* -->  
+    <bean id="BUILDER_HLV_TIME_FOR_JOB__ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="TIME_FOR_JOB_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="TIME_FOR_JOB_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="false"/>         
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>    
+    
+    <bean id="BUILDER_HLV_TIME_FOR_JOB__ID_JOB_REC" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ID_JOB_REC"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID_JOB_REC"/>
+                        <property name="caption" value="ID_JOB_REC"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="false"/>         
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+           
+    <bean id="BUILDER_HLV_TIME_FOR_JOB__DEPART_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="NAME"/> 
+                            <property name="tableAlias" value="SPR_DEPART_1"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Цех (подразделение)"/>
+                        <property name="columnProperty" ref="DCPString50"/>
+                        <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+    
+    <bean id="BUILDER_TIME_FOR_JOB_HLV__EXEC_TIME_SHED" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="EXEC_TIME_SHED"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="EXEC_TIME_SHED"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative15_3_"/>
+                        <property name="caption" value="Плановые затраты на выполнение, чел/час."/>
+                        <property name="sqlForColumn" value="ISNULL(MAIN.EXEC_TIME_SHED,0)/60"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_TIME_FOR_JOB_HLV__EXEC_TIME_FACT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="EXEC_TIME_FACT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="EXEC_TIME_FACT"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative15_3"/>
+                        <property name="caption" value="Фактические затраты на выполнение, чел/час."/>
+                        <property name="sqlForColumn" value="ISNULL(MAIN.EXEC_TIME_FACT,0)/60"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+     <bean id="BUILDER_TIME_FOR_JOB_HLV__INTERACTING_SYST_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="INTERACTING_SYST_ID"/>
+                            <property name="tableAlias" value="SPR_DEPART_1"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="INTERACTING_SYST_ID"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="caption" value="INTERACTING_SYST_ID"/>
+                        <property name="isVisible" value="false"/>                         
+                        <property name="isFiltr" value="false"/>                         
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <!-- описываем сам "запрос" -->
+    <bean id="TIME_FOR_JOB_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+       <property name="columnBuilders">
+           <list>
+               <ref bean="BUILDER_HLV_TIME_FOR_JOB__ID" />
+               <ref bean="BUILDER_HLV_TIME_FOR_JOB__ID_JOB_REC" />
+               <ref bean="BUILDER_HLV_TIME_FOR_JOB__DEPART_NAME" />
+               <ref bean="BUILDER_TIME_FOR_JOB_HLV__EXEC_TIME_SHED" />
+               <ref bean="BUILDER_TIME_FOR_JOB_HLV__EXEC_TIME_FACT" />
+               <ref bean="BUILDER_TIME_FOR_JOB_HLV__INTERACTING_SYST_ID" />
+            </list>           
+        </property>
+        <property name="tables">
+           <map>
+               <entry key="MAIN" value="TIME_FOR_JOB" />
+               <entry key="SPR_DEPART_1" value="SPR_DEPART_1" />               
+            </map>
+        </property>
+        <property name="tableJoins"> 
+            <list>
+                 <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">  
+                    <property name="tableOne" value="MAIN"/> 
+                    <property name="tableTwo" value="SPR_DEPART_1"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="id_depart"/> 
+                                <property name="columnNameTableTwo" value="ID"/> 
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+        <property name="caption" value="Детализация затрат задания"/>  
+        <property name="queryName" value="TIME_FOR_JOB_HLV"/>             
+        <property name="isShowReport" value="false"/>
+    </bean>
+    
+    
+</beans>

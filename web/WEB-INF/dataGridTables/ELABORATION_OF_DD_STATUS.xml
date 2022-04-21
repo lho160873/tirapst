@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" xmlns:aop="http://www.springframework.org/schema/aop">
+
+
+   <!-- ************************************************* -->
+    <!-- ELABORATION_OF_DD_STATUS -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_ELABORATION_OF_DD_STATUS__ID_STATUS_HLV" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ID_STATUS"/>
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID_STATUS"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+    
+    <bean id="BUILDER_ELABORATION_OF_DD_STATUS___ID_STATUS_PREV_HLV" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ID_STATUS_PREV"/>
+                            <property name="tableAlias" value="STATUS"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID_STATUS_PREV"/>
+                        <property name="caption" value="ИД предыдущего статуса"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="FALSE"/>
+                        <property name="isVisibleEdit" value="FALSE"/>
+                        <property name="isFiltr" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+    
+    <bean id="BUILDER_ELABORATION_OF_DD_STATUS__NAME_HLV" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Статус"/>
+                        <property name="columnProperty" ref="DCPString25"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+    
+    <bean id="ELABORATION_OF_DD_STATUS_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>                
+                <ref bean="BUILDER_ELABORATION_OF_DD_STATUS__ID_STATUS_HLV"/>   
+                <ref bean="BUILDER_ELABORATION_OF_DD_STATUS__NAME_HLV"/>  
+                <ref bean="BUILDER_ELABORATION_OF_DD_STATUS___ID_STATUS_PREV_HLV"/>  
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="ELABORATION_OF_DD_STATUS" />
+                <entry key="STATUS" value="EL_OF_DD_STATUS" />
+            </map>
+        </property>
+        <property name="tableJoins">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="STATUS"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ID_STATUS"/>
+                                <property name="columnNameTableTwo" value="ID_STATUS_NEXT"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+        <property name="caption" value="Статус"/>
+        <property name="filtrHeight" value="85"/>
+        <property name="queryName" value="ELABORATION_OF_DD_STATUS_HLV"/>
+        <property name="strWhere" value=" STATUS.USER_ID = %CURRENTUSERID% "/>        
+    </bean>
+    
+    
+    
+    <bean id="ELABORATION_OF_DD_STATUS_ALL_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>                
+                <ref bean="BUILDER_ELABORATION_OF_DD_STATUS__ID_STATUS_HLV"/>   
+                <ref bean="BUILDER_ELABORATION_OF_DD_STATUS__NAME_HLV"/>   
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="ELABORATION_OF_DD_STATUS" />
+            </map>
+        </property>
+        <property name="caption" value="Статус"/>
+        <property name="queryName" value="ELABORATION_OF_DD_STATUS_ALL_HLV"/>
+        <property name="strWhere" value="MAIN.FOR_ALL=1"/>
+    </bean>
+    
+    <bean id="ELABORATION_OF_DD_STATUS" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>                
+                <ref bean="BUILDER_ELABORATION_OF_DD_STATUS__ID_STATUS_HLV"/>   
+                <ref bean="BUILDER_ELABORATION_OF_DD_STATUS__NAME_HLV"/>   
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="ELABORATION_OF_DD_STATUS" />
+            </map>
+        </property>
+        <property name="caption" value="Статус"/>
+        <property name="queryName" value="ELABORATION_OF_DD_STATUS"/>
+    </bean>
+    
+</beans>

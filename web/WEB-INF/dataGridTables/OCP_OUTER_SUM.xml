@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- OCP_OUTER_SUM -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_OCP_OUTER_SUM__OCP_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="OCP_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="OCP_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_OCP_OUTER_SUM__ORGANIZATION_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="ORGANIZATION_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ORGANIZATION_ID"/>
+                        <property name="caption" value="Код соисполнителя"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+  <bean id="BUILDER_OCP_OUTER_SUM__SHORT_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="SHORT_NAME"/>
+                            <property name="tableAlias" value="ORGANIZATION"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SHORT_NAME"/>
+                        <property name="caption" value="Соисполнитель"/>
+                        <property name="columnProperty" ref="DCPString30"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+   
+    <bean id="BUILDER_OCP_OUTER_SUM__SUM_PLAN_COST1" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="SUM_PLAN_COST1"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SUM_PLAN_COST1"/>
+                        <property name="caption" value="Суммарная цена без НДС, руб."/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative38_2_00"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
+    <!-- описываем сам "запрос" -->
+    <bean id="OCP_OUTER_SUM" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_OCP_OUTER_SUM__OCP_ID"/>
+                <ref bean="BUILDER_OCP_OUTER_SUM__ORGANIZATION_ID"/>
+                <ref bean="BUILDER_OCP_OUTER_SUM__SHORT_NAME"/>
+                <ref bean="BUILDER_OCP_OUTER_SUM__SUM_PLAN_COST1"/>
+            </list>
+        </property>
+        <property name="isFiltrShow" value="false"/>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="OCP_OUTER_SUM"/>
+                <entry key="ORGANIZATION" value="ORGANIZATION"/>
+            </map>
+        </property>
+        <property name="caption" value="Итоги"/>
+        
+        <property name="reportTemplate" value="OcpOuterReportSummary"/>
+        <property name="reportParams">
+            <map>
+                <entry key="ocpId" value="MAIN:OCP_ID"/>
+            </map>
+        </property>
+        <property name="reportExportFormat" value="pdf"/>
+        
+        <property name="queryName" value="OCP_OUTER_SUM"/>
+        <property name="tableJoins">
+            <list>
+                 <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="ORGANIZATION"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ORGANIZATION_ID"/>
+                                <property name="columnNameTableTwo" value="ORGANIZATION_ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+</beans>

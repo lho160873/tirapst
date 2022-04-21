@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : build-integrate-db.xml
+    Created on : 16 января 2011 г., 14:00
+    Author     : s_smirnov
+    Description:
+        Database integration.
+-->
+<project xmlns:ora="antlib:net.sf.incanto"
+         basedir="." default="integrate-db" name="Arm-integrate-db">
+    <!--
+    ****************************************************************************
+    *                          EXECUTE SCRIPTS                                 *
+    ****************************************************************************
+    -->
+    <target depends=""
+            description="Delete existing db schema and create new directly through jdbc connection"
+            name="-integrate-db-run">
+
+        <!-- recreate user -->
+        <ora:sqlplus logon="${db.sys.user}/${db.sys.password}@${db.connection-identifier}"
+                     start="${db.script.dir}/${db.script.kill-user-session}">
+            <arg value="${arm.env.jdbc.username}"/>
+        </ora:sqlplus>
+
+        <ora:sqlplus logon="${db.sys.user}/${db.sys.password}@${db.connection-identifier}"
+                     start="${db.script.dir}/${db.script.recreate-user}">
+            <arg value="${arm.env.jdbc.username}"/>
+            <arg value="${arm.env.jdbc.password}"/>
+        </ora:sqlplus>
+
+        <!-- create schema and insert initial data-->
+        <ora:sqlplus logon="${arm.env.jdbc.username}/${arm.env.jdbc.password}@${db.connection-identifier}"
+                     failOnError="true"
+                     failOnSpoolMatch=".*ORA-[0-9]+.*"
+                     start="${db.script.dir}/${db.script.create-schema-with-data}"/>
+    </target>
+
+    <!-- targets for separate execution of integrate db task -->
+    <target name="-integrate-db:prepare">
+        <input message="Please enter integrate db properties filepath"
+               addproperty="integratedb.property.file.location"
+               defaultvalue="nbproject/*.properties"/>
+        <fail message="Deploy failed. Property integratedb.property.file.location is not set"
+              unless="integratedb.property.file.location"/>
+        <property file="${integratedb.property.file.location}" />
+        <property file="nbproject/project.properties"/>
+    </target>
+    <target depends="-integrate-db:prepare,-integrate-db-run"
+            description="Delete existing db schema and create new directly through jdbc connection"
+            name="integrate-db"/>
+
+</project>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+       xmlns:tx="http://www.springframework.org/schema/tx">
+
+    <bean id="dataSourceArm" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${arm.env.jdbc.driverClass}" />
+        <property name="jdbcUrl" value="${arm.env.jdbc.url}" />
+        <property name="user" value="${arm.env.jdbc.username}" />
+        <property name="password" value="${arm.env.jdbc.password}" />
+        <property name="testConnectionOnCheckout" value="true"/>
+        <qualifier value="dsArm"/>
+    </bean>
+    
+     <bean id="dataSourcePriboy" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${arm.env.jdbc.driverClass}" />
+        <property name="jdbcUrl" value="${arm.env.jdbc.url_priboy}" />
+        <property name="user" value="${arm.env.jdbc.username_priboy}" />
+        <property name="password" value="${arm.env.jdbc.password_priboy}" />
+        <qualifier value="dsPriboy"/>
+    </bean> 
+    
+    <bean id="dataSourceMart" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${arm.env.jdbc.driverClass}" />
+        <property name="jdbcUrl" value="${arm.env.jdbc.url_mart}" />
+        <property name="user" value="${arm.env.jdbc.username_priboy}" />
+        <property name="password" value="${arm.env.jdbc.password_priboy}" />
+        <qualifier value="dsMart"/>
+    </bean> 
+    
+<!--    <bean id="dataSourceTest" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+        <property name="jdbcUrl" value="jdbc:sqlserver://192.168.10.114;databaseName=priboy_db" />
+        <property name="jdbcUrl" value="jdbc:sqlserver://192.255.0.40;databaseName=priboy_db" />
+        <property name="user" value="SA" />
+        <property name="password" value="1" />
+        <qualifier value="dsTest"/>
+    </bean> -->
+    
+    
+            
+                    <!--P6Spy DataSource for arm-->
+
+<!--    <bean id="myDataSourceTarget" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${arm.env.jdbc.driverClass}" />
+        <property name="jdbcUrl" value="${arm.env.jdbc.url}" />
+        <property name="user" value="${arm.env.jdbc.username}" />
+        <property name="password" value="${arm.env.jdbc.password}" />
+        <property name="testConnectionOnCheckout" value="true"/>
+    </bean>
+
+    <bean id="dataSourceArm" class="com.p6spy.engine.spy.P6DataSource">
+      <constructor-arg>
+        <ref local="myDataSourceTarget"/>
+      </constructor-arg>
+        <qualifier value="dsArm"/>
+      </bean>-->
+
+    <!--END P6Spy DataSource for arm-->
+    
+                    
+    <tx:annotation-driven transaction-manager="transactionManagerArm"/>
+    <bean id="transactionManagerArm" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceArm"/>
+        <qualifier value="txArm"/>
+    </bean>
+
+    <bean id="userDAO" class="pst.arm.server.common.dao.jdbc.UserDAOJdbcImpl">
+        <property name="dataSource" ref="dataSourceArm" />
+        <property name="transactionManager" ref="transactionManagerArm"/>
+    </bean>
+    
+<!--    <tx:annotation-driven transaction-manager="transactionManagerTest"/>
+    <bean id="transactionManagerTest" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceTest"/>
+        <qualifier value="txTest"/>
+    </bean>-->
+
+<!--    <bean id="ganttChartDAO" class="pst.arm.server.modules.ganttchart.dao.jdbc.GanttChartDAOJdbcImpl">
+        <property name="dataSource" ref="dataSourceTest" />
+        <property name="transactionManager" ref="transactionManagerTest"/>
+    </bean>-->
+    
+    <bean id="ganttChartMartDAO" class="pst.arm.server.modules.ganttchart.dao.jdbc.GanttChartMartDAOJdbcImpl">
+        <property name="dataSource" ref="dataSourceMart" />
+        <!--<property name="transactionManager" ref="transactionManagerTest"/>-->
+    </bean>
+    
+    <bean id="ganttChartPriboyDAO" class="pst.arm.server.modules.ganttchart.dao.jdbc.GanttChartPriboyDAOJdbcImpl">
+        <property name="dataSource" ref="dataSourcePriboy" />
+        <!--<property name="transactionManager" ref="transactionManagerTest"/>-->
+    </bean>
+    
+    <!--<bean id="addressesDAO" class="pst.arm.server.modules.addresses.dao.jdbc.AddressesDAOJdbcImpl">
+        <property name="dataSource" ref="dataSourceArm" />
+        <property name="transactionManager" ref="transactionManagerArm"/>
+        <property name="sessionFactory" ref="mySessionFactory"/>
+    </bean>-->
+   
+</beans>

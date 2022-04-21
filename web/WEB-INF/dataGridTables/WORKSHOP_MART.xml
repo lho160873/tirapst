@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- WORKSHOP_MART_IG -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_WORKSHOP_MART_IG__DEPART_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DEPART_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DEPART_ID"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name ="isHidden" value="true"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="isAutoincrement" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORKSHOP_MART_IG__NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Подразделение"/>
+                        <property name="columnProperty" ref="DCPString150"/>
+                        <property name="isNotNull" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORKSHOP_MART_IG__STATUS" class="pst.arm.client.modules.datagrid.domain.expansion.DColumnBuilderStatusForWorkshop" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="STATUS"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value=""/>
+                        <property name="sqlForColumn" value="'0'"/>
+                        <property name="caption" value="Состояние"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.expansion.DColumnPropertyStatusForWorkshop">
+                                <property name="format" value="" />
+                                <property name="type" value="STRING" />
+                                <property name="widthColumn" value="100" />
+                            </bean>
+                        </property>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORKSHOP_MART_IG__DRL" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DRL"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DRL"/>
+                        <property name="caption" value="Месячный ресурс, чел/мес."/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative38_4_00"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORKSHOP_MART_IG__DFL" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DFL"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DFL"/>
+                        <property name="caption" value="Укомплектованность, чел."/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative38_4_00"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_WORKSHOP_MART_IG__DFL_DIV_DRL" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DFL_DIV_DRL"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DFL_DIV_DRL"/>
+                        <property name="caption" value="Укомплектованность, %"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative38_4_00"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- описываем сам "запрос" WORKER -->
+    <bean id="WORKSHOP_MART_IG" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_WORKSHOP_MART_IG__DEPART_ID"/>
+                <ref bean="BUILDER_WORKSHOP_MART_IG__NAME"/>
+                <ref bean="BUILDER_WORKSHOP_MART_IG__STATUS"/>
+                <ref bean="BUILDER_WORKSHOP_MART_IG__DRL"/>
+                <ref bean="BUILDER_WORKSHOP_MART_IG__DFL"/>
+                <ref bean="BUILDER_WORKSHOP_MART_IG__DFL_DIV_DRL"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="WORKSHOP"/>
+            </map>
+        </property>
+        <property name="caption" value="Потенциальные возможности производства ОАО 'МАРТ'"/>
+        <property name="isFiltrShow" value="false"/>
+        <property name="isFilterShowAtStart" value="false"/>
+        <property name="queryName" value="WORKSHOP_MART_IG"/>
+        <property name="strWhere" value="MAIN.COMPANY_ID=3 AND MAIN.ENABLED=1"/>
+    </bean>
+</beans>

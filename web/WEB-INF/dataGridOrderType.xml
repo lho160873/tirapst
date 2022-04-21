@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+             
+    <!-- ************************************************* -->  
+    <!-- OrderType -->
+    <!-- ************************************************* -->  
+    <bean id="BUILDER_RED_ORDER_TYPE__ORDER_TYPE_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="ORDER_TYPE_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ORDER_TYPE_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>                                                                                           
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+           
+    <bean id="BUILDER_RED_ORDER_TYPE__ORDER_TYPE_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ORDER_TYPE_NAME"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ORDER_TYPE_NAME"/>
+                        <property name="caption" value="Название вида заказа"/>
+                        <property name="isNotNull" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPString50"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="ORDER_TYPE" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+       <property name="columnBuilders">
+           <list>
+               <ref bean="BUILDER_RED_ORDER_TYPE__ORDER_TYPE_ID" />
+               <ref bean="BUILDER_RED_ORDER_TYPE__ORDER_TYPE_NAME" />
+            </list>           
+        </property>
+        <property name="tables">
+           <map>
+               <entry key="MAIN" value="ORDER_TYPE" />
+            </map>
+        </property>
+        <property name="caption" value="Вид заказа"/>  
+        <property name="queryName" value="ORDER_TYPE"/>  
+        <property name="duplicateKeyError" value="Вид заказа с таким кодом уже есть в БД"/>  
+    </bean>   
+                                
+</beans>

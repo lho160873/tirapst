@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OcpFull" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5f33b5b9-8a8a-49d5-b570-3aa16e420b6b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="DSOcpTrip" uuid="e9e48cd0-dc71-4b73-8de4-43fddb93aa2a">
+		<parameter name="ocpIdSub" class="java.lang.Integer"/>
+		<parameter name="totalRowSub" class="java.lang.Long"/>
+		<parameter name="totalRowSubEx" class="java.lang.String" isForPrompting="false">
+			<defaultValueExpression><![CDATA[$P{totalRowSub}.longValue()<0 ? "0" : "" + $P{totalRowSub}]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT TOP $P!{totalRowSubEx} MAIN.OCP_TRIP_ID AS MAIN_OCP_TRIP_ID, SCS.OCP_ID AS SCS_OCP_ID
+, MAIN.CONTRACT_STAGE_ID AS MAIN_CONTRACT_STAGE_ID, SCS.STAGE_NUMBER AS SCS_STAGE_NUMBER
+, MAIN.GOAL AS MAIN_GOAL, MAIN.QUANTITY AS MAIN_QUANTITY, MAIN.DURATION AS MAIN_DURATION
+, SUMM.SUM_DURATION AS SUMM_SUM_DURATION, MAIN.DAY_COST AS MAIN_DAY_COST, SUMM.SUM_DAY_COST AS SUMM_SUM_DAY_COST
+, MAIN.ROOM_COST AS MAIN_ROOM_COST, SUMM.SUM_ROOM_COST AS SUMM_SUM_ROOM_COST, MAIN.TRAVEL_COST AS MAIN_TRAVEL_COST
+, SUMM.SUM_TRAVEL_COST AS SUMM_SUM_TRAVEL_COST, SUMM.IN_TOTAL AS SUMM_IN_TOTAL, MAIN.USER_ID AS MAIN_USER_ID
+, MAIN.DATE_CORR AS MAIN_DATE_CORR
+
+FROM OCP_TRIP MAIN INNER JOIN SERV_CONTRACT_STAGE AS SCS ON MAIN.CONTRACT_STAGE_ID=SCS.CONTRACT_STAGE_ID INNER JOIN OCP_TRIP_SUMM AS SUMM ON MAIN.OCP_TRIP_ID=SUMM.OCP_TRIP_ID
+ WHERE   SCS.OCP_ID=$P{ocpIdSub}  ORDER BY  SCS.STAGE_NUMBER ASC, MAIN.OCP_TRIP_ID]]>
+		</queryString>
+		<field name="MAIN_OCP_TRIP_ID" class="java.lang.Integer"/>
+		<field name="SCS_OCP_ID" class="java.lang.Integer"/>
+		<field name="MAIN_CONTRACT_STAGE_ID" class="java.lang.Integer"/>
+		<field name="SCS_STAGE_NUMBER" class="java.lang.String"/>
+		<field name="MAIN_GOAL" class="java.lang.String"/>
+		<field name="MAIN_QUANTITY" class="java.lang.Integer"/>
+		<field name="MAIN_DURATION" class="java.lang.Integer"/>
+		<field name="SUMM_SUM_DURATION" class="java.lang.Integer"/>
+		<field name="MAIN_DAY_COST" class="java.math.BigDecimal"/>
+		<field name="SUMM_SUM_DAY_COST" class="java.math.BigDecimal"/>
+		<field name="MAIN_ROOM_COST" class="java.math.BigDecimal"/>
+		<field name="SUMM_SUM_ROOM_COST" class="java.math.BigDecimal"/>
+		<field name="MAIN_TRAVEL_COST" class="java.math.BigDecimal"/>
+		<field name="SUMM_SUM_TRAVEL_COST" class="java.math.BigDecimal"/>
+		<field name="SUMM_IN_TOTAL" class="java.math.BigDecimal"/>
+		<field name="MAIN_USER_ID" class="java.lang.Integer"/>
+		<field name="MAIN_DATE_CORR" class="java.sql.Timestamp"/>
+	</subDataset>
+	<subDataset name="DSOcpTrip2" uuid="e9e48cd0-dc71-4b73-8de4-43fddb93aa2a">
+		<parameter name="ocpIdSub" class="java.lang.Integer"/>
+		<parameter name="totalRowSub" class="java.lang.Long"/>
+		<parameter name="totalRowSubEx" class="java.lang.String" isForPrompting="false">
+			<defaultValueExpression><![CDATA[$P{totalRowSub}.longValue()<0 ? "0" : "" + $P{totalRowSub}]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT TOP 1 MAIN.OCP_TRIP_ID AS MAIN_OCP_TRIP_ID, SCS.OCP_ID AS SCS_OCP_ID
+, MAIN.CONTRACT_STAGE_ID AS MAIN_CONTRACT_STAGE_ID, SCS.STAGE_NUMBER AS SCS_STAGE_NUMBER
+, MAIN.GOAL AS MAIN_GOAL, MAIN.QUANTITY AS MAIN_QUANTITY, MAIN.DURATION AS MAIN_DURATION
+, SUMM.SUM_DURATION AS SUMM_SUM_DURATION, MAIN.DAY_COST AS MAIN_DAY_COST, SUMM.SUM_DAY_COST AS SUMM_SUM_DAY_COST
+, MAIN.ROOM_COST AS MAIN_ROOM_COST, SUMM.SUM_ROOM_COST AS SUMM_SUM_ROOM_COST, MAIN.TRAVEL_COST AS MAIN_TRAVEL_COST
+, SUMM.SUM_TRAVEL_COST AS SUMM_SUM_TRAVEL_COST, SUMM.IN_TOTAL AS SUMM_IN_TOTAL, MAIN.USER_ID AS MAIN_USER_ID
+, MAIN.DATE_CORR AS MAIN_DATE_CORR
+
+FROM OCP_TRIP MAIN INNER JOIN SERV_CONTRACT_STAGE AS SCS ON MAIN.CONTRACT_STAGE_ID=SCS.CONTRACT_STAGE_ID INNER JOIN OCP_TRIP_SUMM AS SUMM ON MAIN.OCP_TRIP_ID=SUMM.OCP_TRIP_ID
+ WHERE   SCS.OCP_ID=$P{ocpIdSub}  ORDER BY  SCS.STAGE_NUMBER DESC, MAIN.OCP_TRIP_ID DESC]]>
+		</queryString>
+		<field name="MAIN_OCP_TRIP_ID" class="java.lang.Integer"/>
+		<field name="SCS_OCP_ID" class="java.lang.Integer"/>
+		<field name="MAIN_CONTRACT_STAGE_ID" class="java.lang.Integer"/>
+		<field name="SCS_STAGE_NUMBER" class="java.lang.String"/>
+		<field name="MAIN_GOAL" class="java.lang.String"/>
+		<field name="MAIN_QUANTITY" class="java.lang.Integer"/>
+		<field name="MAIN_DURATION" class="java.lang.Integer"/>
+		<field name="SUMM_SUM_DURATION" class="java.lang.Integer"/>
+		<field name="MAIN_DAY_COST" class="java.math.BigDecimal"/>
+		<field name="SUMM_SUM_DAY_COST" class="java.math.BigDecimal"/>
+		<field name="MAIN_ROOM_COST" class="java.math.BigDecimal"/>
+		<field name="SUMM_SUM_ROOM_COST" class="java.math.BigDecimal"/>
+		<field name="MAIN_TRAVEL_COST" class="java.math.BigDecimal"/>
+		<field name="SUMM_SUM_TRAVEL_COST" class="java.math.BigDecimal"/>
+		<field name="SUMM_IN_TOTAL" class="java.math.BigDecimal"/>
+		<field name="MAIN_USER_ID" class="java.lang.Integer"/>
+		<field name="MAIN_DATE_CORR" class="java.sql.Timestamp"/>
+	</subDataset>
+	<subDataset name="DSDepartmentDirector" uuid="f9d81b00-c59c-41b0-ad9c-cd552b56cd7e">
+		<parameter name="ocpIdSub" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT
+	OCP.OCP_ID,
+	ODN.SHORT_NAME
+FROM
+     	OCP
+        LEFT JOIN OCP_DEPART_NAME AS ODN ON ODN.OCP_ID=OCP.OCP_ID
+WHERE
+     	OCP.OCP_ID = $P{ocpIdSub}]]>
+		</queryString>
+		<field name="SHORT_NAME" class="java.lang.String"/>
+		<field name="OCP_ID" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="Table Dataset 2" uuid="a1c85625-bfae-4858-bc85-1509e3d0da03"/>
+	<parameter name="ocpId" class="java.lang.Integer"/>
+	<parameter name="sn1" class="java.lang.String"/>
+	<parameter name="sn2" class="java.lang.String"/>
+	<parameter name="ds4Expr" class="java.lang.String"/>
+	<parameter name="ds5Expr" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT COUNT(*)-1 AS totalRow 
+FROM OCP_TRIP MAIN INNER JOIN SERV_CONTRACT_STAGE AS SCS ON MAIN.CONTRACT_STAGE_ID=SCS.CONTRACT_STAGE_ID INNER JOIN OCP_TRIP_SUMM AS SUMM ON MAIN.OCP_TRIP_ID=SUMM.OCP_TRIP_ID
+ WHERE   SCS.OCP_ID=$P{ocpId}]]>
+	</queryString>
+	<field name="totalRow" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="536d26e1-95d4-46bd-ab05-980f77707b55" key="table 2" style="table 2" positionType="Float" x="0" y="0" width="545" height="0"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset 2" uuid="8732dd3b-d509-46d4-a609-55d0fc08dc4a">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column uuid="ece5d4ca-27b7-4e90-a8b5-8c5670514d9e" width="31">
+						<jr:columnHeader style="table 2_CH" height="133" rowSpan="3">
+							<staticText>
+								<reportElement uuid="9f4a7015-12b1-4e92-8b9b-af52f951b946" x="0" y="0" width="31" height="133"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<text><![CDATA[Этап]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="0"/>
+					</jr:column>
+					<jr:column uuid="b9ab6e65-bb0d-4ec5-8afe-0d6bdf0f943d" width="56">
+						<jr:columnHeader height="133" rowSpan="3">
+							<staticText>
+								<reportElement uuid="1c729176-54b0-452d-af81-85ea15783651" x="0" y="0" width="56" height="133"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<text><![CDATA[Цель и пункт командир.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="0"/>
+					</jr:column>
+					<jr:column uuid="3422ed96-e8da-4ad2-9131-3f925cd52b1a" width="42">
+						<jr:columnHeader height="133" rowSpan="3">
+							<staticText>
+								<reportElement uuid="368c3faa-c4ed-4326-a1eb-0075f9d4fabb" x="0" y="0" width="42" height="133"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<text><![CDATA[Кол-во коман-
+дировок]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="0"/>
+					</jr:column>
+					<jr:column uuid="1b4b9f08-a923-4854-ab93-1ab605ac9c61" width="54">
+						<jr:columnHeader height="133" rowSpan="3">
+							<staticText>
+								<reportElement uuid="f3853f24-3e05-45f7-bda9-98ee4bc4bd85" x="0" y="0" width="54" height="133"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<text><![CDATA[Продолж. пребыв. в команди-ке одного работника (дней)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="0"/>
+					</jr:column>
+					<jr:column uuid="c5af729a-a5a5-4e94-9eac-862d083846e9" width="54">
+						<jr:columnHeader height="133" rowSpan="3">
+							<staticText>
+								<reportElement uuid="1424c84a-a6d5-4f22-b942-aa253ad0c835" x="0" y="0" width="54" height="133"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<text><![CDATA[Продолж. пребыв. в команд-ке команди-руемых  (чел/дней)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="0"/>
+					</jr:column>
+					<jr:columnGroup uuid="d8ee61a3-e711-406c-9fa7-45431a4e4088" width="251">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="8dddcf6d-f3c9-481e-84f8-69f84384ffe5" x="0" y="0" width="251" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<text><![CDATA[Расходы по видам на одну командировку (руб.)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnGroup uuid="22137845-f816-450a-89c3-ff682ddf188a" width="82">
+							<jr:columnHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement uuid="b93334cb-630e-4f86-bda9-3d5b8d6765a2" x="0" y="0" width="82" height="30"/>
+									<box>
+										<pen lineWidth="0.25"/>
+										<topPen lineWidth="0.25"/>
+										<leftPen lineWidth="0.25"/>
+										<bottomPen lineWidth="0.25"/>
+										<rightPen lineWidth="0.25"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Serif" size="9"/>
+									</textElement>
+									<text><![CDATA[Суточные]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:column uuid="5c31e766-8d15-4a6c-aca7-218a52c38bce" width="41">
+								<jr:columnHeader height="73" rowSpan="1">
+									<staticText>
+										<reportElement uuid="0be37a81-a57a-44b1-aa25-2409b058daf6" x="0" y="0" width="41" height="73"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<text><![CDATA[в день]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell height="0"/>
+							</jr:column>
+							<jr:column uuid="610d2f04-4d57-44fc-8b50-915674ff8fa8" width="41">
+								<jr:columnHeader height="73" rowSpan="1">
+									<staticText>
+										<reportElement uuid="d7bb292b-b026-4678-a971-91fe28f96d9a" x="0" y="0" width="41" height="73"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<text><![CDATA[сумма]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell height="0"/>
+							</jr:column>
+						</jr:columnGroup>
+						<jr:columnGroup uuid="a500f02a-d7af-448e-bf67-d0e18adfeaa6" width="82">
+							<jr:columnHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement uuid="1aa3d495-2f25-4420-a967-86f13baf2365" x="0" y="0" width="82" height="30"/>
+									<box>
+										<pen lineWidth="0.25"/>
+										<topPen lineWidth="0.25"/>
+										<leftPen lineWidth="0.25"/>
+										<bottomPen lineWidth="0.25"/>
+										<rightPen lineWidth="0.25"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Serif" size="9"/>
+									</textElement>
+									<text><![CDATA[Квартирные]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:column uuid="b1ed48e8-fa63-458a-b0bb-44fcd9f5eb09" width="41">
+								<jr:columnHeader height="73" rowSpan="1">
+									<staticText>
+										<reportElement uuid="7b32a2ec-660d-4a67-8973-c8dc5ae7b1f0" x="0" y="0" width="41" height="73"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<text><![CDATA[в день]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell height="0"/>
+							</jr:column>
+							<jr:column uuid="2d80517f-d545-4f39-b4cb-eebb6689c41e" width="41">
+								<jr:columnHeader height="73" rowSpan="1">
+									<staticText>
+										<reportElement uuid="f80fdffe-1c51-4995-8130-cb795df8ef32" x="0" y="0" width="41" height="73"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<text><![CDATA[сумма]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell height="0"/>
+							</jr:column>
+						</jr:columnGroup>
+						<jr:columnGroup uuid="7651736a-0a03-4138-b642-e5023beac6a5" width="87">
+							<jr:columnHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement uuid="8e4c38da-b54b-4408-8ff0-63631c1fecaf" x="0" y="0" width="87" height="30"/>
+									<box>
+										<pen lineWidth="0.25"/>
+										<topPen lineWidth="0.25"/>
+										<leftPen lineWidth="0.25"/>
+										<bottomPen lineWidth="0.25"/>
+										<rightPen lineWidth="0.25"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Serif" size="9"/>
+									</textElement>
+									<text><![CDATA[Проезд]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:column uuid="574d7d69-aefe-4058-a1e7-49e4dfe56c6b" width="46">
+								<jr:columnHeader height="73" rowSpan="1">
+									<staticText>
+										<reportElement uuid="7f42aaf6-7ebd-44b4-b748-5c15780ff853" x="0" y="0" width="46" height="73"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<text><![CDATA[стоимость в оба конца]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell height="0"/>
+							</jr:column>
+							<jr:column uuid="b0e4ef4f-02bf-497c-895a-ccc909e1456e" width="41">
+								<jr:columnHeader height="73" rowSpan="1">
+									<staticText>
+										<reportElement uuid="71b1bbe1-d17f-416d-8ae3-48a7f73f130d" x="0" y="0" width="41" height="73"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<text><![CDATA[сумма]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell height="0"/>
+							</jr:column>
+						</jr:columnGroup>
+					</jr:columnGroup>
+					<jr:column uuid="ad38b0cc-af4a-4629-89bc-2ffb09171435" width="56">
+						<jr:columnHeader height="133" rowSpan="3">
+							<staticText>
+								<reportElement uuid="a9fc732c-656c-46dd-ba36-c6efef4d8137" x="0" y="0" width="56" height="133"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<text><![CDATA[ИТОГО (руб.)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="0"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</pageHeader>
+	<detail>
+		<band splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="536d26e1-95d4-46bd-ab05-980f77707b55" key="table 2" style="table 2" positionType="Float" x="0" y="0" width="545" height="0"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DSOcpTrip" uuid="6f3c77a1-7bfb-40ca-90b2-fb89cde98f6c">
+						<datasetParameter name="ocpIdSub">
+							<datasetParameterExpression><![CDATA[$P{ocpId}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="totalRowSub">
+							<datasetParameterExpression><![CDATA[$F{totalRow}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column uuid="ece5d4ca-27b7-4e90-a8b5-8c5670514d9e" width="31">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f29bfd06-e0bd-4889-a0c3-ee11a3ab7b43" x="0" y="0" width="31" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SCS_STAGE_NUMBER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="b9ab6e65-bb0d-4ec5-8afe-0d6bdf0f943d" width="56">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f6f52ba0-093c-4f2f-8343-81ab17a2a065" x="0" y="0" width="56" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_GOAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="3422ed96-e8da-4ad2-9131-3f925cd52b1a" width="42">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="2c6c5984-9c24-414e-9eb1-3126e41f24a8" x="0" y="0" width="42" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_QUANTITY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="1b4b9f08-a923-4854-ab93-1ab605ac9c61" width="54">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="1c162f61-3b79-408a-b179-af1f536206dc" x="0" y="0" width="54" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_DURATION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="c5af729a-a5a5-4e94-9eac-862d083846e9" width="54">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="ec1fcd08-a385-4fe7-888e-e19d228c1af3" x="0" y="0" width="54" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUMM_SUM_DURATION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:columnGroup uuid="d8ee61a3-e711-406c-9fa7-45431a4e4088" width="251">
+						<jr:columnGroup uuid="22137845-f816-450a-89c3-ff682ddf188a" width="82">
+							<jr:column uuid="5c31e766-8d15-4a6c-aca7-218a52c38bce" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="e030e2ea-4edd-4773-97ed-84b5480e1b56" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{MAIN_DAY_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column uuid="610d2f04-4d57-44fc-8b50-915674ff8fa8" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="c434a5bb-a209-44be-99ca-8d3abd97fff0" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{SUMM_SUM_DAY_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+						<jr:columnGroup uuid="a500f02a-d7af-448e-bf67-d0e18adfeaa6" width="82">
+							<jr:column uuid="b1ed48e8-fa63-458a-b0bb-44fcd9f5eb09" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="1fd8a8ba-4913-4845-8218-f268732d2098" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{MAIN_ROOM_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column uuid="2d80517f-d545-4f39-b4cb-eebb6689c41e" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="44d77307-b6c8-4375-9629-9521fe81d10e" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{SUMM_SUM_ROOM_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+						<jr:columnGroup uuid="7651736a-0a03-4138-b642-e5023beac6a5" width="87">
+							<jr:column uuid="574d7d69-aefe-4058-a1e7-49e4dfe56c6b" width="46">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="d48a57d7-2599-4350-b619-da096271b500" x="0" y="0" width="46" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{MAIN_TRAVEL_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column uuid="b0e4ef4f-02bf-497c-895a-ccc909e1456e" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="8533d15f-5dd7-46f8-98cc-6822b404ce9d" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{SUMM_SUM_TRAVEL_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+					</jr:columnGroup>
+					<jr:column uuid="ad38b0cc-af4a-4629-89bc-2ffb09171435" width="56">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+								<reportElement uuid="730561f4-6eca-4c73-9e54-f4eb24a8b7ed" x="0" y="0" width="56" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUMM_IN_TOTAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="114" splitType="Prevent">
+			<componentElement>
+				<reportElement uuid="536d26e1-95d4-46bd-ab05-980f77707b55" key="table 2" style="table 2" positionType="Float" x="0" y="0" width="545" height="0"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DSOcpTrip2" uuid="6f3c77a1-7bfb-40ca-90b2-fb89cde98f6c">
+						<datasetParameter name="ocpIdSub">
+							<datasetParameterExpression><![CDATA[$P{ocpId}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="totalRowSub">
+							<datasetParameterExpression><![CDATA[$F{totalRow}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column uuid="ece5d4ca-27b7-4e90-a8b5-8c5670514d9e" width="31">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f29bfd06-e0bd-4889-a0c3-ee11a3ab7b43" x="0" y="0" width="31" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SCS_STAGE_NUMBER}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="b9ab6e65-bb0d-4ec5-8afe-0d6bdf0f943d" width="56">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="f6f52ba0-093c-4f2f-8343-81ab17a2a065" x="0" y="0" width="56" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_GOAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="3422ed96-e8da-4ad2-9131-3f925cd52b1a" width="42">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="2c6c5984-9c24-414e-9eb1-3126e41f24a8" x="0" y="0" width="42" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_QUANTITY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="1b4b9f08-a923-4854-ab93-1ab605ac9c61" width="54">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="1c162f61-3b79-408a-b179-af1f536206dc" x="0" y="0" width="54" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MAIN_DURATION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="c5af729a-a5a5-4e94-9eac-862d083846e9" width="54">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="ec1fcd08-a385-4fe7-888e-e19d228c1af3" x="0" y="0" width="54" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUMM_SUM_DURATION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:columnGroup uuid="d8ee61a3-e711-406c-9fa7-45431a4e4088" width="251">
+						<jr:columnGroup uuid="22137845-f816-450a-89c3-ff682ddf188a" width="82">
+							<jr:column uuid="5c31e766-8d15-4a6c-aca7-218a52c38bce" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="e030e2ea-4edd-4773-97ed-84b5480e1b56" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{MAIN_DAY_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column uuid="610d2f04-4d57-44fc-8b50-915674ff8fa8" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="c434a5bb-a209-44be-99ca-8d3abd97fff0" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{SUMM_SUM_DAY_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+						<jr:columnGroup uuid="a500f02a-d7af-448e-bf67-d0e18adfeaa6" width="82">
+							<jr:column uuid="b1ed48e8-fa63-458a-b0bb-44fcd9f5eb09" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="1fd8a8ba-4913-4845-8218-f268732d2098" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{MAIN_ROOM_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column uuid="2d80517f-d545-4f39-b4cb-eebb6689c41e" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="44d77307-b6c8-4375-9629-9521fe81d10e" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{SUMM_SUM_ROOM_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+						<jr:columnGroup uuid="7651736a-0a03-4138-b642-e5023beac6a5" width="87">
+							<jr:column uuid="574d7d69-aefe-4058-a1e7-49e4dfe56c6b" width="46">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="d48a57d7-2599-4350-b619-da096271b500" x="0" y="0" width="46" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{MAIN_TRAVEL_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column uuid="b0e4ef4f-02bf-497c-895a-ccc909e1456e" width="41">
+								<jr:detailCell height="30" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+										<reportElement uuid="8533d15f-5dd7-46f8-98cc-6822b404ce9d" x="0" y="0" width="41" height="30"/>
+										<box>
+											<pen lineWidth="0.25"/>
+											<topPen lineWidth="0.25"/>
+											<leftPen lineWidth="0.25"/>
+											<bottomPen lineWidth="0.25"/>
+											<rightPen lineWidth="0.25"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="DejaVu Serif" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{SUMM_SUM_TRAVEL_COST}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+					</jr:columnGroup>
+					<jr:column uuid="ad38b0cc-af4a-4629-89bc-2ffb09171435" width="56">
+						<jr:detailCell height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="###0.00;-###0.00" isBlankWhenNull="true">
+								<reportElement uuid="730561f4-6eca-4c73-9e54-f4eb24a8b7ed" x="0" y="0" width="56" height="30"/>
+								<box>
+									<pen lineWidth="0.25"/>
+									<topPen lineWidth="0.25"/>
+									<leftPen lineWidth="0.25"/>
+									<bottomPen lineWidth="0.25"/>
+									<rightPen lineWidth="0.25"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Serif" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{SUMM_IN_TOTAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement uuid="30cc2018-f8e1-451f-a5b9-46609131d927" positionType="Float" x="5" y="19" width="487" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Главный конструктор]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0ca1fe1a-251d-48fa-bb2f-88af545046c5" positionType="Float" x="5" y="40" width="363" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Руководитель заказа]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="66fb829d-1228-4d0c-a8bb-5613295dae14" positionType="Float" x="5" y="60" width="363" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Начальник ПЭО]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="631b848e-a28c-43e5-91f5-509f1d806e60" positionType="Float" x="5" y="79" width="363" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[СОГЛАСОВАНО]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement uuid="43f24e98-9ac8-40b5-9602-ce7617d4e760" key="table 3_TD" style="table 2_TD" positionType="Float" mode="Transparent" x="5" y="99" width="545" height="15" isRemoveLineWhenBlank="true" forecolor="#FFFFFF"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DSDepartmentDirector" uuid="3964b9d0-e653-475e-9643-b3d4f0b5af2b">
+						<datasetParameter name="ocpIdSub">
+							<datasetParameterExpression><![CDATA[$P{ocpId}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column uuid="216d5f86-c0da-49a4-b834-9862144db1b1" width="360">
+						<jr:detailCell style="table 2_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement uuid="eb458358-5866-4f74-a7c0-08bdd7856bbe" key="table 3_TD" style="table 2_TD" mode="Transparent" x="0" y="0" width="360" height="30" isRemoveLineWhenBlank="true" forecolor="#000000"/>
+								<box>
+									<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+									<topPen lineWidth="0.0" lineColor="#FFFFFF"/>
+									<leftPen lineWidth="0.0" lineColor="#FFFFFF"/>
+									<bottomPen lineWidth="0.0" lineColor="#FFFFFF"/>
+									<rightPen lineWidth="0.0" lineColor="#FFFFFF"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="DejaVu Serif"/>
+									<paragraph tabStopWidth="40"/>
+								</textElement>
+								<textFieldExpression><![CDATA[($F{SHORT_NAME}==null) ? null : "Начальник НТО   " + $F{SHORT_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="77733805-8a75-45f9-9312-946f34f09f22" positionType="Float" x="184" y="20" width="308" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sn1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="182ef6be-4b08-4806-b80d-97462c0b717c" positionType="Float" x="184" y="40" width="308" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sn2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

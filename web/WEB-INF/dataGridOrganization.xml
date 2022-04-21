@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+             
+    <!-- ************************************************* -->  
+    <!-- Organization -->
+    <!-- ************************************************* -->  
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="ORGANIZATION_ID"/> 
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ORGANIZATION_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="isEditable" value="FALSE"/>
+                        <property name="isInserted" value="FALSE"/>
+                        <property name="isVisibleEdit" value="FALSE"/>
+                        <property name="isAutoincrement" value="TRUE"/>                                                                                          
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+           
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_SHORT_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="SHORT_NAME"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SHORT_NAME"/>
+                        <property name="isNotNull" value="TRUE"/>
+                        <property name="caption" value="Краткое наименование"/>
+                        <property name="columnProperty" ref="DCPString30"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_FULL_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="FULL_NAME"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="FULL_NAME"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="caption" value="Полное наименование"/>
+                        <property name="columnProperty" ref="DCPString100"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_ADDRESS" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ADDRESS"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ADDRESS"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="isVisible" value="FALSE"/>
+                        <property name="isFiltr" value="FALSE"/>
+                        <property name="caption" value="Адрес"/>
+                        <property name="columnProperty" ref="DCPString150"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_INN" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="INN"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="INN"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="caption" value="ИНН"/>
+                        <property name="columnProperty" ref="DCPStringINN"/>
+                        <property name="isVisible" value="true"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_INN_FILTR" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="INN_FILTR"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="INN"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="caption" value="ИНН"/>
+                        <property name="columnProperty" ref="DCPStringINNFILTR"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isInserted" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_CPP" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="CPP"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="CPP"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="isVisible" value="FALSE"/>
+                        <property name="isFiltr" value="FALSE"/>
+                        <property name="caption" value="КПП"/>
+                        <property name="columnProperty" ref="DCPString9CPP"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_SAIT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="SAIT"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SAIT"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="isVisible" value="FALSE"/>
+                        <property name="isFiltr" value="FALSE"/>
+                        <property name="caption" value="Сайт"/>
+                        <property name="columnProperty" ref="DCPString100"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_ENABLED" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ENABLED"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ENABLED"/>
+                        <property name="caption" value="Признак актуальности"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_Yes"/>
+                        <property name="isVisible" value="TRUE"/>
+                        <property name="isVisibleEdit" value="TRUE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_SIGN_CUST" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="SIGN_CUST"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SIGN_CUST"/>
+                        <property name="caption" value="Заказчик"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_"/>
+                        <property name="isVisible" value="TRUE"/>
+                        <property name="isVisibleEdit" value="TRUE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_SIGN_EXEC" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="SIGN_EXEC"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SIGN_EXEC"/>
+                        <property name="caption" value="Контрагент"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_"/>
+                        <property name="isVisible" value="TRUE"/>
+                        <property name="isVisibleEdit" value="TRUE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_DATE_CORR" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="DATE_CORR"/> 
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_CORR"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="isVisible" value="false" />
+                        <property name="isFiltr" value="false" />
+                        <property name="isVisibleEdit" value="false" />
+          <property name="columnProperty" ref="DCPDateTimeCurrent"/>
+                    </bean>
+                   </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_RED_ORGANIZATION__ORGANIZATION_USER_ID"
+          class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="USER_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="USER_ID"/>
+                        <property name="isVisible" value="FALSE"/>
+                        <property name="isVisibleEdit" value="FALSE"/>
+                        <property name="isFiltr" value="false" />
+                        <property name="columnProperty" ref="DCPUser"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="CONTRACT" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+    </bean>
+
+    <bean id="ACCOUNT" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+    </bean>
+
+    <bean id="CONTACTS" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="ORGANIZATION" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+       <property name="columnBuilders">
+           <list>
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_ID" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_SHORT_NAME" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_FULL_NAME" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_ADDRESS" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_INN" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_INN_FILTR" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_CPP" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_SAIT" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_SIGN_CUST" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_SIGN_EXEC" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_ENABLED" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_DATE_CORR" />
+               <ref bean="BUILDER_RED_ORGANIZATION__ORGANIZATION_USER_ID" />
+            </list>           
+        </property>
+        <property name="tables">
+           <map>
+               <entry key="MAIN" value="ORGANIZATION" />
+            </map>
+        </property>
+        <property name="caption" value="Внешние организации"/>  
+        <property name="strOrderByStart" value="MAIN.SHORT_NAME"/>
+        <property name="queryName" value="ORGANIZATION"/>  
+        <property name="countRowsInFiltrColumn" value="3"/>  
+        <property name="isSubShow" value="false"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <!--<property name="subTables">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.SRelationInfo">
+                    <property name="queryName" value="CONTRACT"/>
+                    <property name="caption" value="Договора"/>
+                    <property name="relations">
+                        <map>
+                            <entry>
+                                <key>
+                                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                        <property name="columnName" value="ORGANIZATION_ID"/>
+                                        <property name="tableAlias" value="MAIN"/>
+                                    </bean>
+                                </key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="ORGANIZATION_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </entry>
+                        </map>
+                    </property>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.SRelationInfo">
+                    <property name="queryName" value="ACCOUNT"/>
+                    <property name="caption" value="Расчетные счета"/>
+                    <property name="relations">
+                        <map>
+                            <entry>
+                                <key>
+                                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                        <property name="columnName" value="ORGANIZATION_ID"/>
+                                        <property name="tableAlias" value="MAIN"/>
+                                    </bean>
+                                </key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="ORGANIZATION_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </entry>
+                        </map>
+                    </property>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.SRelationInfo">
+                    <property name="queryName" value="CONTACTS"/>
+                    <property name="caption" value="Контактные лица"/>
+                    <property name="relations">
+                        <map>
+                            <entry>
+                                <key>
+                                    <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                        <property name="columnName" value="ORGANIZATION_ID"/>
+                                        <property name="tableAlias" value="MAIN"/>
+                                    </bean>
+                                </key>
+                                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                                    <property name="columnName" value="ORGANIZATION_ID"/>
+                                    <property name="tableAlias" value="MAIN"/>
+                                </bean>
+                            </entry>
+                        </map>
+                    </property>
+                </bean>
+            </list>
+        </property>-->
+    </bean>   
+                                
+</beans>

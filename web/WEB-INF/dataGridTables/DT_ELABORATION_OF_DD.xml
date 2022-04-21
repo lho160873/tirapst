@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" xmlns:aop="http://www.springframework.org/schema/aop">
+
+    <!-- ************************************************* -->
+    <!-- DT_ELABORATION_OF_DD -->
+    <!-- ************************************************* -->
+    
+    <bean id="BUILDER_DT_ELABORATION_OF_DD__ID_HLV" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ID"/>
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isHidden" value="true"/>
+                        <property name="isAutoincrement" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+    
+     <bean id="BUILDER_DT_ELABORATION_OF_DD__ID_ELABORATION_OF_DD_HLV" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="ID_ELABORATION_OF_DD"/>
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID_ELABORATION_OF_DD"/>
+                        <property name="caption" value="Код заявки"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+    
+    
+    <bean id="BUILDER_DT_ELABORATION_OF_DD__INFO_HLV" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderText" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                            <property name="columnName" value="INFO"/>
+                            <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="INFO"/>
+                        <property name="isFiltr" value="FALSE"/> 
+                        <property name="caption" value="Примечание"/>
+                        <property name="columnProperty">                            
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyTextArea" lazy-init="false">
+                                <property name="format" value=""/> 
+                                <property name="type" value ="STRING"/>    
+                                <property name="maxLength" value ="2147483647"/>
+                                <property name="widthColumn" value ="400"/>   
+                                <property name="fieldHeight" value ="300"/>            
+                            </bean>
+                        </property>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+    <bean id="BUILDER_DT_ELABORATION_OF_DD_HLV__IS_ACTUAL" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxAll"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="IS_ACTUAL"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="IS_ACTUAL"/>
+                        <property name="caption" value="Актуально"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_Yes_WITH_FILTR"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="BUILDER_DT_ELABORATION_OF_DD_HLV__IS_ACTUAL2" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxAll"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="IS_ACTUAL"/>
+                            <property name="tableAlias" value="MAIN2"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="IS_ACTUAL"/>
+                        <property name="caption" value="Показывать удаленные"/>
+                        <property name="isHidden" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isNotNull" value="true"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value=""/> 
+                                <property name="type" value ="INTEGER"/>  
+                                <property name="widthColumn" value ="100"/>
+                                <property name="defaultValue" value="1" />
+                                <property name="defaultValueForFiltr" value="1" />
+                                <property name="isNewVal" value="FALSE"/>
+                                <property name="list">
+                                    <list>
+                                        <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                                            <property name="key" value="1"/> 
+                                            <property name="val" value="нет"/>
+                                        </bean>
+                                        <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                                            <property name="key" value="0"/> 
+                                            <property name="val" value="да"/>
+                                        </bean>
+                                    </list>           
+                                </property>
+                            </bean>
+                        </property>
+                        <property name="isVisibleEdit" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DT_ELABORATION_OF_DD_HLV__DATEDOC" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDate" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATEDOC"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATEDOC"/>
+                        <property name="caption" value="Дата"/>
+                        <property name="columnProperty" ref="DCPDateCurrent"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="isEditableAdd" value="false"/>
+                        <property name="isFiltr" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>      
+    
+    <bean id="BUILDER_DT_ELABORATION_OF_DD_HLV__REGISTERED" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="REGISTERED"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="REGISTERED"/>
+                        <property name="caption" value="Автор"/>
+                        <property name="columnProperty" ref="DCPWorker"/>
+                        <property name="isVisibleEdit" value="FALSE"/>   
+                        <property name="isFiltr" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DT_ELABORATION_OF_DD_HLV__REGISTERED_USER_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="REGISTERED_USER_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="REGISTERED_USER_ID"/>
+                        <property name="caption" value="Код пользователя"/>
+                        <property name="isVisible" value="FALSE"/>
+                        <property name="isVisibleEdit" value="FALSE"/>
+                        <property name="isEditable" value="false"/>
+                        <property name="columnProperty" ref="DCPUser"/>
+                        <property name="isFiltr" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+   <bean id="BUILDER_DT_ELABORATION_OF_DD_HLV__DELETED" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DELETED"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DELETED"/>
+                        <property name="caption" value="Удалил"/>
+                        <property name="columnProperty" ref="DCPString150"/>
+                        <property name="isVisibleEdit" value="FALSE"/>
+                        <property name="isFiltr" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+   </bean>
+   
+    <bean id="BUILDER_DT_ELABORATION_OF_DD_HLV__DATE_DEL" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderDateStr" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_DEL"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_DEL"/>
+                        <property name="caption" value="Дата удаления"/>
+                        <property name="columnProperty" ref="DCPDateTimeStr"/>
+                        <property name="isVisibleEdit" value="FALSE"/>
+                        <property name="isFiltr" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>  
+    <bean id="BUILDER_DT_ELABORATION_OF_DD_HLV__DELETED_USER_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DELETED_USER_ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DELETED_USER_ID"/>
+                        <property name="caption" value="Код пользователя удалившего"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isEditable" value="true" />
+                        <property name="isInserted" value="false" />
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isFiltr" value="FALSE"/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <!-- описываем сам "запрос" DT_ELABORATION_OF_DD_HLV -->
+    <bean id="DT_ELABORATION_OF_DD_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>                
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD__ID_HLV"/>   
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD__ID_ELABORATION_OF_DD_HLV"/>  
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD_HLV__DATEDOC"/>  
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD_HLV__REGISTERED"/>
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD_HLV__REGISTERED_USER_ID"/>
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD__INFO_HLV"/>  
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD_HLV__IS_ACTUAL"/>  
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD_HLV__IS_ACTUAL2"/>
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD_HLV__DELETED"/> 
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD_HLV__DATE_DEL"/>
+                <ref bean="BUILDER_DT_ELABORATION_OF_DD_HLV__DELETED_USER_ID"/>                
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="DT_ELABORATION_OF_DD" />
+                <entry key="MAIN2" value="DT_ELABORATION_OF_DD" />
+            </map>
+        </property>
+        <property name="tableJoins">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="MAIN2"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="ID"/>
+                                <property name="columnNameTableTwo" value="ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+        <property name="caption" value="Примечания"/>
+        <property name="filtrHeight" value="95"/>
+        <property name="queryName" value="DT_ELABORATION_OF_DD_HLV"/>
+        <!--<<property name="strWhere" value="MAIN.IS_ACTUAL=1"/>-->
+        <property name="dataSourceName" value="dataSourcePriboy"/>
+        <!--<property name="isFilterShowAtStart" value="true"/>-->
+    </bean>
+    
+</beans>

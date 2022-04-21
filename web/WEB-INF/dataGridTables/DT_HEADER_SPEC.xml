@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- HEADER_SPEC -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_DT_HEADER_SPEC__ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="HEADER_SPEC_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="HEADER_SPEC_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="isAutoincrement" value="FALSE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isVisible" value="FALSE"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="FALSE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DT_HEADER_SPEC__LINE_NO" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="LINE_NO"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="LINE_NO"/>
+                        <property name="caption" value="Номер строки"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="isAutoincrement" value="FALSE"/>
+                        <property name="columnProperty">                        
+                        <bean  class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+                            <property name="type" value ="NUMBER"/>    
+                            <property name="widthColumn" value ="100"/>  
+                            <property name="format" value ="0"/>  
+                            <property name="strMinValue" value ="1"/>
+                            <property name="strMaxValue" value ="6"/>         
+                        </bean>
+                        </property>
+                        <property name="isVisible" value="TRUE"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="TRUE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DT_HEADER_SPEC__FONT_SIZE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="FONT_SIZE"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="FONT_SIZE"/>
+                        <property name="caption" value="Размер шрифта"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="isAutoincrement" value="FALSE"/>
+                        <property name="columnProperty">                                                   
+                        <bean  class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+                            <property name="type" value ="NUMBER"/>    
+                            <property name="widthColumn" value ="100"/>  
+                            <property name="format" value ="0"/>  
+                            <property name="defaultValue">
+                                <bean factory-bean="decFormat" factory-method="parse">
+                                    <constructor-arg value="11" />
+                                </bean>
+                            </property> 
+                            <property name="strMinValue" value ="8"/>
+                            <property name="strMaxValue" value ="20"/>                                  
+                        </bean>
+                        </property>
+                        <property name="isVisible" value="TRUE"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="TRUE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DT_HEADER_SPEC__CONT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="CONT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="CONT"/>
+                        <property name="caption" value="Текст"/>
+                        <property name="columnProperty" ref="DCPString40"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DT_HEADER_SPEC__IS_FLAT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="IS_FAT"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="IS_FAT"/>
+                        <property name="caption" value="Жирность"/>
+                        <property name="isNotNull" value="FALSE"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger" lazy-init="false">
+                                <property name="format" value=""/> 
+                                <property name="type" value ="INTEGER"/>  
+                                <property name="widthColumn" value ="100"/>
+                                <property name="isNewVal" value="FALSE"/>
+                                <property name="defaultValue" value="0" />
+                                <property name="list">
+                                    <list>
+                                        <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                                            <property name="key" value="0"/> 
+                                            <property name="val" value="нет"/>
+                                        </bean>
+                                        <bean class="pst.arm.client.modules.datagrid.domain.DListValIntegerString">  
+                                            <property name="key" value="1"/> 
+                                            <property name="val" value="да"/>
+                                        </bean>
+                                    </list>           
+                                </property>
+                            </bean>
+                        </property>
+                        <property name="isVisible" value="TRUE"/>
+                        <property name="isVisibleEdit" value="TRUE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_DT_HEADER_SPEC__ALIGNMENT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="ALIGNMENT"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ALIGNMENT"/>
+                        <property name="caption" value="Выравнивание"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="isAutoincrement" value="FALSE"/>
+                        <property name="columnProperty">                        
+                        <bean  class="pst.arm.client.modules.datagrid.domain.DColumnPropertyNumberField" lazy-init="false">
+                            <property name="type" value ="NUMBER"/>    
+                            <property name="widthColumn" value ="100"/>  
+                            <property name="format" value ="0"/>  
+                             <property name="defaultValue">
+                                <bean factory-bean="decFormat" factory-method="parse">
+                                    <constructor-arg value="1" />
+                                </bean>
+                            </property> 
+                            <property name="strMinValue" value ="0"/>
+                            <property name="strMaxValue" value ="2"/>   
+                        </bean>
+                        </property>
+                        <property name="isVisible" value="TRUE"/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="isVisibleEdit" value="TRUE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="DT_HEADER_SPEC" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_DT_HEADER_SPEC__ID"/>
+                <ref bean="BUILDER_DT_HEADER_SPEC__LINE_NO"/>
+                <ref bean="BUILDER_DT_HEADER_SPEC__CONT"/>
+                <ref bean="BUILDER_DT_HEADER_SPEC__FONT_SIZE"/>
+                <ref bean="BUILDER_DT_HEADER_SPEC__IS_FLAT"/>
+                <ref bean="BUILDER_DT_HEADER_SPEC__ALIGNMENT"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="DT_HEADER_SPEC"/>
+            </map>
+        </property>
+        <property name="caption" value="Данные для титульных листов"/>
+        <property name="queryName" value="DT_HEADER_SPEC"/>
+        <property name="isFilterShowAtStart" value="false"/>  
+        <property name="isFiltrShow" value="false"/>  
+    </bean>
+
+    
+</beans>

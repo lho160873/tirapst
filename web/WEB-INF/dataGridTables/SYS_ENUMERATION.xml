@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" xmlns:aop="http://www.springframework.org/schema/aop">
+
+    <!-- ************************************************* -->
+    <!-- SPR_CUSTOMER -->
+    <!-- ************************************************* -->
+    
+     <bean id="BUILDER_SYS_ENUMERATION_HLV__ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isAutoincrement" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_SYS_ENUMERATION_HLV__LINENO" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="LINENO"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="[LINENO]"/>
+                        <property name="caption" value="Номер"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_SYS_ENUMERATION_HLV__VALUE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="VALUE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="VALUE"/>
+                        <property name="caption" value="Признак выполнения"/>
+                        <property name="columnProperty" ref="DCPString50"/>                        
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+  
+    <!-- описываем сам "запрос" -->
+    <bean id="SYS_ENUMERATION_TYPE_EXEC_PROBOY_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>                
+                <ref bean="BUILDER_SYS_ENUMERATION_HLV__ID"/>   
+                <ref bean="BUILDER_SYS_ENUMERATION_HLV__LINENO"/>   
+                <ref bean="BUILDER_SYS_ENUMERATION_HLV__VALUE"/>  
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="SYS_ENUMERATION" />
+            </map>
+        </property>
+        <property name="caption" value="Признак выполнения (Прибой)"/>
+        <property name="queryName" value="SYS_ENUMERATION"/>
+        <property name="dataSourceName" value="dataSourcePriboy"/>
+        <property name="strOrderByStart" value="MAIN.LINENO ASC "/>
+       <property name="strWhere" value="MAIN.NAME='type_exec'"/>
+    </bean>
+    
+    <bean id="SYS_ENUMERATION_VALUE_PRIBOY_IG" parent="SYS_ENUMERATION_TYPE_EXEC_PROBOY_HLV" lazy-init="false">
+        <property name="caption" value=""/>
+        <property name="strWhere" value="MAIN.NAME='kind_eqpt'"/>
+    </bean>
+    
+    <bean id="SYS_ENUMERATION_TYPE_EXEC_MART_HLV" parent="SYS_ENUMERATION_TYPE_EXEC_PROBOY_HLV" lazy-init="false">
+        <property name="dataSourceName" value="dataSourceMart"/>
+        <property name="caption" value="Признак выполнения (МАРТ)"/>
+    </bean>
+    
+    <bean id="SYS_ENUMERATION_VALUE_MART_IG" parent="SYS_ENUMERATION_TYPE_EXEC_MART_HLV" lazy-init="false">
+        <property name="caption" value=""/>
+        <property name="strWhere" value="MAIN.NAME='kind_eqpt'"/>
+    </bean>
+    
+    <bean id="SYS_ENUMERATION_TYPE_ORDER_PROBOY_HLV" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>                
+                <ref bean="BUILDER_SYS_ENUMERATION_HLV__ID"/>   
+                <ref bean="BUILDER_SYS_ENUMERATION_HLV__LINENO"/>   
+                <ref bean="BUILDER_SYS_ENUMERATION_HLV__VALUE"/>  
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="SYS_ENUMERATION" />
+            </map>
+        </property>
+        <property name="caption" value="Признак выполнения (Прибой)"/>
+        <property name="queryName" value="SYS_ENUMERATION"/>
+        <property name="dataSourceName" value="dataSourcePriboy"/>
+        <property name="strOrderByStart" value="MAIN.LINENO ASC "/>
+       <property name="strWhere" value="MAIN.NAME='type_order'"/>
+    </bean>
+    
+    <bean id="SYS_ENUMERATION_TYPE_ORDER_MART_HLV" parent="SYS_ENUMERATION_TYPE_ORDER_PROBOY_HLV" lazy-init="false">
+        <property name="dataSourceName" value="dataSourceMart"/>
+        <property name="caption" value="Признак выполнения (МАРТ)"/>
+    </bean>
+    
+    
+  
+</beans>

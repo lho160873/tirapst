@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" xmlns:aop="http://www.springframework.org/schema/aop">
+
+    <!-- ************************************************* -->
+    <!-- SPR_WAREHOUSE -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_SPR_WAREHOUSE__ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ID"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="true"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                        <property name="isAutoincrement" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="isVisibleEdit" value="false"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_SPR_WAREHOUSE__NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Склад"/>
+                        <property name="columnProperty" ref="DCPString63"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+  
+    <!-- описываем сам "запрос" -->
+    <bean id="SPR_WAREHOUSE_PRIBOY_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_SPR_WAREHOUSE__ID"/>
+                <ref bean="BUILDER_SPR_WAREHOUSE__NAME"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="REAL_WAREHOUSE" />
+            </map>
+        </property>
+        <property name="caption" value="Склад (Прибой)"/>
+        <property name="queryName" value="SPR_WAREHOUSE_PRIBOY_VO"/>
+        <property name="dataSourceName" value="dataSourcePriboy"/>
+        <property name="strOrderByStart" value="MAIN.NAME ASC "/>
+    </bean>
+    
+    <bean id="SPR_WAREHOUSE_MART_VO" parent="SPR_WAREHOUSE_PRIBOY_VO" lazy-init="false">
+        <property name="dataSourceName" value="dataSourceMart"/>
+        <property name="caption" value="Склад (МАРТ)"/>
+        <property name="queryName" value="SPR_WAREHOUSE_MART_VO"/>
+    </bean>
+  
+</beans>

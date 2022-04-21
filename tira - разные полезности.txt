@@ -1,0 +1,32 @@
+http://192.168.10.112/redmine/projects/niokr/issues
+http://192.168.10.112:8080/tirapst/login.htm;jsessionid=70B1AD151787170CFD236D4970E8AF95
+
+http://192.168.10.112:8080/tirapst/
+http://192.168.10.133:8080/isup/
+
+svn://192.168.10.112/tirapst/
+
+DATABASE:
+
+Server name: 192.255.0.20\SQLEXPRESS
+Удаленно:  192.168.10.114\SQLEXPRESS
+
+User name: sa
+Password: 1
+DB name: Pm4
+
+наш сервер:
+\\192.255.0.20
+
+PMASC:
+
+login/pass: 
+
+bazhenova_i
+bazhenova_i
+
+stepanova
+123
+
+Запуск под win7 64: Качать среду NetBeans 7.1.2, ставить Apache в комплекте (7.0.22.0) - 
+тогда проект запускается сразу, без всяких доп. настроек с catalin-ой

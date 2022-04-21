@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+    <context:component-scan base-package="pst.arm.server" >
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <context:annotation-config/>
+
+
+    <bean id="NotificationsProcessor" class="pst.arm.server.modules.leveltask.service.NotificationsProcessor"/>
+    <task:scheduled-tasks>
+        <task:scheduled ref="NotificationsProcessor" method="process" cron="0 * * * * *"/>
+    </task:scheduled-tasks>
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:env.properties</value>
+                <value>classpath:log4j.properties</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="basenames">
+            <list>
+                <value>classpath:messages</value>
+                <value>classpath:application</value>
+                <value>classpath:modules/rtfgenerator/rtfgenerator</value>
+                <value>classpath:modules/pdfgenerator/pdfgenerator</value>
+                <value>classpath:modules/dictionary/messages</value>
+                <value>classpath:modules/inquiries/reports/inquiriesreports</value>
+            </list>
+        </property>
+    </bean>
+    
+    
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer" abstract="false"
+          scope="singleton" lazy-init="default" autowire="default">
+        <property name="templateLoaderPath">
+            <value>/</value>
+        </property>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="datetime_format">dd/MM/yyyy</prop>
+                <prop key="number_format">0.#####</prop>
+                <prop key="url_escaping_charset">UTF-8</prop>
+                <prop key="default_encoding">UTF-8</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="userService" class="pst.arm.server.common.service.impl.UserServiceImpl">
+        <property name="userDAO" ref="userDAO" />
+        <!--<property name="userHib" ref="userHib"/>-->
+    </bean>
+    
+     <bean id="commonService" class="pst.arm.server.common.service.impl.CommonServiceImpl">
+        <property name="messageSource" ref="messageSource"/>
+    </bean>
+    
+   <!-- <bean id="addressesService" class="pst.arm.server.modules.addresses.service.AddressesServiceImpl">
+        <property name="addressesDAO" ref="addressesDAO" />
+    </bean>-->
+    
+    <!-- GWT Services-->
+    <bean id="GWTUserService" class="pst.arm.server.common.service.gwt.GWTUserServiceImpl">
+        <property name="userService" ref="userService" />
+    </bean> 
+    
+    <bean id="GWTCommonService" class="pst.arm.server.common.service.gwt.GWTCommonServiceImpl">
+        <property name="commonService" ref="commonService" />
+    </bean>
+    
+    <bean id="GWTServiceSimple" class="pst.arm.server.modules.test.service.gwt.GWTServiceSimpleImpl">
+    </bean> 
+
+    <bean id="ConfigurationManager" class="pst.arm.server.common.ConfigurationManager" factory-method="getInstance">
+        <property name="userService" ref="userService"/>
+    </bean>
+
+
+    <!-- <bean id="GWTAddressesService" class="pst.arm.server.modules.addresses.service.gwt.GWTAddressesServiceImpl">
+         <property name="addressesService" ref="addressesService" />
+     </bean> -->
+
+
+
+        
+</beans>

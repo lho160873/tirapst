@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- ORHANIZATION -->
+    <!-- ************************************************* -->  
+    <bean id="BUILDER_ORGANIZATION__ORGANIZATION_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">  
+                        <property name="columnName" value="ORGANIZATION_ID"/>
+                        <property name="tableAlias" value="MAIN"/>     
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ORGANIZATION_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="isAutoincrement" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>     
+    </bean>
+
+    <bean id="BUILDER_ORGANIZATION__SHORT_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="SHORT_NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SHORT_NAME"/>
+                        <property name="caption" value="Краткое наименование"/>
+                        <property name="columnProperty" ref="DCPString30"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_ORGANIZATION__FULL_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="FULL_NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="FULL_NAME"/>
+                        <property name="caption" value="Полное наименование"/>
+                        <property name="columnProperty" ref="DCPString100"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_ORGANIZATION__INN" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="INN"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="INN"/>
+                        <property name="caption" value="ИНН"/>
+                        <property name="columnProperty" ref="DCPString12"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
+    <!-- описываем сам "запрос" -->
+    <bean id="ORGANIZATION_EXEC" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_ORGANIZATION__ORGANIZATION_ID"/>
+                <ref bean="BUILDER_ORGANIZATION__SHORT_NAME"/>
+                <ref bean="BUILDER_ORGANIZATION__FULL_NAME"/>
+                <ref bean="BUILDER_ORGANIZATION__INN"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="ORGANIZATION"/>
+            </map>
+        </property>
+        <property name="caption" value="Исполнитель"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="isFiltrShow" value="true"/>
+        <property name="countRowsInFiltrColumn" value="4"/>
+        <property name="queryName" value="ORGANIZATION_EXEC"/>
+        <property name="strOrderByStart" value=" MAIN.SHORT_NAME "/>
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="ORGANIZATION_CUSTOMER" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_ORGANIZATION__ORGANIZATION_ID"/>
+                <ref bean="BUILDER_ORGANIZATION__SHORT_NAME"/>
+                <ref bean="BUILDER_ORGANIZATION__FULL_NAME"/>
+                <ref bean="BUILDER_ORGANIZATION__INN"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="ORGANIZATION"/>
+            </map>
+        </property>
+        <property name="isFiltrShow" value="true"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="countRowsInFiltrColumn" value="4"/>
+        <property name="caption" value="Заказчик"/>
+        <property name="queryName" value="ORGANIZATION_CUSTOMER"/>
+        <property name="strOrderByStart" value=" MAIN.SHORT_NAME "/>
+    </bean>
+
+    <bean id="ORGANIZATION_CUSTOMER_CUST" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_ORGANIZATION__ORGANIZATION_ID"/>
+                <ref bean="BUILDER_ORGANIZATION__SHORT_NAME"/>
+                <ref bean="BUILDER_ORGANIZATION__FULL_NAME"/>
+                <ref bean="BUILDER_ORGANIZATION__INN"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="ORGANIZATION"/>
+            </map>
+        </property>
+        <property name="isFiltrShow" value="true"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="countRowsInFiltrColumn" value="4"/>
+        <property name="caption" value="Заказчик"/>
+        <property name="queryName" value="ORGANIZATION_CUSTOMER_CUST"/>
+        <property name="strWhere" value=" MAIN.SIGN_CUST=1 "/>
+        <property name="strOrderByStart" value=" MAIN.SHORT_NAME ASC "/>
+    </bean>
+
+
+    
+   <!-- ************************************************* -->
+    <!-- HLV_CB_ORGANIZATION -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_HLV_CB_ORGANIZATION__ORGANIZATION_ID" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="ORGANIZATION_ID"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ORGANIZATION_ID"/>
+                        <property name="caption" value="Код"/>
+                        <property name="isKey" value="TRUE"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_HLV_CB_ORGANIZATION__COMPANY_ID " class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="COMPANY_ID"/>
+                        <property name="tableAlias" value="COMPANY"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="COMPANY_ID"/>
+                        <property name="caption" value="Код предприятия"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="BUILDER_HLV_CB_ORGANIZATION__SHORT_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString" lazy-init="false">
+        <property name="columns">
+           <map>
+                 <entry>
+                    <key>
+                        <bean  class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="SHORT_NAME"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SHORT_NAME"/>
+                        <property name="caption" value="Организация исполнитель"/>
+                        <property name="columnProperty" ref="DCPString30"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="HLV_CB_ORGANIZATION" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+       <property name="columnBuilders">
+           <list>
+               <ref bean="BUILDER_HLV_CB_ORGANIZATION__ORGANIZATION_ID" />
+               <ref bean="BUILDER_HLV_CB_ORGANIZATION__SHORT_NAME" />
+               <ref bean="BUILDER_HLV_CB_ORGANIZATION__COMPANY_ID" /> 
+            </list>
+        </property>
+        <property name="tables">
+           <map>
+               <entry key="MAIN" value="ORGANIZATION" />
+               <entry key="COMPANY" value="COMPANY" />    
+            </map>
+        </property>
+        <property name="tableJoins">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="COMPANY"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="COMPANY_ID "/>
+                                <property name="columnNameTableTwo" value="COMPANY_ID "/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>    
+        <property name="caption" value="Организации-исполнители"/>
+        <property name="queryName" value="ORGANIZATION"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <!-- ************************************************* -->
+    <!-- WORKSHOP_LOAD -->
+    <!-- ************************************************* -->
+    <bean id="BUILDER_WORKSHOP_LOAD__DEPART_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+           <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                        <property name="columnName" value="DEPART_NAME"/>
+                        <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DEPART_NAME"/>
+                        <property name="caption" value="Подразделение"/>
+                        <property name="columnProperty" ref="DCPString50"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORKSHOP_LOAD__M1" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="M1"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="M1"/>
+                        <property name="caption" value="План на месяц 1"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegativeFormat_2"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORKSHOP_LOAD__M2" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="M2"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="M2"/>
+                        <property name="caption" value="План на месяц 2"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegativeFormat_2"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORKSHOP_LOAD__M3" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="M3"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="M3"/>
+                        <property name="caption" value="План на месяц 3"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegativeFormat_2"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORKSHOP_LOAD__M4" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="M4"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="M4"/>
+                        <property name="caption" value="План на месяц 4"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegativeFormat_2"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORKSHOP_LOAD__M5" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="M5"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="M5"/>
+                        <property name="caption" value="План на месяц 5"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegativeFormat_2"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORKSHOP_LOAD__M6" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="M6"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="M6"/>
+                        <property name="caption" value="План на месяц 6"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegativeFormat_2"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_WORKSHOP_LOAD__DATE_PICKER" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox" lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="DATE_PICKER"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="DATE_PICKER"/>
+                        <property name="caption" value="Первый отображаемый месяц"/>
+                        <property name="columnProperty" ref="DCPComboBox12Months"/>
+                        <property name="isFiltr" value="true"/>
+                        <property name="isVisible" value="false"/>
+                        <property name="sqlForColumn" value=" 'abc' "/>
+                        <property name="isHidden" value="true"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+        <property name="notSearch" value="true"/>
+    </bean>
+
+
+    <!-- описываем сам "запрос" -->
+    <bean id="WORKSHOP_LOAD_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_WORKSHOP_LOAD__DATE_PICKER"/>
+                <ref bean="BUILDER_WORKSHOP_LOAD__DEPART_NAME"/>
+                <ref bean="BUILDER_WORKSHOP_LOAD__M1"/>
+                <ref bean="BUILDER_WORKSHOP_LOAD__M2"/>
+                <ref bean="BUILDER_WORKSHOP_LOAD__M3"/>
+                <ref bean="BUILDER_WORKSHOP_LOAD__M4"/>
+                <ref bean="BUILDER_WORKSHOP_LOAD__M5"/>
+                <ref bean="BUILDER_WORKSHOP_LOAD__M6"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="WORKSHOP_LOAD(NULL)"/>
+            </map>
+        </property>
+        <property name="functionParamsFromSearch">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                    <property name="columnName" value="DATE_PICKER"/>
+                    <property name="tableAlias" value="MAIN"/>
+                </bean>
+            </list>
+        </property>
+        <property name="caption" value="Плановая загруженность производства"/>
+        <property name="queryName" value="WORKSHOP_LOAD_VO"/>
+        <property name="isFilterShowAtStart" value="true"/>
+    </bean>
+</beans>

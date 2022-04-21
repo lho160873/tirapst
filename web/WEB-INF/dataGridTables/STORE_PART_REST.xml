@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- ************************************************* -->
+    <!-- STORE_PART_REST -->
+    <!-- ************************************************* -->
+
+    <bean id="BUILDER_STORE_PART_REST__WAREHOUSE_NAME_PRIBOY" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBoxDB" lazy-init="false">
+        <property name="queryNameForRelation" value="SPR_WAREHOUSE_PRIBOY_VO"/>
+        <property name="keyRelationForId">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="ID"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="keyRelationForName">
+            <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                <property name="columnName" value="NAME"/>
+                <property name="tableAlias" value="MAIN"/>
+            </bean>
+        </property>
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ID_WAREHOUSE"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID_WAREHOUSE"/>
+                        <property name="caption" value="Склад"/>
+                        <property name="columnProperty">
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnPropertyComboBoxInteger">
+                                <property name="format" value=""/>
+                                <property name="type" value="INTEGER"/>
+                                <property name="widthColumn" value="300"/>
+                            </bean>
+                        </property>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_STORE_PART_REST__WAREHOUSE_NAME_MART" parent="BUILDER_STORE_PART_REST__WAREHOUSE_NAME_PRIBOY" lazy-init="false">
+        <property name="queryNameForRelation" value="SPR_WAREHOUSE_MART_VO"/>
+    </bean>
+
+    <bean id="BUILDER_STORE_PART_REST__NOMENCLATURE_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="NAME"/>
+                            <property name="tableAlias" value="SPR_NOMENCLATURE"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="NAME"/>
+                        <property name="caption" value="Материал"/>
+                        <property name="columnProperty" ref="DCPString150"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_STORE_PART_REST__CODE" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="CODE"/>
+                            <property name="tableAlias" value="SPR_UNIT"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="CODE"/>
+                        <property name="caption" value="Ед. изм."/>
+                        <property name="columnProperty" ref="DCPString150"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_STORE_PART_REST__SUM_QUANTITY" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="SUM_QUANTITY"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="SUM_QUANTITY"/>
+                        <property name="caption" value="Количество"/>
+                        <property name="columnProperty" ref="DCPDecimalNotNegative4_2"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_STORE_PART_REST__ID_PART" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderNumber"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="ID_PART"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="ID_PART"/>
+                        <property name="caption" value="Номер партии"/>
+                        <property name="columnProperty" ref="DCPIntegerNotNegative"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_STORE_PART_REST__SERT" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="sert"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="sert"/>
+                        <property name="caption" value="Сертификат"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_text"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_STORE_PART_REST__IS_GOS" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderComboBox"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="is_gos"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="is_gos"/>
+                        <property name="caption" value="ГОЗ"/>
+                        <property name="columnProperty" ref="DCPComboBoxYesNo_text"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_STORE_PART_REST__PART_NAME" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="part_name"/>
+                            <property name="tableAlias" value="MAIN"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="part_name"/>
+                        <property name="caption" value="Партия (изготовителя)"/>
+                        <property name="columnProperty" ref="DCPString200"/>
+                        <property name="isFiltr" value="false"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="BUILDER_STORE_PART_REST__DATE_PART" class="pst.arm.client.modules.datagrid.domain.DColumnBuilderString"
+          lazy-init="false">
+        <property name="columns">
+            <map>
+                <entry>
+                    <key>
+                        <bean class="pst.arm.client.modules.datagrid.domain.SKeyForColumn">
+                            <property name="columnName" value="date_part"/>
+                            <property name="tableAlias" value="SPR_PART"/>
+                        </bean>
+                    </key>
+                    <bean class="pst.arm.client.modules.datagrid.domain.DColumn">
+                        <property name="name" value="date_part"/>
+                        <property name="caption" value="Дата изг."/>
+                        <property name="isFiltr" value="false"/>
+                        <property name="columnProperty" ref="DCPString50"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- описываем сам "запрос" -->
+    <bean id="STORE_PART_REST_PRIBOY_VO" class="pst.arm.client.modules.datagrid.domain.DTable" lazy-init="false">
+        <property name="isFiltrShow" value="true"/>
+        <property name="isFilterShowAtStart" value="true"/>
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_STORE_PART_REST__WAREHOUSE_NAME_PRIBOY"/>
+                <ref bean="BUILDER_STORE_PART_REST__NOMENCLATURE_NAME"/>
+                <ref bean="BUILDER_STORE_PART_REST__CODE"/>
+                <ref bean="BUILDER_STORE_PART_REST__SUM_QUANTITY"/>
+                <ref bean="BUILDER_STORE_PART_REST__ID_PART"/>
+                <ref bean="BUILDER_STORE_PART_REST__SERT"/>
+                <ref bean="BUILDER_STORE_PART_REST__IS_GOS"/>
+                <ref bean="BUILDER_STORE_PART_REST__PART_NAME"/>
+                <ref bean="BUILDER_STORE_PART_REST__DATE_PART"/>
+            </list>
+        </property>
+        <property name="tables">
+            <map>
+                <entry key="MAIN" value="STORE_PART_REST1"/>
+                <entry key="SPR_NOMENCLATURE" value="SPR_NOMENCLATURE"/>
+                <entry key="SPR_UNIT" value="SPR_UNIT"/>
+                <entry key="SPR_PART" value="SPR_PART"/>
+            </map>
+        </property>
+        <property name="tableJoins">
+            <list>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="SPR_NOMENCLATURE"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="id_nomenclature"/>
+                                <property name="columnNameTableTwo" value="ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="SPR_NOMENCLATURE"/>
+                    <property name="tableTwo" value="SPR_UNIT"/>
+                    <property name="relationType" value="INNER"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="id_unit"/>
+                                <property name="columnNameTableTwo" value="ID"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                <bean class="pst.arm.client.modules.datagrid.domain.DTableJoin">
+                    <property name="tableOne" value="MAIN"/>
+                    <property name="tableTwo" value="SPR_PART"/>
+                    <property name="relationType" value="LEFT"/>
+                    <property name="columnJoins">
+                        <list>
+                            <bean class="pst.arm.client.modules.datagrid.domain.DColumnJoin">
+                                <property name="columnNameTableOne" value="id_part"/>
+                                <property name="columnNameTableTwo" value="id_part"/>
+                                <property name="columnRelationType" value="AND"/>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+        <property name="caption" value="Наличие номенклатуры на складах (Прибой)"/>
+        <property name="queryName" value="STORE_PART_REST_PRIBOY_VO"/>
+        <property name="dataSourceName" value="dataSourcePriboy"/>
+        <property name="countRowsInFiltrColumn" value="3"/>
+        <property name="filterColumnWidth" value="500"/>
+    </bean>
+
+    <bean id="STORE_PART_REST_MART_VO" parent="STORE_PART_REST_PRIBOY_VO" lazy-init="false">
+        <property name="dataSourceName" value="dataSourceMart"/>
+        <property name="caption" value="Наличие номенклатуры на складах (МАРТ)"/>
+        <property name="queryName" value="STORE_PART_REST_MART_VO"/>
+        <property name="columnBuilders">
+            <list>
+                <ref bean="BUILDER_STORE_PART_REST__WAREHOUSE_NAME_MART"/>
+                <ref bean="BUILDER_STORE_PART_REST__NOMENCLATURE_NAME"/>
+                <ref bean="BUILDER_STORE_PART_REST__CODE"/>
+                <ref bean="BUILDER_STORE_PART_REST__SUM_QUANTITY"/>
+                <ref bean="BUILDER_STORE_PART_REST__ID_PART"/>
+                <ref bean="BUILDER_STORE_PART_REST__SERT"/>
+                <ref bean="BUILDER_STORE_PART_REST__IS_GOS"/>
+                <ref bean="BUILDER_STORE_PART_REST__PART_NAME"/>
+                <ref bean="BUILDER_STORE_PART_REST__DATE_PART"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

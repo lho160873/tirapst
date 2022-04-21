@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 1.7.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/1.7.0/distro-source/core/src/gwt-module.dtd">
+
+<module>
+  <!-- Inherit the GWT stuff -->
+    <inherits name="com.google.gwt.i18n.I18N" />
+    
+    <!-- Inherit the GWT ClientBundle for resources -->
+    <inherits name="com.google.gwt.resources.Resources" />
+    
+    <!-- Add GXT support -->
+    <inherits name='com.extjs.gxt.ui.GXT'/>
+
+    <!-- Add GXT Charts support -->
+    <inherits name='com.extjs.gxt.charts.Chart'/>
+    
+    <!-- Add GXT 3.0 support -->
+    <inherits name='com.sencha.gxt.ui.GXT'/>
+    
+     <!-- Add GXT 3.0 Charts support -->
+    <inherits name='com.sencha.gxt.chart.Chart'/>
+    
+    <!-- Add Comet support -->
+    <!--<inherits name="net.zschech.gwt.comet.Comet" />-->
+
+
+    <inherits name="org.atmosphere.gwt.Client"/>
+<!--    <inherits name="com.google.gwt.logging.Logging"/>
+    <set-property name="gwt.logging.logLevel" value="FINEST"/>-->
+    
+    <!--Inherit additional sources -->
+    <inherits name='org.vaadin.gwtgraphics.GWTGraphics'/>
+
+    <inherits name="com.google.maps.gwt.GoogleMaps"/> 
+    <inherits name="com.google.gwt.ajaxloader.AjaxLoader" />
+
+    <inherits name='pst.gwt.Gantt' />
+    
+    <!-- Available locales -->
+    <extend-property name="locale" values="ru_RU"/>
+
+    <!--Locale to compile-->
+    <set-property name="locale" value="ru_RU"/>
+
+
+    <entry-point class="pst.arm.client.Interactive"/>
+</module>
